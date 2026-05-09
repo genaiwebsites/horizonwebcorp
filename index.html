@@ -20,6 +20,28 @@
     .text-3d-shadow {
       filter: drop-shadow(0px 18px 25px rgba(0,0,0,0.9)) drop-shadow(0px 5px 8px rgba(0,0,0,0.7));
     }
+
+    /* Premium Animated Chrome/Metallic Text Effect */
+    .metallic-shimmer {
+      background: linear-gradient(
+        to bottom,
+        #ffffff 0%,
+        #f1f5f9 35%,
+        #94a3b8 50%,
+        #cbd5e1 65%,
+        #ffffff 100%
+      );
+      background-size: 100% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0px 15px 20px rgba(0,0,0,0.8)) drop-shadow(0px 4px 6px rgba(0,0,0,0.5));
+      animation: metallic-shift 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes metallic-shift {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 0% 100%; }
+    }
   </style>
 </head>
 <body>
@@ -323,8 +345,158 @@
       );
     }
 
+    // --- PULSATING PARTICLE VORTEX ---
+    const ParticleVortex = () => {
+      const canvasRef = useRef(null);
+
+      useEffect(() => {
+        let animationFrameId;
+        let scene, camera, renderer, particles;
+
+        const initThree = () => {
+          if (!window.THREE || !canvasRef.current) return;
+          const THREE = window.THREE;
+
+          scene = new THREE.Scene();
+          camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+          renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current, alpha: true, antialias: true });
+          
+          renderer.setSize(window.innerWidth, window.innerHeight);
+          renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+          const particleGeo = new THREE.BufferGeometry();
+          const particleCount = 4000;
+          const posArray = new Float32Array(particleCount * 3);
+          const colorArray = new Float32Array(particleCount * 3);
+          const randomArray = new Float32Array(particleCount);
+
+          const colorInside = new THREE.Color(0x22d3ee); // Cyan
+          const colorOutside = new THREE.Color(0x8b5cf6); // Violet
+
+          for(let i = 0; i < particleCount; i++) {
+            const radius = Math.pow(Math.random(), 1.5) * 50; 
+            const spinAngle = radius * 0.3; 
+            const branchAngle = Math.random() * Math.PI * 2; 
+            const spread = Math.max(0, (50 - radius) * 0.2);
+            
+            const x = Math.cos(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * spread;
+            const y = (Math.random() - 0.5) * spread * 0.8;
+            const z = Math.sin(branchAngle + spinAngle) * radius + (Math.random() - 0.5) * spread;
+
+            posArray[i * 3] = x;
+            posArray[i * 3 + 1] = y;
+            posArray[i * 3 + 2] = z;
+
+            const mixedColor = colorInside.clone().lerp(colorOutside, radius / 50);
+            colorArray[i * 3] = mixedColor.r;
+            colorArray[i * 3 + 1] = mixedColor.g;
+            colorArray[i * 3 + 2] = mixedColor.b;
+
+            randomArray[i] = Math.random() * Math.PI * 2;
+          }
+          
+          particleGeo.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+          particleGeo.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
+          particleGeo.setAttribute('aRandom', new THREE.BufferAttribute(randomArray, 1));
+
+          const uniforms = {
+            uTime: { value: 0.0 }
+          };
+
+          const vertexShader = `
+            uniform float uTime;
+            attribute vec3 color;
+            attribute float aRandom;
+            varying vec3 vColor;
+            varying float vAlpha;
+
+            void main() {
+              vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+              gl_Position = projectionMatrix * mvPosition;
+              gl_PointSize = (10.0 / -mvPosition.z);
+              vColor = color;
+              
+              // Pulsating effect
+              vAlpha = 0.2 + 0.5 * sin(uTime * 1.5 + aRandom * 10.0);
+            }
+          `;
+
+          const fragmentShader = `
+            varying vec3 vColor;
+            varying float vAlpha;
+
+            void main() {
+              vec2 pt = gl_PointCoord - vec2(0.5);
+              if(dot(pt, pt) > 0.25) discard;
+              gl_FragColor = vec4(vColor, vAlpha);
+            }
+          `;
+
+          const particleMat = new THREE.ShaderMaterial({
+            uniforms: uniforms,
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+            transparent: true,
+            depthWrite: false,
+            blending: THREE.AdditiveBlending
+          });
+          
+          particles = new THREE.Points(particleGeo, particleMat);
+          
+          particles.rotation.x = Math.PI / 2.5;
+          particles.position.y = -5;
+          scene.add(particles);
+
+          camera.position.z = 28;
+          camera.position.y = 2;
+
+          const clockObj = new THREE.Clock();
+
+          const animate = () => {
+            animationFrameId = requestAnimationFrame(animate);
+            uniforms.uTime.value = clockObj.getElapsedTime();
+            particles.rotation.z -= 0.0015;
+            renderer.render(scene, camera);
+          };
+
+          animate();
+        };
+
+        let script = document.getElementById('three-js-script');
+        if (!script) {
+          script = document.createElement('script');
+          script.id = 'three-js-script';
+          script.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";
+          document.head.appendChild(script);
+        }
+        
+        if (window.THREE) {
+          initThree();
+        } else {
+          script.addEventListener('load', initThree);
+        }
+
+        const handleResize = () => {
+          if (camera && renderer) {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          }
+        };
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+          window.removeEventListener('resize', handleResize);
+          if (animationFrameId) cancelAnimationFrame(animationFrameId);
+        };
+      }, []);
+
+      return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-40 mix-blend-screen" />;
+    };
+
     // --- INTERACTIVE HOLOGRAPHIC GLOBE (WITH COBE) ---
     function Globe({ mouseX, mouseY }) {
+      const containerRef = useRef(null);
       const canvasRef = useRef(null);
 
       useEffect(() => {
@@ -332,8 +504,8 @@
         let width = 0;
         
         const onResize = () => {
-          if (canvasRef.current) {
-            width = canvasRef.current.offsetWidth;
+          if (containerRef.current) {
+            width = containerRef.current.offsetWidth;
           }
         };
         window.addEventListener('resize', onResize);
@@ -364,13 +536,18 @@
             { location: [1.3521, 103.8198], size: 0.05 }, // Singapore
           ],
           onRender: (state) => {
+            // Continuously sync width in case of responsive layout shifts
+            if (containerRef.current) {
+              width = containerRef.current.offsetWidth;
+            }
+            state.width = width * 2;
+            state.height = width * 2;
+            
             phi += 0.003; 
             
             // Smooth mouse tracking mapped onto the globe
             state.phi = phi + (mouseX.get() / window.innerWidth) * 1.5;
             state.theta = 0.3 + (mouseY.get() / window.innerHeight) * 0.5;
-            state.width = width * 2;
-            state.height = width * 2;
           }
         });
 
@@ -381,15 +558,15 @@
       }, [mouseX, mouseY]);
 
       return (
-        <div className="relative w-full h-full max-w-[600px] aspect-square mx-auto flex items-center justify-center">
-          {/* Aesthetic glow layers around the globe for holographic effect */}
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-[#3b82f6]/20 to-[#8b5cf6]/20 blur-3xl animate-[spin_10s_linear_infinite]" />
-          <div className="absolute inset-4 rounded-full bg-[#06b6d4]/10 blur-xl animate-[pulse_4s_ease-in-out_infinite]" />
+        <div ref={containerRef} className="relative w-full max-w-[500px] aspect-square mx-auto flex items-center justify-center">
+          {/* Replaced heavy CSS blurs with highly optimized native radial gradients */}
+          <div className="absolute inset-[-20%] rounded-full bg-[radial-gradient(circle,rgba(59,130,246,0.25)_0%,rgba(139,92,246,0.15)_40%,transparent_65%)] animate-[spin_10s_linear_infinite] pointer-events-none" style={{ willChange: 'transform' }} />
+          <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(6,182,212,0.15)_0%,transparent_60%)] animate-[pulse_4s_ease-in-out_infinite] pointer-events-none" style={{ willChange: 'transform' }} />
           
           <canvas
             ref={canvasRef}
             className="relative z-10 w-full h-full opacity-90 drop-shadow-[0_0_30px_rgba(34,211,238,0.25)] mix-blend-screen"
-            style={{ contain: 'layout paint size' }}
+            style={{ width: '100%', height: '100%', contain: 'layout paint size' }}
           />
         </div>
       );
@@ -508,8 +685,9 @@
       const mouseX = useMotionValue(typeof window !== 'undefined' ? window.innerWidth / 2 : 0);
       const mouseY = useMotionValue(typeof window !== 'undefined' ? window.innerHeight / 2 : 0);
       
-      const smoothX = useSpring(mouseX, { damping: 50, stiffness: 400 });
-      const smoothY = useSpring(mouseY, { damping: 50, stiffness: 400 });
+      // Relaxed spring configuration for smoother, buttery tracking
+      const smoothX = useSpring(mouseX, { damping: 40, stiffness: 250 });
+      const smoothY = useSpring(mouseY, { damping: 40, stiffness: 250 });
 
       useEffect(() => {
         const handleMouseMove = (e) => {
@@ -543,14 +721,23 @@
             <div className="absolute inset-0 bg-gradient-to-b from-[#020205] via-[#020205] to-transparent z-0 pointer-events-none" />
 
             <div className="absolute inset-0 z-0 pointer-events-none" style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}>
+              
+              {/* Subtle Ambient Hero Gradient (Violet & Cyan mix) */}
+              <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_50%_0%,rgba(139,92,246,0.15)_0%,rgba(6,182,212,0.06)_40%,transparent_100%)] z-0" />
+
               <Starfield />
               
+              {/* VORTEX EFFECT */}
+              <ParticleVortex />
+
+              {/* Hardware accelerated, blur-free native gradient for massive performance boost */}
               <motion.div 
-                className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full blur-[120px] opacity-30 pointer-events-none z-0"
+                className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full opacity-40 pointer-events-none z-0"
                 style={{ 
-                  background: 'radial-gradient(circle, rgba(59,130,246,0.8) 0%, rgba(147,51,234,0.3) 50%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(147,51,234,0.3) 30%, transparent 60%)',
                   x: useTransform(smoothX, v => v - 400),
-                  y: useTransform(smoothY, v => v - 400)
+                  y: useTransform(smoothY, v => v - 400),
+                  willChange: 'transform'
                 }} 
               />
               
@@ -564,14 +751,17 @@
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center lg:items-end">
                 
                 <div className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20">
-                  <motion.p
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                    className="text-blue-400 font-mono text-sm sm:text-base mb-6 tracking-widest uppercase font-semibold"
+                    className="relative inline-flex items-center justify-center px-5 py-2 mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden group shadow-[0_0_20px_rgba(139,92,246,0.15)]"
                   >
-                    {`//`} Creative Engineering Agency
-                  </motion.p>
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10 animate-[gradient-x_3s_linear_infinite] bg-[length:200%_auto]" />
+                    <span className="font-mono text-xs sm:text-sm tracking-[0.2em] uppercase font-bold metallic-shimmer relative z-10">
+                      {`//`} Experiential Engineering Lab
+                    </span>
+                  </motion.div>
                   
                   <h1 className="text-[50px] sm:text-[80px] md:text-[100px] xl:text-[120px] leading-[0.85] font-inter font-black tracking-[-0.04em] mb-8 flex flex-col items-center lg:items-start">
                     {lines.map((line, lineIndex) => (
