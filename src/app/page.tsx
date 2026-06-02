@@ -13,7 +13,64 @@ import { Footer } from '../components/Footer';
 import { TechMarquee } from '../components/TechMarquee';
 import { AnimatedCounter } from '../components/AnimatedCounter';
 import { ContactModal } from '../components/ContactModal';
-import { AuditMarker } from '../components/AuditOverlay';
+
+
+const PROJECTS = [
+  {
+    title: "Terranova Adventures",
+    description: "Immersive small-group travel platform with custom 3D terrain topography visualization and theme-switching map interfaces.",
+    tags: ["TravelTech", "WebGL Map", "Next.js"],
+    link: "https://terranova-iota.vercel.app/",
+    isExternal: true,
+    image: "/work/terranova.png",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "Jeevan Rekha RBO",
+    description: "A premium immersive web experience crafted for health-conscious consumers, showcasing pure Rice Bran Oil.",
+    tags: ["Consumer", "E-Commerce", "3D Web"],
+    link: "https://rbo-spa.vercel.app/",
+    isExternal: true,
+    image: "/work/rbo_screenshot.jpg",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "Magik DORB",
+    description: "A high-end, immersive digital presence for AB Udyog's premium De-Oiled Rice Bran agricultural feed product.",
+    tags: ["AgriTech", "E-Commerce"],
+    link: "https://dorb.vercel.app",
+    isExternal: true,
+    image: "/work/dorb_screenshot.jpg",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "Aura Protocol",
+    description: "A decentralized autonomous architecture scaling to global users securely with zero latency smart contracts.",
+    tags: ["Web3", "Security", "DeFi"],
+    link: "#",
+    isExternal: false,
+    image: "/work/aura.png",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "Skyscape Photography",
+    description: "Aerial photography portfolio capturing the Earth's hidden geometry across India, featuring drone flight telemetry logs.",
+    tags: ["Creative", "Photography", "Next.js"],
+    link: "https://skyscape.vercel.app/",
+    isExternal: true,
+    image: "/work/skyscape.png",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "Orbis Intelligence",
+    description: "Geospatial AI platform translating natural language queries into interactive satellite map environments and dashboards.",
+    tags: ["Geospatial AI", "Satellite GIS", "Next.js"],
+    link: "https://orbis-henna.vercel.app/",
+    isExternal: true,
+    image: "/work/orbis.png",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  }
+];
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -203,144 +260,63 @@ export default function Home() {
             <p className="text-slate-300 max-w-xl mx-auto text-[17px] font-light">A curated selection of our most complex engineering feats.</p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            {/* Large Featured Card */}
-            <BentoCard className="md:col-span-2 p-0! group min-h-[450px] md:min-h-[550px]" bgClass="bg-black" hoverEffect>
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/60 to-transparent z-10" />
-                <Image 
-                  src="/work/nexus.png" 
-                  alt="Work 1" 
-                  width={1600} 
-                  height={900} 
-                  quality={80} 
-                  placeholder="blur" 
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-                  className="w-full h-full object-cover mix-blend-luminosity opacity-50 group-hover:scale-105 group-hover:opacity-70 transition-all duration-700" 
-                />
-              </div>
-              <div className="relative z-20 p-8 md:p-12 flex flex-col justify-end h-full">
-                <div className="flex gap-2 mb-5">
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">WebGL</span>
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">FinTech</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {PROJECTS.map((project, idx) => (
+              <BentoCard 
+                key={idx} 
+                className="p-0! group h-[340px] md:h-[380px] w-full" 
+                bgClass="bg-black" 
+                hoverEffect
+              >
+                <div className="absolute inset-0">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/65 to-transparent z-10" />
+                  <Image 
+                    src={project.image} 
+                    alt={`${project.title} — ${project.description}`} 
+                    width={800} 
+                    height={800} 
+                    quality={80} 
+                    priority={idx === 0}
+                    placeholder="blur" 
+                    blurDataURL={project.blurDataURL}
+                    className="w-full h-full object-cover mix-blend-luminosity opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" 
+                  />
                 </div>
-                <h3 className="text-3xl md:text-5xl font-syne font-bold text-white mb-4">Nexus Trading Platform</h3>
-                <p className="text-slate-300 max-w-xl font-light text-lg mb-6">High-frequency trading dashboard rendering 2.4M data points per second with zero latency. Built for the modern enterprise.</p>
-                <a href="#" className="flex items-center gap-2 text-[#22d3ee] font-semibold text-sm hover:text-white transition-colors w-max interactive-hover">
-                  View Case Study <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            </BentoCard>
-
-            {/* Standard Cards */}
-            <BentoCard className="p-0! group min-h-[400px]" bgClass="bg-black" hoverEffect>
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/60 to-transparent z-10" />
-                <Image 
-                  src="/work/rbo_screenshot.jpg" 
-                  alt="Jeevan Rekha Rice Bran Oil" 
-                  width={800} 
-                  height={800} 
-                  quality={80} 
-                  placeholder="blur" 
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-                  className="w-full h-full object-cover mix-blend-luminosity opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" 
-                />
-              </div>
-              <div className="relative z-20 p-8 flex flex-col justify-end h-full">
-                <div className="flex gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">Consumer</span>
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">E-Commerce</span>
+                <div className="relative z-20 p-6 md:p-8 flex flex-col justify-end h-full">
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[9px] text-white uppercase tracking-widest backdrop-blur-md">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl font-syne font-bold text-white mb-2 group-hover:text-[#22d3ee] transition-colors duration-300">
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-300 font-sans font-light text-sm line-clamp-2 mb-5">
+                    {project.description}
+                  </p>
+                  
+                  {project.isExternal ? (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noreferrer" 
+                      className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
+                    >
+                      View Live Site <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  ) : (
+                    <a 
+                      href={project.link} 
+                      className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
+                    >
+                      View Case Study <ArrowRight className="w-3.5 h-3.5" />
+                    </a>
+                  )}
                 </div>
-                <h3 className="text-2xl font-syne font-bold text-white mb-3">Jeevan Rekha RBO</h3>
-                <p className="text-slate-300 font-light text-sm mb-5">A premium immersive web experience crafted for health-conscious consumers, showcasing pure Rice Bran Oil.</p>
-                <a href="https://rbo-spa.vercel.app/" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover">
-                  View Live Site <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            </BentoCard>
-
-            <BentoCard className="p-0! group min-h-[400px]" bgClass="bg-black" hoverEffect>
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/60 to-transparent z-10" />
-                <Image 
-                  src="/work/dorb_screenshot.jpg" 
-                  alt="Magik DORB" 
-                  width={800} 
-                  height={800} 
-                  quality={80} 
-                  placeholder="blur" 
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-                  className="w-full h-full object-cover mix-blend-luminosity opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" 
-                />
-              </div>
-              <div className="relative z-20 p-8 flex flex-col justify-end h-full">
-                <div className="flex gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">AgriTech</span>
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">E-Commerce</span>
-                </div>
-                <h3 className="text-2xl font-syne font-bold text-white mb-3">Magik DORB</h3>
-                <p className="text-slate-300 font-light text-sm mb-5">A high-end, immersive digital presence for AB Udyog&apos;s premium De-Oiled Rice Bran agricultural feed product.</p>
-                <a href="https://dorb.vercel.app" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover">
-                  View Live Site <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            </BentoCard>
-
-            <BentoCard className="p-0! group min-h-[400px]" bgClass="bg-black" hoverEffect>
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/60 to-transparent z-10" />
-                <Image 
-                  src="/work/aura.png" 
-                  alt="Work 2" 
-                  width={800} 
-                  height={800} 
-                  quality={80} 
-                  placeholder="blur" 
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-                  className="w-full h-full object-cover mix-blend-luminosity opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" 
-                />
-              </div>
-              <div className="relative z-20 p-8 flex flex-col justify-end h-full">
-                <div className="flex gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">Web3</span>
-                </div>
-                <h3 className="text-2xl font-syne font-bold text-white mb-3">Aura Protocol</h3>
-                <p className="text-slate-300 font-light text-sm mb-5">A decentralized autonomous architecture scaling to global users securely.</p>
-                <a href="#" className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover">
-                  View Case Study <ArrowRight className="w-3 h-3" />
-                </a>
-              </div>
-            </BentoCard>
-
-            <BentoCard className="p-0! group min-h-[400px]" bgClass="bg-black" hoverEffect>
-              <div className="absolute inset-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/60 to-transparent z-10" />
-                <Image 
-                  src="/work/quantum.png" 
-                  alt="Work 3" 
-                  width={800} 
-                  height={800} 
-                  quality={80} 
-                  placeholder="blur" 
-                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-                  className="w-full h-full object-cover mix-blend-luminosity opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" 
-                />
-              </div>
-              <div className="relative z-20 p-8 flex flex-col justify-end h-full">
-                <div className="flex gap-2 mb-4">
-                  <span className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[10px] text-white uppercase tracking-widest backdrop-blur-md">AI Model</span>
-                </div>
-                <h3 className="text-2xl font-syne font-bold text-white mb-3">Quantum Compute</h3>
-                <p className="text-slate-300 font-light text-sm mb-5">Consumer facing interface for large language model interactions.</p>
-                <a href="#" className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover">
-                  View Case Study <ArrowRight className="w-3 h-3" />
-                </a>
-              </div>
-            </BentoCard>
-
-          </div>
+              </BentoCard>
+            ))}          </div>
         </div>
       </section>
 
@@ -353,34 +329,20 @@ export default function Home() {
       {/* --- PRECISION STANDARDS SECTION (Capabilities based on installed skills) --- */}
       <section className="py-20 md:py-32 relative z-10 max-w-7xl mx-auto px-6">
         {/* Symmetric Header Stack */}
-        <div className="mb-16 md:mb-20 max-w-3xl text-left relative">
-          <AuditMarker 
-            id="gradient-text-tells" 
-            severity="P2" 
-            title="Gradient Text AI Tells" 
-            desc="Symmetric header highlights use repeated purple-to-cyan gradient fills, which is a classic AI template tell." 
-            placement="-top-8 left-0"
-          />
-          <h2 className="text-4xl sm:text-5xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-6">
-            Precision <br />
+        <div className="mb-16 md:mb-20 text-center flex flex-col items-center relative w-full">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-5">
+            Precision <br className="hidden md:block" />
             {/* AUDIT ISSUE (P2): Gradient text tell on emphasis terms. */}
             {/* RECOMMENDATION: Ensure it is restrained and matches corporate visual system. */}
             <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Capabilities.</em>
           </h2>
-          <p className="text-slate-300 text-base md:text-lg leading-relaxed font-sans font-light">
+          <p className="text-slate-300 max-w-xl mx-auto text-[17px] leading-relaxed font-sans font-light">
             We implement advanced browser standards directly into production code. Every project is engineered to combine next-gen visuals with measurable business outcomes.
           </p>
         </div>
 
         {/* Symmetric Grid Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative">
-          <AuditMarker 
-            id="card-readability" 
-            severity="P1" 
-            title="Card Background Readability" 
-            desc="Fixed WebGL background grid lines bleed through semi-transparent cards, making slate-400 description text hard to read." 
-            placement="-top-6 right-0"
-          />
           {[
             {
               spec: "01 / GPU SHADERS",

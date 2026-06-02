@@ -6,7 +6,6 @@ import { Starfield } from './Starfield';
 import { ParticleVortex } from './ParticleVortex';
 import { PillButton } from './PillButton';
 import dynamic from 'next/dynamic';
-import { AuditMarker } from './AuditOverlay';
 import { AnimatedCounter } from './AnimatedCounter';
 
 const DynamicGlobe = dynamic(() => import('./Globe'), { ssr: false });
@@ -64,26 +63,12 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col justify-center flex-grow w-full">
-        <AuditMarker 
-          id="parallax-collision"
-          severity="P0"
-          title="Parallax Scroll Overlap"
-          desc="Hero headings translate down by 300px on scroll, colliding directly with the metrics section rising from the bottom."
-          placement="-top-10 left-6"
-        />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center w-full">
 
           <motion.div 
             style={{ y: yText, opacity: opacityText }}
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20 transform-gpu relative"
           >
-            <AuditMarker 
-              id="gradient-text-tells"
-              severity="P2"
-              title="Heading Gradient Text AI Tell"
-              desc="Heading letters use a text-gradient color fill, which is a very common automated visual template tell."
-              placement="-top-6 left-0"
-            />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -145,13 +130,6 @@ export const Hero = () => {
           </motion.div>
 
           <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-8 lg:mt-0">
-            <AuditMarker 
-              id="globe-mosquitoes"
-              severity="P1"
-              title="Globe 'Mosquito' Dashes"
-              desc="Globe line pulses are short, fast, and cluttered, looking cheap and using high GPU thread cycles."
-              placement="-top-6 right-0"
-            />
             <motion.div
               className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[500px] aspect-square pointer-events-none z-10 transform-gpu"
               style={{ perspective: 1000 }}

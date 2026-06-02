@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MenuIcon, XIcon } from './Icons';
 import Link from 'next/link';
-import { AuditMarker } from './AuditOverlay';
 
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,14 +31,7 @@ export const Nav = () => {
             </span>
           </Link>
 
-          <nav className="hidden md:flex items-center gap-10 relative">
-            <AuditMarker 
-              id="focus-indicators" 
-              severity="P2" 
-              title="Missing Focus Outlines" 
-              desc="Header navigation links lack visible focus outlines for keyboard navigation." 
-              placement="-top-3 -right-6"
-            />
+          <nav className="hidden md:flex items-center gap-10">
             {navLinks.map((item) => (
               <Link 
                 key={item.name} 
@@ -83,9 +75,9 @@ export const Nav = () => {
             className="fixed inset-0 h-screen z-40 bg-[#030305]/98 backdrop-blur-3xl pt-28 px-6 flex flex-col gap-6 md:hidden overflow-y-auto pb-10"
           >
             {navLinks.map((item) => (
-              <Link key={item.name} href={`/#${item.id}`} onClick={() => setIsOpen(false)} className="text-2xl font-syne font-semibold text-white border-b border-white/5 pb-4">{item.name}</Link>
+              <Link key={item.name} href={`/#${item.id}`} onClick={() => setIsOpen(false)} className="text-2xl font-syne font-semibold text-white border-b border-white/5 pb-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]/50 rounded px-1">{item.name}</Link>
             ))}
-            <Link href="/#clients" onClick={() => setIsOpen(false)} className="mt-8 px-6 py-4 rounded bg-white text-black font-sans font-bold text-lg text-center w-full shadow-lg shadow-white/10 block">
+            <Link href="/#clients" onClick={() => setIsOpen(false)} className="mt-8 px-6 py-4 rounded bg-white text-black font-sans font-bold text-lg text-center w-full shadow-lg shadow-white/10 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]">
               Start a Project
             </Link>
           </motion.div>

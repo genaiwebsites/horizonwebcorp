@@ -1,10 +1,15 @@
-'use client';
-
 import React from 'react';
+import { Metadata } from 'next';
 import { Nav } from '../../components/Nav';
 import { Footer } from '../../components/Footer';
 import { PillButton } from '../../components/PillButton';
 import { ArrowRight } from '../../components/Icons';
+
+export const metadata: Metadata = {
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for Horizon Web Corp, Kolkata. Learn how we collect, use, and protect your personal information.',
+  alternates: { canonical: 'https://horizonwebcorp.com/privacy' },
+};
 
 export default function PrivacyPolicy() {
   return (

@@ -20,12 +20,7 @@ export const HolographicGlobe = ({ mouseX, mouseY }: GlobeProps) => {
   const [dimensions, setDimensions] = useState({ width: 500, height: 500 });
   const [hexData, setHexData] = useState<any[]>([]);
 
-  // Fluid, elastic micro-interactions for the background aura
-  const smoothMouseX = useSpring(mouseX, { damping: 40, stiffness: 400 });
-  const smoothMouseY = useSpring(mouseY, { damping: 40, stiffness: 400 });
 
-  const auraX = useTransform(smoothMouseX, [0, typeof window !== 'undefined' ? window.innerWidth : 1000], ['-20%', '20%']);
-  const auraY = useTransform(smoothMouseY, [0, typeof window !== 'undefined' ? window.innerHeight : 1000], ['-20%', '20%']);
 
   // MeshBasicMaterial ignores all 3D lighting to create the flat, deep-void core
   const globeMaterial = useMemo(() => new THREE.MeshBasicMaterial({
@@ -180,11 +175,6 @@ export const HolographicGlobe = ({ mouseX, mouseY }: GlobeProps) => {
       ref={containerRef}
       className="relative w-full max-w-[550px] aspect-square mx-auto flex items-center justify-center group"
     >
-      {/* Micro-Interaction: Aura shifts elastically with mouse hover behind the globe */}
-      <motion.div
-        className="absolute inset-[-10%] rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.25)_0%,rgba(34,211,238,0.1)_40%,transparent_65%)] pointer-events-none transform-gpu transition-opacity duration-700 opacity-60 group-hover:opacity-100"
-        style={{ x: auraX, y: auraY, willChange: 'transform' }}
-      />
       <div className="absolute inset-0 rounded-full bg-[radial-gradient(circle,rgba(37,99,235,0.15)_0%,transparent_60%)] animate-[pulse_4s_ease-in-out_infinite] pointer-events-none transform-gpu" />
 
       {/* The 3D Holographic Globe */}
@@ -208,8 +198,8 @@ export const HolographicGlobe = ({ mouseX, mouseY }: GlobeProps) => {
             hexPolygonAltitude={0.005} // Flush against the surface
             hexPolygonColor={() => '#3730a3'} // Indigo glowing dots
 
-            // Solid Cyan Markers
-            pointsData={pointsData}
+            // Solid Cyan Markers (Disabled for cleaner look)
+            pointsData={[]}
             pointLat={(d: any) => d.lat}
             pointLng={(d: any) => d.lng}
             pointColor={() => '#22d3ee'}

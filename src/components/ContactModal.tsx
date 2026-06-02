@@ -65,13 +65,15 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-all"
+                aria-label="Close contact form"
+                className="absolute top-6 right-6 p-2 rounded-full bg-white/5 text-slate-400 hover:text-white hover:bg-white/10 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#22d3ee]/50"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="18" y1="6" x2="6" y2="18" />
                   <line x1="6" y1="6" x2="18" y2="18" />
                 </svg>
               </button>
+
 
               <AnimatePresence mode="wait">
                 {submitted ? (
@@ -131,15 +133,18 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                       </p>
                     </div>
 
+
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {/* Column 1 */}
                         <div className="space-y-6">
                           <div className="group">
-                            <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Operative Name</label>
+                            <label htmlFor="contact-name" className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Full Name</label>
                             <input
+                              id="contact-name"
                               type="text"
                               required
+                              autoComplete="name"
                               value={formData.name}
                               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                               className="w-full bg-[#13131A] border border-white/5 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#22d3ee]/50 focus:bg-[#1A1A24] transition-all text-sm shadow-inner"
@@ -147,10 +152,12 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                           </div>
                           
                           <div className="group">
-                            <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Comms Link (Email)</label>
+                            <label htmlFor="contact-email" className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Email Address</label>
                             <input
+                              id="contact-email"
                               type="email"
                               required
+                              autoComplete="email"
                               value={formData.email}
                               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                               className="w-full bg-[#13131A] border border-white/5 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#22d3ee]/50 focus:bg-[#1A1A24] transition-all text-sm shadow-inner"
@@ -158,9 +165,11 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                           </div>
 
                           <div className="group">
-                            <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Entity (Company)</label>
+                            <label htmlFor="contact-company" className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Company / Entity</label>
                             <input
+                              id="contact-company"
                               type="text"
+                              autoComplete="organization"
                               value={formData.company}
                               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                               className="w-full bg-[#13131A] border border-white/5 rounded-xl px-4 py-3.5 text-white focus:outline-none focus:border-[#22d3ee]/50 focus:bg-[#1A1A24] transition-all text-sm shadow-inner"
@@ -171,9 +180,10 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                         {/* Column 2 */}
                         <div className="space-y-6">
                           <div className="group">
-                            <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Sector</label>
+                            <label htmlFor="contact-sector" className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Sector</label>
                             <div className="relative">
                               <select
+                                id="contact-sector"
                                 required
                                 value={formData.sector}
                                 onChange={(e) => setFormData({ ...formData, sector: e.target.value })}
@@ -193,9 +203,10 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                           </div>
 
                           <div className="group">
-                            <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Capital Allocation (INR)</label>
+                            <label htmlFor="contact-budget" className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Budget (INR)</label>
                             <div className="relative">
                               <select
+                                id="contact-budget"
                                 required
                                 value={formData.budget}
                                 onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
@@ -217,8 +228,9 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
                       {/* Full Width Row */}
                       <div className="group">
-                        <label className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Mission Brief</label>
+                        <label htmlFor="contact-details" className="block text-[10px] font-mono text-slate-500 uppercase tracking-widest mb-2 group-focus-within:text-[#22d3ee] transition-colors">Project Brief</label>
                         <textarea
+                          id="contact-details"
                           required
                           rows={3}
                           value={formData.details}

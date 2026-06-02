@@ -1,10 +1,15 @@
-'use client';
-
 import React from 'react';
+import { Metadata } from 'next';
 import { Nav } from '../../components/Nav';
 import { Footer } from '../../components/Footer';
 import { PillButton } from '../../components/PillButton';
 import { ArrowRight } from '../../components/Icons';
+
+export const metadata: Metadata = {
+  title: 'Terms of Service',
+  description: 'Terms of Service for Horizon Web Corp, Kolkata. Read our terms governing the use of our web engineering services.',
+  alternates: { canonical: 'https://horizonwebcorp.com/terms' },
+};
 
 export default function TermsOfService() {
   return (
