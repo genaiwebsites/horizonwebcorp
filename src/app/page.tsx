@@ -215,32 +215,70 @@ export default function Home() {
           </div>
           
           <div className="relative ml-6 md:ml-0 md:pl-16 space-y-20">
-            <div className="absolute left-[0px] md:left-[24px] top-0 bottom-0 w-[1px] bg-gradient-to-b from-[#7c3aed] via-[#06b6d4] to-transparent" />
-
             {[
-              { num: "01", title: "Strategic Alignment", desc: "We begin with a two-week deep dive into your business model, user psychology, and competitive landscape. The output is a strategic brief.", tags: ["User Research", "Architecture Planning"] },
-              { num: "02", title: "Motion-First Prototyping", desc: "Interactive prototypes that feel like the real product. We design in context — animated interactions, real content, and device-accurate previews.", tags: ["Interaction Design", "Prototyping"] },
-              { num: "03", title: "Precision Engineering", desc: "Two-week sprints. Daily standup notes. We write production code from day one — no throwaway scaffolding, no tech debt.", tags: ["Next.js", "WebGL", "CI/CD"] },
-              { num: "04", title: "Zero-Downtime Deployment", desc: "We manage the launch, monitor performance post-deploy, and provide 60 days of embedded support for ongoing product evolution.", tags: ["Monitoring", "A/B Testing"] }
+              { 
+                num: "01", 
+                title: "Discovery & Spatial Architecture", 
+                desc: "We define your technical and creative goals, mapping out an elite user journey, precise layout grids, and Three.js/WebGL scene architecture to establish a solid performance baseline.", 
+                tags: ["Spatial Mapping", "Design Tokens"] 
+              },
+              { 
+                num: "02", 
+                title: "Interactive Prototyping", 
+                desc: "We build fluid, motion-first interactive prototypes directly in code. You experience the exact physics of scroll triggers, custom cursor dynamics, and WebGL particle systems in real-time.", 
+                tags: ["Interactive Shaders", "Physics Easing"] 
+              },
+              { 
+                num: "03", 
+                title: "Precision Engineering", 
+                desc: "We engineer clean, semantic React/Next.js architectures, ensuring sub-second page loads, WCAG AA accessibility, and perfect rendering pipeline isolation for 100/100 Lighthouse scores.", 
+                tags: ["Next.js Architecture", "WCAG AA Compliance", "TypeScript"] 
+              },
+              { 
+                num: "04", 
+                title: "Optimization & Deployment", 
+                desc: "We implement edge network delivery and continuous post-launch performance audits. We fine-tune rendering pipelines and asset delivery to guarantee elite visitor engagement and uptime.", 
+                tags: ["Edge CDN", "Performance SLA"] 
+              }
             ].map((step, i) => (
               <motion.div 
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="relative pl-10 md:pl-0"
+                className="relative pl-10 md:pl-0 group"
               >
-                <div className="absolute w-6 h-6 rounded-full bg-[#030305] border border-white/20 -left-[12px] md:-left-[64px] top-1 flex items-center justify-center">
-                  <div className="w-2 h-2 rounded-full bg-white" />
+                {/* Outgoing timeline line segment to next step */}
+                {i < 3 && (
+                  <div className="absolute left-[0px] md:left-[-32px] top-[12px] bottom-[-92px] w-[1px] bg-gradient-to-b from-[#7c3aed]/40 to-[#06b6d4]/40 group-hover:from-[#a78bfa] group-hover:to-[#22d3ee] transition-all duration-500 z-0" />
+                )}
+
+                {/* Dot marker */}
+                <div className="absolute w-6 h-6 rounded-full bg-[#030305] border border-white/20 -left-[12px] md:-left-[44px] top-0 flex items-center justify-center group-hover:border-[#22d3ee]/60 group-hover:shadow-[0_0_12px_rgba(34,211,238,0.2)] transition-all duration-500 z-10">
+                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-[#22d3ee] group-hover:scale-125 transition-all duration-500" />
                 </div>
                 
-                <div className="font-mono text-[11px] text-[#22d3ee] tracking-[0.2em] mb-3 uppercase">Phase {step.num}</div>
-                <h3 className="text-[28px] font-syne font-bold text-white mb-4 tracking-[-0.02em]">{step.title}</h3>
-                <p className="text-slate-400 font-sans text-[15px] leading-[1.7] max-w-[600px] mb-6 font-light">{step.desc}</p>
-                <div className="flex flex-wrap gap-2">
-                  {step.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-[10px] text-slate-300 uppercase tracking-[0.15em]">{tag}</span>
-                  ))}
+                {/* Content wrapper with translate animation */}
+                <div className="transform-gpu transition-all duration-500 group-hover:translate-x-2">
+                  <div className="font-mono text-[11px] text-[#22d3ee]/70 tracking-[0.2em] mb-3 uppercase group-hover:text-[#22d3ee] transition-colors duration-300">
+                    Phase {step.num}
+                  </div>
+                  <h3 className="text-[28px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-white transition-colors duration-300">
+                    {step.title}
+                  </h3>
+                  <p className="text-slate-400 font-sans text-[15px] leading-[1.7] max-w-[600px] mb-6 font-light group-hover:text-slate-300 transition-colors duration-300">
+                    {step.desc}
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {step.tags.map(tag => (
+                      <span 
+                        key={tag} 
+                        className="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-[10px] text-slate-400 uppercase tracking-[0.15em] group-hover:bg-white/10 group-hover:text-white group-hover:border-white/20 transition-all duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </motion.div>
             ))}
