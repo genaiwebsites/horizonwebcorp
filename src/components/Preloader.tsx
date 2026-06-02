@@ -43,14 +43,6 @@ export const Preloader = () => {
           {/* Subtle background radial glow */}
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.08)_0%,transparent_60%)] pointer-events-none" />
 
-          {/* Glowing central ring decoration */}
-          <motion.div
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 0.15 }}
-            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute size-[350px] border border-[#22d3ee]/30 rounded-full blur-[2px]"
-          />
-
           <motion.div
             initial={{ scale: 0.85, opacity: 0, y: 15 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
@@ -63,12 +55,12 @@ export const Preloader = () => {
           </motion.div>
 
           {/* Sleek Progress Track */}
-          <div className="relative mt-12 w-[240px] h-[2px] bg-white/5 rounded-full overflow-hidden border border-white/5 shadow-inner">
+          <div className="relative mt-12 w-[240px] h-[4px] bg-white/10 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: "0%" }}
               animate={{ width: "100%" }}
               transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
-              className="h-full bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] rounded-full"
+              className="h-full bg-gradient-to-r from-[#1d4ed8] via-[#3b82f6] to-[#00f5ff] rounded-full shadow-[0_0_12px_rgba(37,99,235,0.8)]"
             />
           </div>
 
