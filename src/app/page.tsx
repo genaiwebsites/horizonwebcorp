@@ -13,6 +13,7 @@ import { Footer } from '../components/Footer';
 import { TechMarquee } from '../components/TechMarquee';
 import { AnimatedCounter } from '../components/AnimatedCounter';
 import { ContactModal } from '../components/ContactModal';
+import { AuditMarker } from '../components/AuditOverlay';
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -23,26 +24,6 @@ export default function Home() {
       <Nav />
       <Hero />
 
-      {/* --- METRICS BAR --- */}
-      <section className="relative z-20 max-w-7xl mx-auto px-6 pb-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 bg-[#0A0A0E]/80 backdrop-blur-3xl border border-white/5 rounded-xl overflow-hidden divide-y md:divide-y-0 md:divide-x divide-white/5 shadow-[0_10px_50px_rgba(0,0,0,0.5)]">
-          {[
-            { value: 14, prefix: '', suffix: '+', label: 'Projects Shipped' },
-            { value: 100, prefix: '', suffix: '/100', label: 'Lighthouse Score' },
-            { value: 30, prefix: '< ', suffix: 'ms', label: 'Global Edge Latency' },
-            { value: 99, prefix: '', suffix: '%', label: 'Client Satisfaction' }
-          ].map((metric, i) => (
-            <div key={i} className="px-8 py-10 relative overflow-hidden group interactive-hover transition-colors duration-500 hover:bg-white/[0.02]">
-              <div className="absolute top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#7c3aed] to-[#06b6d4] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500" />
-              <div className="absolute -inset-24 bg-[radial-gradient(circle_at_center,rgba(6,182,212,0.1)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-              <div className="text-3xl md:text-4xl font-syne font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 mb-2 leading-none relative z-10 group-hover:text-white transition-colors duration-300">
-                <AnimatedCounter value={metric.value} prefix={metric.prefix} suffix={metric.suffix} />
-              </div>
-              <div className="text-[10px] md:text-[11px] font-mono uppercase tracking-[0.15em] text-slate-400 group-hover:text-[#22d3ee] transition-colors duration-500 relative z-10">{metric.label}</div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       <TrailDivider />
 
@@ -50,11 +31,6 @@ export default function Home() {
       <section id="services" className="py-20 md:py-32 relative z-10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 md:mb-20 text-center flex flex-col items-center">
-            <div className="flex items-center justify-center gap-3 mb-5 w-full">
-              <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-              <span className="font-mono text-[11px] text-slate-400 uppercase tracking-[0.25em]">What We Do</span>
-              <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-            </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-5">
               Capabilities built <br className="hidden md:block"/>
               <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">for Scale.</em>
@@ -64,29 +40,106 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-white/5 border border-white/5 rounded overflow-hidden p-1 shadow-2xl">
-            <BentoCard className="!rounded-md border-none bg-[#0A0A0E]/95 hover:bg-[#111118]/98" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7">
-                <GlobeIcon className="w-6 h-6 text-white" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
+            <BentoCard className="bg-[#07070c] border border-white/10" hoverEffect>
+              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7 group-hover:border-[#22d3ee]/40 group-hover:bg-[#22d3ee]/5 transition-all duration-500">
+                <GlobeIcon className="w-6 h-6 text-white group-hover:text-[#22d3ee] group-hover:rotate-[30deg] group-hover:scale-105 transition-all duration-500" />
               </div>
-              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em]">UI/UX Architecture</h3>
-              <p className="text-slate-400 text-[15px] leading-relaxed font-sans mb-8">Interface systems designed with motion-first principles. We prototype in Figma, engineer in React, and obsess over every transition curve.</p>
+              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#22d3ee] transition-colors">UI/UX Architecture</h3>
+              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Interface systems designed with motion-first principles. We engineer custom web systems in React and obsess over every transition curve.</p>
+              
+              {/* Micro-interaction UI mockup */}
+              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#22d3ee]/20 group-hover:bg-white/[0.04] transition-all duration-500">
+                <div className="flex justify-between items-center mb-2">
+                  <span>TRANSITION FLOW</span>
+                  <span className="text-[#22d3ee]">active</span>
+                </div>
+                <div className="h-2 w-full bg-white/5 rounded-full relative overflow-hidden">
+                  <motion.div 
+                    className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-transparent to-[#22d3ee] rounded-full"
+                    animate={{ x: ['-100%', '300%'] }}
+                    transition={{ duration: 2.2, repeat: Infinity, ease: [0.16, 1, 0.3, 1] }}
+                  />
+                </div>
+                <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
+                  <span>ease-out-expo</span>
+                  <span>300ms</span>
+                </div>
+              </div>
             </BentoCard>
 
-            <BentoCard className="!rounded-md border-none bg-[#0A0A0E]/95 hover:bg-[#111118]/98" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7">
-                <Layers className="w-6 h-6 text-white" />
+            <BentoCard className="bg-[#07070c] border border-white/10" hoverEffect>
+              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7 group-hover:border-[#8b5cf6]/40 group-hover:bg-[#8b5cf6]/5 transition-all duration-500">
+                <Layers className="w-6 h-6 text-white group-hover:text-[#8b5cf6] group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500" />
               </div>
-              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em]">WebGL & 3D Experiences</h3>
-              <p className="text-slate-400 text-[15px] leading-relaxed font-sans mb-8">Three.js powered immersive environments that turn your brand into an interactive world. Particle systems, shaders, and physics.</p>
+              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#8b5cf6] transition-colors">WebGL & 3D Experiences</h3>
+              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Three.js powered immersive environments that turn your brand into an interactive world. Particle systems, shaders, and physics.</p>
+              
+              {/* Micro-interaction UI mockup */}
+              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#8b5cf6]/20 group-hover:bg-white/[0.04] transition-all duration-500">
+                <div className="flex justify-between items-center mb-2">
+                  <span>3D SHADER CORE</span>
+                  <span className="text-[#8b5cf6]">WebGL 2.0</span>
+                </div>
+                <div className="h-10 w-full flex items-center justify-center gap-1.5 relative">
+                  {[1, 2, 3, 4, 5, 6, 7].map((bar, idx) => (
+                    <motion.div
+                      key={idx}
+                      className="w-1.5 bg-gradient-to-t from-[#7c3aed] to-[#8b5cf6] rounded-full"
+                      animate={{ 
+                        height: ["12px", idx % 2 === 0 ? "32px" : "20px", "12px"] 
+                      }}
+                      transition={{ 
+                        duration: 1.2 + idx * 0.15, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
+                    />
+                  ))}
+                </div>
+                <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
+                  <span>vertex-array-buffer</span>
+                  <span>60fps</span>
+                </div>
+              </div>
             </BentoCard>
 
-            <BentoCard className="!rounded-md border-none bg-[#0A0A0E]/95 hover:bg-[#111118]/98" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7">
-                <Zap className="w-6 h-6 text-white" />
+            <BentoCard className="bg-[#07070c] border border-white/10" hoverEffect>
+              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7 group-hover:border-[#10b981]/40 group-hover:bg-[#10b981]/5 transition-all duration-500">
+                <Zap className="w-6 h-6 text-white group-hover:text-[#10b981] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
               </div>
-              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em]">Performance Engineering</h3>
-              <p className="text-slate-400 text-[15px] leading-relaxed font-sans mb-8">Sub-second load times and 100/100 Lighthouse scores aren't aspirational here — they're the baseline. Edge delivery and ISR.</p>
+              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#10b981] transition-colors">Performance Engineering</h3>
+              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Sub-second load times and 100/100 Lighthouse scores aren't aspirational here — they're the baseline. Edge delivery and ISR.</p>
+              
+              {/* Micro-interaction UI mockup */}
+              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#10b981]/20 group-hover:bg-white/[0.04] transition-all duration-500">
+                <div className="flex justify-between items-center mb-2">
+                  <span>LIGHTHOUSE INDEX</span>
+                  <span className="text-[#10b981] font-bold">100/100</span>
+                </div>
+                <div className="flex justify-between items-center h-10 w-full px-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-slate-300 text-[11px]">Perf</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-slate-300 text-[11px]">A11y</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-slate-300 text-[11px]">SEO</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="text-slate-300 text-[11px]">PWA</span>
+                  </div>
+                </div>
+                <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
+                  <span>TTI: 0.18s</span>
+                  <span>FID: 0ms</span>
+                </div>
+              </div>
             </BentoCard>
           </div>
         </div>
@@ -98,11 +151,6 @@ export default function Home() {
       <section id="process" className="py-20 md:py-32 relative z-10 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-24 flex flex-col items-center">
-            <div className="flex items-center justify-center gap-3 mb-5 w-full">
-              <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-              <span className="font-mono text-[11px] text-slate-400 uppercase tracking-[0.25em]">How We Build</span>
-              <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-            </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-5">
               Our <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Process</em> <br/> Is The Product.
             </h2>
@@ -114,7 +162,7 @@ export default function Home() {
 
             {[
               { num: "01", title: "Strategic Alignment", desc: "We begin with a two-week deep dive into your business model, user psychology, and competitive landscape. The output is a strategic brief.", tags: ["User Research", "Architecture Planning"] },
-              { num: "02", title: "Motion-First Prototyping", desc: "Figma prototypes that feel like the real product. We design in context — animated interactions, real content, and device-accurate previews.", tags: ["Interaction Design", "Prototyping"] },
+              { num: "02", title: "Motion-First Prototyping", desc: "Interactive prototypes that feel like the real product. We design in context — animated interactions, real content, and device-accurate previews.", tags: ["Interaction Design", "Prototyping"] },
               { num: "03", title: "Precision Engineering", desc: "Two-week sprints. Daily standup notes. We write production code from day one — no throwaway scaffolding, no tech debt.", tags: ["Next.js", "WebGL", "CI/CD"] },
               { num: "04", title: "Zero-Downtime Deployment", desc: "We manage the launch, monitor performance post-deploy, and provide 60 days of embedded support for ongoing product evolution.", tags: ["Monitoring", "A/B Testing"] }
             ].map((step, i) => (
@@ -149,11 +197,6 @@ export default function Home() {
       <section id="work" className="py-20 md:py-32 relative z-10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 md:mb-20 text-center flex flex-col items-center">
-            <div className="flex items-center justify-center gap-3 mb-5 w-full">
-              <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-              <span className="font-mono text-[11px] text-slate-400 uppercase tracking-[0.25em]">Our Portfolio</span>
-              <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-            </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white mb-5">
               Featured <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Odysseys.</em>
             </h2>
@@ -307,6 +350,92 @@ export default function Home() {
 
       <TrailDivider />
 
+      {/* --- PRECISION STANDARDS SECTION (Capabilities based on installed skills) --- */}
+      <section className="py-20 md:py-32 relative z-10 max-w-7xl mx-auto px-6">
+        {/* Symmetric Header Stack */}
+        <div className="mb-16 md:mb-20 max-w-3xl text-left relative">
+          <AuditMarker 
+            id="gradient-text-tells" 
+            severity="P2" 
+            title="Gradient Text AI Tells" 
+            desc="Symmetric header highlights use repeated purple-to-cyan gradient fills, which is a classic AI template tell." 
+            placement="-top-8 left-0"
+          />
+          <h2 className="text-4xl sm:text-5xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-6">
+            Precision <br />
+            {/* AUDIT ISSUE (P2): Gradient text tell on emphasis terms. */}
+            {/* RECOMMENDATION: Ensure it is restrained and matches corporate visual system. */}
+            <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Capabilities.</em>
+          </h2>
+          <p className="text-slate-300 text-base md:text-lg leading-relaxed font-sans font-light">
+            We implement advanced browser standards directly into production code. Every project is engineered to combine next-gen visuals with measurable business outcomes.
+          </p>
+        </div>
+
+        {/* Symmetric Grid Layout */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative">
+          <AuditMarker 
+            id="card-readability" 
+            severity="P1" 
+            title="Card Background Readability" 
+            desc="Fixed WebGL background grid lines bleed through semi-transparent cards, making slate-400 description text hard to read." 
+            placement="-top-6 right-0"
+          />
+          {[
+            {
+              spec: "01 / GPU SHADERS",
+              title: "WebGPU & Shader Dynamics",
+              desc: "We build immersive 3D product showcases and interactive worlds using GPU compute shaders and custom TSL node materials. This captures user attention immediately and drives longer engagement.",
+              tag: "Three.js / WebGL",
+              benefit: "Result: 3.5x higher visitor engagement"
+            },
+            {
+              spec: "02 / STRUCTURE",
+              title: "Hardened UI Systems",
+              desc: "Our interfaces are built on HTML5 semantic primitives and fully compliant with WCAG AA accessibility rules. Your site reaches every user seamlessly and stays protected against compliance risks.",
+              tag: "Radix / WCAG",
+              benefit: "Result: Full compliance & inclusive reach"
+            },
+            {
+              spec: "03 / AESTHETICS",
+              title: "Bespoke Design Systems",
+              desc: "Custom layouts and font pairings engineered to reflect your brand's unique identity. We reject templated frameworks to ensure your digital presence commands premium positioning.",
+              tag: "Theme / Tokens",
+              benefit: "Result: Premium brand differentiation"
+            },
+            {
+              spec: "04 / PERFORMANCE",
+              title: "Frictionless Interaction Flow",
+              desc: "Lag-free navigation, instant page loads, and zero cumulative layout shift (CLS). Built on Next.js to provide an optimized flow that directly boosts user conversions.",
+              tag: "Motion / GSAP",
+              benefit: "Result: Sub-second load, higher conversion"
+            }
+          ].map((pillar, i) => (
+            <BentoCard key={i} className="min-h-[260px] bg-[#07070c] border border-white/10" hoverEffect>
+              <div className="flex justify-between items-center mb-6">
+                <span className="font-mono text-[10px] text-slate-500 uppercase tracking-widest">{pillar.spec}</span>
+                <span className="font-mono text-[10px] text-[#22d3ee] uppercase tracking-widest">{pillar.tag}</span>
+              </div>
+              <h3 className="text-xl font-syne font-bold text-white mb-3 tracking-[-0.01em] group-hover:text-[#22d3ee] transition-colors">{pillar.title}</h3>
+              <p className="text-slate-300 font-sans text-sm leading-relaxed font-light mb-8">{pillar.desc}</p>
+
+              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-slate-400 group-hover:text-slate-200 transition-colors">
+                <span className="text-slate-500">OUTCOME</span>
+                <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
+                  <span className="relative flex size-1.5">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full size-1.5 bg-emerald-400"></span>
+                  </span>
+                  {pillar.benefit}
+                </span>
+              </div>
+            </BentoCard>
+          ))}
+        </div>
+      </section>
+
+      <TrailDivider />
+
       {/* --- MODERN CTA SECTION --- */}
       <section id="clients" className="py-32 relative z-10 text-center px-6 scroll-mt-20">
         <motion.div 
@@ -318,12 +447,6 @@ export default function Home() {
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,rgba(6,182,212,0.15)_0%,transparent_70%)] pointer-events-none" />
 
-          <div className="flex items-center justify-center gap-3 mb-6 relative z-10">
-            <div className="h-[1px] w-8 bg-white/10" />
-            <span className="font-mono text-[11px] text-slate-400 uppercase tracking-[0.25em]">Let&apos;s Build</span>
-            <div className="h-[1px] w-8 bg-white/10" />
-          </div>
-          
           <h2 className="text-[clamp(44px,6vw,90px)] font-syne font-extrabold text-white mb-8 tracking-[-0.03em] leading-[0.95] relative z-10 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">
             Your Vision.<br/>Our Craft.
           </h2>
@@ -332,7 +455,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10">
             <PillButton primary onClick={() => setIsModalOpen(true)}>
-              Start a Conversation
+              Start a Project
             </PillButton>
             <PillButton href="#work">
               View Case Studies <ArrowRight className="w-4 h-4 ml-1" />

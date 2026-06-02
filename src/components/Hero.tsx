@@ -6,6 +6,8 @@ import { Starfield } from './Starfield';
 import { ParticleVortex } from './ParticleVortex';
 import { PillButton } from './PillButton';
 import dynamic from 'next/dynamic';
+import { AuditMarker } from './AuditOverlay';
+import { AnimatedCounter } from './AnimatedCounter';
 
 const DynamicGlobe = dynamic(() => import('./Globe'), { ssr: false });
 
@@ -17,7 +19,8 @@ export const Hero = () => {
     offset: ["start start", "end start"]
   });
 
-  const yText = useTransform(scrollYProgress, [0, 1], [0, 300]);
+  // Preserved subtle parallax translation to avoid text collision on scroll
+  const yText = useTransform(scrollYProgress, [0, 1], [0, 80]);
   const opacityText = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.2, 0]);
 
   const mouseX = useMotionValue(0);
@@ -61,12 +64,26 @@ export const Hero = () => {
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col justify-center flex-grow w-full">
+        <AuditMarker 
+          id="parallax-collision"
+          severity="P0"
+          title="Parallax Scroll Overlap"
+          desc="Hero headings translate down by 300px on scroll, colliding directly with the metrics section rising from the bottom."
+          placement="-top-10 left-6"
+        />
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center w-full">
 
           <motion.div 
             style={{ y: yText, opacity: opacityText }}
-            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20 transform-gpu"
+            className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20 transform-gpu relative"
           >
+            <AuditMarker 
+              id="gradient-text-tells"
+              severity="P2"
+              title="Heading Gradient Text AI Tell"
+              desc="Heading letters use a text-gradient color fill, which is a very common automated visual template tell."
+              placement="-top-6 left-0"
+            />
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -92,6 +109,8 @@ export const Hero = () => {
                         ease: [0.16, 1, 0.3, 1],
                         delay: 0.2 + (lineIndex * 0.1) + (charIndex * 0.03)
                       }}
+                      // AUDIT ISSUE (P2): Gradient text (bg-clip-text + bg-gradient) is an overused AI tell.
+                      // RECOMMENDATION: Limit gradient text to accent terms, or use solid white/slate colors.
                       className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/40 text-3d-shadow pb-1"
                     >
                       {char === " " ? "\u00A0" : char}
@@ -126,6 +145,13 @@ export const Hero = () => {
           </motion.div>
 
           <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-8 lg:mt-0">
+            <AuditMarker 
+              id="globe-mosquitoes"
+              severity="P1"
+              title="Globe 'Mosquito' Dashes"
+              desc="Globe line pulses are short, fast, and cluttered, looking cheap and using high GPU thread cycles."
+              placement="-top-6 right-0"
+            />
             <motion.div
               className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[500px] aspect-square pointer-events-none z-10 transform-gpu"
               style={{ perspective: 1000 }}
@@ -134,6 +160,29 @@ export const Hero = () => {
             </motion.div>
           </div>
 
+        </div>
+
+        {/* --- METRICS GLASS PANEL (Integrated Placement to Avoid Scroll Overlap) --- */}
+        <div className="w-full mt-10 lg:mt-14 relative z-20">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#06060c]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            {[
+              { value: 42, prefix: '', suffix: '+', label: 'Immersive Deploys', sub: 'Digital experiences shipped globally' },
+              { value: 100, prefix: '', suffix: '%', label: 'Performance Score', sub: 'Lighthouse Core Web Vitals index' },
+              { value: 3.5, prefix: '', suffix: 'x', label: 'Average Visitor Lift', sub: 'Audited increase in user attention', decimals: 1 },
+              { value: 98, prefix: '', suffix: '%', label: 'Partner Retention', sub: 'Sustained engineering collaborations' }
+            ].map((metric, i) => (
+              <div key={i} className="flex flex-col text-left group relative">
+                {/* Sleek vertical separator lines */}
+                {i > 0 && <div className="hidden md:block absolute left-[-12px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-white/0 via-white/5 to-white/0" />}
+                
+                <div className="text-3xl md:text-4xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 tracking-tight leading-none group-hover:text-[#22d3ee] transition-colors duration-300 mb-2">
+                  <AnimatedCounter value={metric.value} prefix={metric.prefix} suffix={metric.suffix} decimals={metric.decimals || 0} />
+                </div>
+                <div className="text-[10px] font-mono uppercase tracking-[0.15em] text-slate-400 group-hover:text-white transition-colors duration-500 mb-1">{metric.label}</div>
+                <div className="text-[9px] text-slate-500 font-sans font-light leading-relaxed">{metric.sub}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -6,9 +6,10 @@ interface AnimatedCounterProps {
   value: number;
   suffix?: string;
   prefix?: string;
+  decimals?: number;
 }
 
-export const AnimatedCounter = ({ value, suffix = '', prefix = '' }: AnimatedCounterProps) => {
+export const AnimatedCounter = ({ value, suffix = '', prefix = '', decimals = 0 }: AnimatedCounterProps) => {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const motionValue = useMotionValue(0);
@@ -23,7 +24,7 @@ export const AnimatedCounter = ({ value, suffix = '', prefix = '' }: AnimatedCou
     }
   }, [isInView, motionValue, value]);
 
-  const display = useTransform(motionValue, (current) => `${prefix}${Math.round(current)}${suffix}`);
+  const display = useTransform(motionValue, (current) => `${prefix}${current.toFixed(decimals)}${suffix}`);
 
   return <motion.span ref={ref}>{display}</motion.span>;
 };

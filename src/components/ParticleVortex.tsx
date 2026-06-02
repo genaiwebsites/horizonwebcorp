@@ -8,6 +8,8 @@ export const ParticleVortex = () => {
   useEffect(() => {
     let animationFrameId: number;
     let scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, particles: THREE.Points;
+    let particleGeo: THREE.BufferGeometry;
+    let particleMat: THREE.ShaderMaterial;
 
     const initThree = () => {
       if (!canvasRef.current) return;
@@ -19,7 +21,7 @@ export const ParticleVortex = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
 
-      const particleGeo = new THREE.BufferGeometry();
+      particleGeo = new THREE.BufferGeometry();
       const particleCount = 3000;
       const posArray = new Float32Array(particleCount * 3);
       const colorArray = new Float32Array(particleCount * 3);
@@ -86,7 +88,7 @@ export const ParticleVortex = () => {
         }
       `;
 
-      const particleMat = new THREE.ShaderMaterial({
+      particleMat = new THREE.ShaderMaterial({
         uniforms: uniforms,
         vertexShader: vertexShader,
         fragmentShader: fragmentShader,
@@ -110,8 +112,16 @@ export const ParticleVortex = () => {
 
       const animate = () => {
         animationFrameId = requestAnimationFrame(animate);
-        uniforms.uTime.value = clockObj.getElapsedTime();
+        const elapsedTime = clockObj.getElapsedTime();
+        uniforms.uTime.value = elapsedTime;
+        
+        // Continuous slow rotation
         particles.rotation.z -= 0.0015;
+        
+        // Subtle organic breathing pulse (scale oscillates gently)
+        const pulse = 1.0 + 0.05 * Math.sin(elapsedTime * 0.8);
+        particles.scale.set(pulse, pulse, pulse);
+        
         renderer.render(scene, camera);
       };
 
@@ -132,6 +142,8 @@ export const ParticleVortex = () => {
     return () => {
       window.removeEventListener('resize', handleResize);
       if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      if (particleGeo) particleGeo.dispose();
+      if (particleMat) particleMat.dispose();
       if (renderer) renderer.dispose();
       if (scene) {
         scene.clear();
@@ -139,5 +151,11 @@ export const ParticleVortex = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none opacity-40" style={{ transform: 'translateZ(0)' }} />;
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-40 mix-blend-screen"
+      style={{ transform: 'translateZ(0)' }}
+    />
+  );
 };
