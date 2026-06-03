@@ -437,7 +437,7 @@ export default function Home() {
       <TrailDivider />
 
       {/* --- MODERN CTA SECTION --- */}
-      <section id="clients" className="py-32 relative z-10 text-center px-6 scroll-mt-20">
+      <section id="contact" className="py-32 relative z-10 text-center px-6 scroll-mt-20">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -457,8 +457,8 @@ export default function Home() {
             <PillButton primary onClick={() => setIsModalOpen(true)}>
               Start a Project
             </PillButton>
-            <PillButton href="#work">
-              View Case Studies <ArrowRight className="w-4 h-4 ml-1" />
+            <PillButton href="/blogs">
+              Blogs <ArrowRight className="w-4 h-4 ml-1" />
             </PillButton>
           </div>
         </motion.div>
