@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 
@@ -9,11 +10,11 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
       <div className="max-w-7xl mx-auto">
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className={`font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-300 ${
+          <p className={`font-mono text-[11px] uppercase tracking-[0.1em] text-center md:text-left transition-colors duration-300 ${
             light ? 'text-slate-400' : 'text-slate-500'
-          }`}>© 2026 Horizon Web Corp. All rights reserved.</p>
+          }`}>© 2026 Horizon Web Corp. <span className="whitespace-nowrap">All rights reserved.</span></p>
           <div className="flex items-center gap-6">
-            <ul className={`flex flex-wrap justify-center gap-8 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-300 ${
+            <ul className={`flex flex-nowrap justify-center gap-4 sm:gap-6 md:gap-8 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-300 ${
               light ? 'text-slate-400' : 'text-slate-500'
             }`}>
                 <li>
@@ -42,9 +43,19 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
                 </li>
                 <li>
                   <Link 
-                    href="https://instagram.com" 
+                    href="https://www.instagram.com/horizonwebcorp/" 
                     target="_blank" 
                     rel="noreferrer" 
+                    onClick={(e) => {
+                      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+                      if (isMobile) {
+                        e.preventDefault();
+                        window.location.href = "instagram://user?username=horizonwebcorp";
+                        setTimeout(() => {
+                          window.location.href = "https://www.instagram.com/horizonwebcorp/";
+                        }, 1200);
+                      }
+                    }}
                     className={`focus-visible:outline-none focus-visible:ring-2 rounded px-1 transition-colors interactive-hover ${
                       light 
                         ? 'hover:text-slate-900 focus-visible:text-slate-900 focus-visible:ring-slate-900/50' 
