@@ -31,25 +31,7 @@ const PROJECTS = [
     tags: ["Consumer", "E-Commerce", "3D Web"],
     link: "https://rbo-spa.vercel.app/",
     isExternal: true,
-    image: "/work/rbo_screenshot.jpg",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-  },
-  {
-    title: "Magik DORB",
-    description: "A high-end, immersive digital presence for AB Udyog's premium De-Oiled Rice Bran agricultural feed product.",
-    tags: ["AgriTech", "E-Commerce"],
-    link: "https://dorb.vercel.app",
-    isExternal: true,
-    image: "/work/dorb_screenshot.jpg",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-  },
-  {
-    title: "Aura Protocol",
-    description: "A decentralized autonomous architecture scaling to global users securely with zero latency smart contracts.",
-    tags: ["Web3", "Security", "DeFi"],
-    link: "#",
-    isExternal: false,
-    image: "/work/aura.png",
+    image: "/work/rbo.png",
     blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
   },
   {
@@ -68,6 +50,24 @@ const PROJECTS = [
     link: "https://orbis-henna.vercel.app/",
     isExternal: true,
     image: "/work/orbis.png",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "Magik DORB",
+    description: "A high-end, immersive digital presence for AB Udyog's premium De-Oiled Rice Bran agricultural feed product.",
+    tags: ["AgriTech", "E-Commerce"],
+    link: "https://dorb.vercel.app",
+    isExternal: true,
+    image: "/work/magik.png",
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+  },
+  {
+    title: "AB Udyog",
+    description: "Corporate presence and brand platform for AB Udyog, showcasing premium physically refined Rice Bran Oil and wellness metrics.",
+    tags: ["Corporate", "Consumer", "Edible Oil"],
+    link: "https://rbo-process.vercel.app/",
+    isExternal: true,
+    image: "/work/abudyog.png",
     blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
   }
 ];
@@ -98,25 +98,41 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-            <BentoCard className="bg-[#07070c] border border-white/10" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7 group-hover:border-[#22d3ee]/40 group-hover:bg-[#22d3ee]/5 transition-all duration-500">
+            <BentoCard className="border border-white/10" bgClass="bg-[#07070c]/30 backdrop-blur-xl" hoverEffect>
+              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-[#22d3ee]/40 group-hover:bg-[#22d3ee]/10 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-500">
                 <GlobeIcon className="w-6 h-6 text-white group-hover:text-[#22d3ee] group-hover:rotate-[30deg] group-hover:scale-105 transition-all duration-500" />
               </div>
               <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#22d3ee] transition-colors">UI/UX Architecture</h3>
               <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Interface systems designed with motion-first principles. We engineer custom web systems in React and obsess over every transition curve.</p>
               
               {/* Micro-interaction UI mockup */}
-              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#22d3ee]/20 group-hover:bg-white/[0.04] transition-all duration-500">
+              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.01] backdrop-blur-[2px] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#22d3ee]/20 group-hover:bg-[#22d3ee]/5 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.05)] transition-all duration-500">
                 <div className="flex justify-between items-center mb-2">
                   <span>TRANSITION FLOW</span>
-                  <span className="text-[#22d3ee]">active</span>
+                  <span className="text-[#22d3ee] font-medium tracking-wider">active</span>
                 </div>
-                <div className="h-2 w-full bg-white/5 rounded-full relative overflow-hidden">
-                  <motion.div 
-                    className="absolute top-0 bottom-0 left-0 w-8 bg-gradient-to-r from-transparent to-[#22d3ee] rounded-full"
-                    animate={{ x: ['-100%', '300%'] }}
-                    transition={{ duration: 2.2, repeat: Infinity, ease: [0.16, 1, 0.3, 1] }}
-                  />
+                <div className="flex items-center justify-center flex-grow py-1">
+                  <svg className="w-full h-10 overflow-visible" viewBox="0 0 100 40">
+                    <line x1="0" y1="20" x2="100" y2="20" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <line x1="50" y1="0" x2="50" y2="40" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
+                    <path d="M 0,35 C 30,35 40,5 100,5" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1.5" />
+                    <motion.path 
+                      d="M 0,35 C 30,35 40,5 100,5" 
+                      fill="none" 
+                      stroke="url(#uxGradient)" 
+                      strokeWidth="2"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
+                      className="drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
+                    />
+                    <defs>
+                      <linearGradient id="uxGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#8b5cf6" />
+                        <stop offset="100%" stopColor="#22d3ee" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
                 </div>
                 <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
                   <span>ease-out-expo</span>
@@ -125,31 +141,34 @@ export default function Home() {
               </div>
             </BentoCard>
 
-            <BentoCard className="bg-[#07070c] border border-white/10" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7 group-hover:border-[#8b5cf6]/40 group-hover:bg-[#8b5cf6]/5 transition-all duration-500">
+            <BentoCard className="border border-white/10" bgClass="bg-[#07070c]/30 backdrop-blur-xl" hoverEffect>
+              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-[#8b5cf6]/40 group-hover:bg-[#8b5cf6]/10 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.2)] transition-all duration-500">
                 <Layers className="w-6 h-6 text-white group-hover:text-[#8b5cf6] group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500" />
               </div>
               <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#8b5cf6] transition-colors">WebGL & 3D Experiences</h3>
               <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Three.js powered immersive environments that turn your brand into an interactive world. Particle systems, shaders, and physics.</p>
               
               {/* Micro-interaction UI mockup */}
-              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#8b5cf6]/20 group-hover:bg-white/[0.04] transition-all duration-500">
+              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.01] backdrop-blur-[2px] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#8b5cf6]/20 group-hover:bg-[#8b5cf6]/5 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.05)] transition-all duration-500">
                 <div className="flex justify-between items-center mb-2">
                   <span>3D SHADER CORE</span>
-                  <span className="text-[#8b5cf6]">WebGL 2.0</span>
+                  <span className="text-[#8b5cf6] font-medium tracking-wider">WebGL 2.0</span>
                 </div>
-                <div className="h-10 w-full flex items-center justify-center gap-1.5 relative">
-                  {[1, 2, 3, 4, 5, 6, 7].map((bar, idx) => (
+                <div className="h-10 w-full flex items-center justify-between px-2 relative">
+                  {[...Array(12)].map((_, idx) => (
                     <motion.div
                       key={idx}
-                      className="w-1.5 bg-gradient-to-t from-[#7c3aed] to-[#8b5cf6] rounded-full"
+                      className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] shadow-[0_0_6px_#8b5cf6]"
                       animate={{ 
-                        height: ["12px", idx % 2 === 0 ? "32px" : "20px", "12px"] 
+                        y: ["0px", "-14px", "0px"],
+                        scale: [0.8, 1.3, 0.8],
+                        opacity: [0.4, 1, 0.4]
                       }}
                       transition={{ 
-                        duration: 1.2 + idx * 0.15, 
+                        duration: 1.6, 
                         repeat: Infinity, 
-                        ease: "easeInOut" 
+                        ease: "easeInOut",
+                        delay: idx * 0.12
                       }}
                     />
                   ))}
@@ -161,35 +180,44 @@ export default function Home() {
               </div>
             </BentoCard>
 
-            <BentoCard className="bg-[#07070c] border border-white/10" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded border border-white/10 bg-white/5 flex items-center justify-center mb-7 group-hover:border-[#10b981]/40 group-hover:bg-[#10b981]/5 transition-all duration-500">
+            <BentoCard className="border border-white/10" bgClass="bg-[#07070c]/30 backdrop-blur-xl" hoverEffect>
+              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-[#10b981]/40 group-hover:bg-[#10b981]/10 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-500">
                 <Zap className="w-6 h-6 text-white group-hover:text-[#10b981] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
               </div>
               <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#10b981] transition-colors">Performance Engineering</h3>
               <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Sub-second load times and 100/100 Lighthouse scores aren't aspirational here — they're the baseline. Edge delivery and ISR.</p>
               
               {/* Micro-interaction UI mockup */}
-              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#10b981]/20 group-hover:bg-white/[0.04] transition-all duration-500">
+              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.01] backdrop-blur-[2px] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#10b981]/20 group-hover:bg-[#10b981]/5 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.05)] transition-all duration-500">
                 <div className="flex justify-between items-center mb-2">
                   <span>LIGHTHOUSE INDEX</span>
                   <span className="text-[#10b981] font-bold">100/100</span>
                 </div>
-                <div className="flex justify-between items-center h-10 w-full px-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-slate-300 text-[11px]">Perf</span>
+                <div className="flex items-center gap-4 flex-grow py-1">
+                  <div className="relative size-10 flex items-center justify-center shrink-0">
+                    <svg className="size-10 -rotate-90 overflow-visible" viewBox="0 0 36 36">
+                      <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="2.5" />
+                      <motion.circle 
+                        cx="18" 
+                        cy="18" 
+                        r="16" 
+                        fill="none" 
+                        stroke="#10b981" 
+                        strokeWidth="2.5" 
+                        strokeDasharray="100, 100"
+                        animate={{ strokeDashoffset: [100, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                        className="drop-shadow-[0_0_6px_rgba(16,185,129,0.5)]"
+                      />
+                    </svg>
+                    <span className="absolute text-[10px] font-mono font-bold text-[#10b981]">100</span>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-slate-300 text-[11px]">A11y</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-slate-300 text-[11px]">SEO</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-slate-300 text-[11px]">PWA</span>
+                  <div className="flex flex-col gap-0.5 justify-center">
+                    <span className="font-mono text-[8px] text-slate-500 uppercase tracking-wider">ENGINE SPEED</span>
+                    <div className="flex flex-wrap gap-x-2 gap-y-0.5">
+                      <span className="flex items-center gap-1 text-[9px] text-slate-300 font-mono"><span className="size-1 bg-[#10b981] rounded-full animate-pulse" /> FID: 0ms</span>
+                      <span className="flex items-center gap-1 text-[9px] text-slate-300 font-mono"><span className="size-1 bg-[#10b981] rounded-full" /> CLS: 0.0</span>
+                    </div>
                   </div>
                 </div>
                 <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
@@ -198,8 +226,7 @@ export default function Home() {
                 </div>
               </div>
             </BentoCard>
-          </div>
-        </div>
+          </div>        </div>
       </section>
 
       <TrailDivider />
@@ -302,56 +329,69 @@ export default function Home() {
             {PROJECTS.map((project, idx) => (
               <BentoCard 
                 key={idx} 
-                className="p-0! group h-[340px] md:h-[380px] w-full" 
-                bgClass="bg-black" 
+                className="p-0! group flex flex-col h-[400px] md:h-[440px] w-full overflow-hidden" 
+                bgClass="bg-[#07070c]" 
                 hoverEffect
               >
-                <div className="absolute inset-0">
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#030305] via-[#030305]/65 to-transparent z-10" />
-                  <Image 
-                    src={project.image} 
-                    alt={`${project.title} — ${project.description}`} 
-                    width={800} 
-                    height={800} 
-                    quality={80} 
-                    priority={idx === 0}
-                    placeholder="blur" 
-                    blurDataURL={project.blurDataURL}
-                    className="w-full h-full object-cover mix-blend-luminosity opacity-40 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700" 
-                  />
-                </div>
-                <div className="relative z-20 p-6 md:p-8 flex flex-col justify-end h-full">
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 bg-white/10 border border-white/20 rounded-full font-mono text-[9px] text-white uppercase tracking-widest backdrop-blur-md">
-                        {tag}
-                      </span>
-                    ))}
+                {/* Visual Preview Container */}
+                <div className="relative h-[180px] md:h-[210px] w-full bg-slate-950 border-b border-white/5 overflow-hidden">
+                  {/* Browser Header Mockup */}
+                  <div className="absolute top-0 left-0 w-full h-6 bg-white/[0.03] border-b border-white/5 flex items-center px-3 gap-1.5 z-10">
+                    <span className="size-1.5 rounded-full bg-rose-500/20 group-hover:bg-rose-500 group-hover:shadow-[0_0_6px_#f43f5e] transition-all duration-500" />
+                    <span className="size-1.5 rounded-full bg-amber-500/20 group-hover:bg-amber-500 group-hover:shadow-[0_0_6px_#f59e0b] transition-all duration-500 delay-[75ms]" />
+                    <span className="size-1.5 rounded-full bg-emerald-500/20 group-hover:bg-emerald-500 group-hover:shadow-[0_0_6px_#10b981] transition-all duration-500 delay-[150ms]" />
                   </div>
-                  <h3 className="text-2xl font-syne font-bold text-white mb-2 group-hover:text-[#22d3ee] transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-300 font-sans font-light text-sm line-clamp-2 mb-5">
-                    {project.description}
-                  </p>
                   
-                  {project.isExternal ? (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noreferrer" 
-                      className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
-                    >
-                      View Live Site <ExternalLink className="w-3.5 h-3.5" />
-                    </a>
-                  ) : (
-                    <a 
-                      href={project.link} 
-                      className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
-                    >
-                      View Case Study <ArrowRight className="w-3.5 h-3.5" />
-                    </a>
-                  )}
+                  {/* Image Showcase */}
+                  <div className="absolute inset-x-0 top-6 bottom-0 bg-[#050508] overflow-hidden">
+                    <Image 
+                      src={project.image} 
+                      alt={`${project.title} — ${project.description}`} 
+                      fill
+                      sizes="(max-w-7xl) 33vw, 50vw"
+                      priority={idx === 0}
+                      className="object-cover object-top scale-[1.03] group-hover:scale-[1.06] transition-all duration-700 z-0 opacity-85 group-hover:opacity-100 mix-blend-normal" 
+                    />
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6 flex flex-col justify-between flex-grow relative z-20">
+                  <div>
+                    <div className="flex flex-wrap gap-1.5 mb-3">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="px-2.5 py-0.5 bg-white/5 border border-white/10 rounded-full font-mono text-[9px] text-slate-300 uppercase tracking-widest backdrop-blur-md">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                    <h3 className="text-xl font-syne font-bold text-white mb-2 group-hover:text-[#22d3ee] transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <p className="text-slate-400 font-sans font-light text-xs sm:text-sm line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
+                  
+                  <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-between">
+                    {project.isExternal ? (
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noreferrer" 
+                        className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
+                      >
+                        View Live Site <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    ) : (
+                      <a 
+                        href={project.link} 
+                        className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
+                      >
+                        View Case Study <ArrowRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
               </BentoCard>
             ))}          </div>
@@ -458,7 +498,7 @@ export default function Home() {
               Start a Project
             </PillButton>
             <PillButton href="/blogs">
-              Blogs <ArrowRight className="w-4 h-4 ml-1" />
+              Read Insights <ArrowRight className="w-4 h-4 ml-1" />
             </PillButton>
           </div>
         </motion.div>
