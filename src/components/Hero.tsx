@@ -6,7 +6,6 @@ import { Starfield } from './Starfield';
 import { ParticleVortex } from './ParticleVortex';
 import { PillButton } from './PillButton';
 import dynamic from 'next/dynamic';
-import { AnimatedCounter } from './AnimatedCounter';
 
 const DynamicGlobe = dynamic(() => import('./Globe'), { ssr: false });
 
@@ -40,7 +39,7 @@ export const Hero = () => {
   const lines = ["WE ENGINEER", "DIGITAL", "ODYSSEYS."];
 
   return (
-    <section ref={containerRef} className="relative min-h-[100svh] flex items-center justify-center pt-28 pb-12 lg:pt-32 lg:pb-20 overflow-hidden w-full max-w-[100vw] bg-transparent z-10">
+    <section ref={containerRef} className="relative min-h-[100svh] lg:h-screen lg:min-h-0 lg:max-h-screen flex items-center justify-center pt-28 pb-12 lg:pt-0 lg:pb-0 overflow-hidden w-full max-w-[100vw] bg-transparent z-10">
       <div className="absolute inset-0 bg-gradient-to-b from-[#020205] via-[#020205] to-transparent z-0 pointer-events-none" />
 
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}>
@@ -136,30 +135,6 @@ export const Hero = () => {
             >
               <DynamicGlobe mouseX={smoothX} mouseY={smoothY} />
             </motion.div>
-          </div>
-
-        </div>
-
-        {/* --- METRICS GLASS PANEL (Integrated Placement to Avoid Scroll Overlap) --- */}
-        <div className="w-full mt-10 lg:mt-14 relative z-20">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#06060c]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-            {[
-              { value: 42, prefix: '', suffix: '+', label: 'Immersive Deploys', sub: 'Digital experiences shipped globally' },
-              { value: 100, prefix: '', suffix: '%', label: 'Performance Score', sub: 'Lighthouse Core Web Vitals index' },
-              { value: 3.5, prefix: '', suffix: 'x', label: 'Average Visitor Lift', sub: 'Audited increase in user attention', decimals: 1 },
-              { value: 98, prefix: '', suffix: '%', label: 'Partner Retention', sub: 'Sustained engineering collaborations' }
-            ].map((metric, i) => (
-              <div key={i} className="flex flex-col text-left group relative">
-                {/* Sleek vertical separator lines */}
-                {i > 0 && <div className="hidden md:block absolute left-[-12px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-white/0 via-white/5 to-white/0" />}
-                
-                <div className="text-3xl md:text-4xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 tracking-tight leading-none group-hover:text-[#22d3ee] transition-colors duration-300 mb-2">
-                  <AnimatedCounter value={metric.value} prefix={metric.prefix} suffix={metric.suffix} decimals={metric.decimals || 0} />
-                </div>
-                <div className="text-[10px] font-mono uppercase tracking-[0.15em] text-slate-400 group-hover:text-white transition-colors duration-500 mb-1">{metric.label}</div>
-                <div className="text-[9px] text-slate-500 font-sans font-light leading-relaxed">{metric.sub}</div>
-              </div>
-            ))}
           </div>
         </div>
       </div>
