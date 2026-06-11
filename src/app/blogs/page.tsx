@@ -35,10 +35,10 @@ export default function BlogsPage() {
             HWC Technical Journals
           </span>
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-slate-900 leading-[1.1] mb-6">
-            Insights from the <br />
-            <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#06b6d4]">
+            <span className="block whitespace-nowrap">Insights from the</span>
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#06b6d4] whitespace-nowrap">
               Frontier of Web.
-            </em>
+            </span>
           </h1>
           <p className="text-slate-600 font-sans text-[17px] leading-relaxed font-light">
             A technical publication detailing our research, design breakthroughs, and engineering updates in WebGL, React server architectures, and elite browser rendering pipelines.
