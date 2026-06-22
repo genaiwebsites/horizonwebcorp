@@ -33,6 +33,8 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSectorOpen, setIsSectorOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -45,18 +47,41 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setIsSectorOpen(false);
-    // Keep the success state for 4 seconds before auto-closing
-    setTimeout(() => {
-      onClose();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to submit coordinates.');
+      }
+
+      setSubmitted(true);
+      setIsSectorOpen(false);
+      // Keep the success state for 4 seconds before auto-closing
       setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ name: '', email: '', company: '', sector: '', details: '' });
-      }, 500); 
-    }, 4000);
+        onClose();
+        setTimeout(() => {
+          setSubmitted(false);
+          setFormData({ name: '', email: '', company: '', sector: '', details: '' });
+        }, 500); 
+      }, 4000);
+    } catch (err: any) {
+      setSubmitError(err.message || 'An unexpected error occurred.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -321,11 +346,18 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                         />
                       </div>
 
+                      {submitError && (
+                        <div className="text-red-400 text-xs font-mono bg-red-950/20 border border-red-500/20 rounded-xl px-4 py-3 mt-4">
+                          ERROR: {submitError}
+                        </div>
+                      )}
+
                       <button
                         type="submit"
-                        className="w-full bg-white text-black font-syne font-bold tracking-wide rounded-xl px-4 py-4 hover:bg-slate-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] active:scale-[0.98] mt-4 flex items-center justify-center gap-2"
+                        disabled={isSubmitting}
+                        className="w-full bg-white text-black font-syne font-bold tracking-wide rounded-xl px-4 py-4 hover:bg-slate-200 disabled:bg-white/50 disabled:text-black/50 disabled:cursor-not-allowed transition-all shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_35px_rgba(255,255,255,0.3)] active:scale-[0.98] mt-4 flex items-center justify-center gap-2"
                       >
-                        Transmit Coordinates
+                        {isSubmitting ? 'Transmitting Coordinates...' : 'Transmit Coordinates'}
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                       </button>
                     </form>

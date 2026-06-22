@@ -1,16 +1,16 @@
-# Graph Report - horizonwebcorp  (2026-06-10)
+# Graph Report - horizonwebcorp  (2026-06-22)
 
 ## Corpus Check
-- 38 files · ~1,283,046 words
+- 39 files · ~1,283,566 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 182 nodes · 244 edges · 19 communities (12 shown, 7 thin omitted)
+- 184 nodes · 245 edges · 21 communities (14 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `82fe744f`
+- Built from commit: `2e8328f3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -32,6 +32,7 @@
 - [[_COMMUNITY_Community 15|Community 15]]
 - [[_COMMUNITY_Community 16|Community 16]]
 - [[_COMMUNITY_Community 17|Community 17]]
+- [[_COMMUNITY_Community 19|Community 19]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
@@ -54,19 +55,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (19 total, 7 thin omitted)
+## Communities (21 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.16
-Nodes (10): metadata, Footer(), ArrowRight(), Nav(), PillButton(), metadata, ARTICLE_CONTENT, ARTICLE_SECTIONS (+2 more)
+Cohesion: 0.15
+Nodes (11): metadata, Footer(), MenuIcon(), XIcon(), Nav(), PillButton(), metadata, ARTICLE_CONTENT (+3 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.07
-Nodes (27): dependencies, cobe, framer-motion, lucide-react, next, react, react-dom, react-globe.gl (+19 more)
+Cohesion: 0.11
+Nodes (17): dependencies, cobe, framer-motion, lucide-react, next, react, react-dom, react-globe.gl (+9 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.12
-Nodes (16): PROJECTS, AnimatedCounter(), AnimatedCounterProps, ContactModal(), ContactModalProps, SECTORS, ExternalLink(), GlobeIcon() (+8 more)
+Cohesion: 0.13
+Nodes (15): PROJECTS, AnimatedCounter(), AnimatedCounterProps, ContactModal(), ContactModalProps, SECTORS, ArrowRight(), ExternalLink() (+7 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.10
@@ -96,6 +97,10 @@ Nodes (5): DynamicGlobe, Hero(), ParticleVortex(), Star, Starfield()
 Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
+### Community 19 - "Community 19"
+Cohesion: 0.20
+Nodes (10): devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node, @types/react, @types/react-dom (+2 more)
+
 ## Knowledge Gaps
 - **95 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+90 more)
   These have ≤1 connection - possible missing edges or undocumented components.
@@ -104,15 +109,17 @@ Nodes (3): Deploy on Vercel, Getting Started, Learn More
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ArrowRight()` connect `Community 0` to `Community 8`, `Community 2`, `Community 5`?**
-  _High betweenness centrality (0.013) - this node is a cross-community bridge._
+- **Why does `ArrowRight()` connect `Community 2` to `Community 0`, `Community 8`, `Community 5`?**
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `Community 19` to `Community 1`?**
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
   _95 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `Community 0` be split into smaller, more focused modules?**
+  _Cohesion score 0.14855072463768115 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.07142857142857142 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.12 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._

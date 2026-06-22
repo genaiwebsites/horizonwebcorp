@@ -207,7 +207,7 @@
       "source_file": "package.json",
       "source_location": "L21",
       "id": "package_devdependencies",
-      "community": 1,
+      "community": 19,
       "norm_label": "devdependencies"
     },
     {
@@ -216,7 +216,7 @@
       "source_file": "package.json",
       "source_location": "L22",
       "id": "package_devdependencies_tailwindcss_postcss",
-      "community": 1,
+      "community": 19,
       "norm_label": "@tailwindcss/postcss"
     },
     {
@@ -225,7 +225,7 @@
       "source_file": "package.json",
       "source_location": "L23",
       "id": "package_devdependencies_types_node",
-      "community": 1,
+      "community": 19,
       "norm_label": "@types/node"
     },
     {
@@ -234,7 +234,7 @@
       "source_file": "package.json",
       "source_location": "L24",
       "id": "package_devdependencies_types_react",
-      "community": 1,
+      "community": 19,
       "norm_label": "@types/react"
     },
     {
@@ -243,7 +243,7 @@
       "source_file": "package.json",
       "source_location": "L25",
       "id": "package_devdependencies_types_react_dom",
-      "community": 1,
+      "community": 19,
       "norm_label": "@types/react-dom"
     },
     {
@@ -252,7 +252,7 @@
       "source_file": "package.json",
       "source_location": "L26",
       "id": "package_devdependencies_types_three",
-      "community": 1,
+      "community": 19,
       "norm_label": "@types/three"
     },
     {
@@ -261,7 +261,7 @@
       "source_file": "package.json",
       "source_location": "L27",
       "id": "package_devdependencies_eslint",
-      "community": 1,
+      "community": 19,
       "norm_label": "eslint"
     },
     {
@@ -270,7 +270,7 @@
       "source_file": "package.json",
       "source_location": "L28",
       "id": "package_devdependencies_eslint_config_next",
-      "community": 1,
+      "community": 19,
       "norm_label": "eslint-config-next"
     },
     {
@@ -279,7 +279,7 @@
       "source_file": "package.json",
       "source_location": "L29",
       "id": "package_devdependencies_tailwindcss",
-      "community": 1,
+      "community": 19,
       "norm_label": "tailwindcss"
     },
     {
@@ -288,7 +288,7 @@
       "source_file": "package.json",
       "source_location": "L30",
       "id": "package_devdependencies_typescript",
-      "community": 1,
+      "community": 19,
       "norm_label": "typescript"
     },
     {
@@ -308,6 +308,24 @@
       "id": "postcss_config_config",
       "community": 15,
       "norm_label": "config"
+    },
+    {
+      "label": "route.ts",
+      "file_type": "code",
+      "source_file": "src/app/api/contact/route.ts",
+      "source_location": "L1",
+      "id": "contact_route",
+      "community": 20,
+      "norm_label": "route.ts"
+    },
+    {
+      "label": "POST()",
+      "file_type": "code",
+      "source_file": "src/app/api/contact/route.ts",
+      "source_location": "L3",
+      "id": "contact_route_post",
+      "community": 20,
+      "norm_label": "post()"
     },
     {
       "label": "page.tsx",
@@ -837,7 +855,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L3",
       "id": "components_icons_arrowright",
-      "community": 0,
+      "community": 2,
       "norm_label": "arrowright()"
     },
     {
@@ -882,7 +900,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L33",
       "id": "components_icons_menuicon",
-      "community": 2,
+      "community": 0,
       "norm_label": "menuicon()"
     },
     {
@@ -891,7 +909,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L39",
       "id": "components_icons_xicon",
-      "community": 2,
+      "community": 0,
       "norm_label": "xicon()"
     },
     {
@@ -927,7 +945,7 @@
       "source_file": "src/components/Nav.tsx",
       "source_location": "L1",
       "id": "components_nav",
-      "community": 2,
+      "community": 0,
       "norm_label": "nav.tsx"
     },
     {
@@ -1942,6 +1960,16 @@
       "confidence_score": 1.0,
       "source": "postcss_config",
       "target": "postcss_config_config"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/api/contact/route.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "contact_route",
+      "target": "contact_route_post",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -3268,9 +3296,9 @@
       "source_file": "src/components/ContactModal.tsx",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_contactmodal",
-      "target": "components_contactmodal_sectors",
-      "confidence_score": 1.0
+      "target": "components_contactmodal_sectors"
     },
     {
       "relation": "contains",
@@ -4185,5 +4213,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "82fe744f85a1afcc912b28b92489797cd011775e"
+  "built_at_commit": "2e8328f36047b4b3bc2156271c2d0f042c78807a"
 }

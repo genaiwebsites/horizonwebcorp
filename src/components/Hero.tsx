@@ -39,7 +39,7 @@ export const Hero = () => {
   const lines = ["WE ENGINEER", "DIGITAL", "ODYSSEYS."];
 
   return (
-    <section ref={containerRef} className="relative min-h-[100svh] lg:h-screen lg:min-h-0 lg:max-h-screen flex items-center justify-center pt-28 pb-12 lg:pt-0 lg:pb-0 overflow-hidden w-full max-w-[100vw] bg-transparent z-10">
+    <section ref={containerRef} className="relative min-h-[100svh] lg:h-screen lg:min-h-0 lg:max-h-screen flex items-center justify-center pt-28 pb-12 lg:pt-20 lg:pb-6 overflow-hidden w-full max-w-[100vw] bg-transparent z-10">
       <div className="absolute inset-0 bg-gradient-to-b from-[#020205] via-[#020205] to-transparent z-0 pointer-events-none" />
 
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}>
@@ -72,7 +72,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative inline-flex items-center justify-center px-4 py-2 mb-6 lg:mb-8 rounded-full border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden group shadow-[0_0_20px_rgba(139,92,246,0.15)] transform-gpu"
+              className="relative inline-flex items-center justify-center px-4 py-2 mb-6 lg:mb-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden group shadow-[0_0_20px_rgba(139,92,246,0.15)] transform-gpu"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10 animate-[gradient-x_3s_linear_infinite] bg-[length:200%_auto]" />
               <span className="font-mono text-[10px] sm:text-xs tracking-[0.2em] uppercase font-bold metallic-shimmer relative z-10">
@@ -80,7 +80,7 @@ export const Hero = () => {
               </span>
             </motion.div>
 
-            <h1 className="text-[clamp(32px,9vw,45px)] sm:text-[65px] md:text-[80px] lg:text-[90px] xl:text-[110px] leading-[0.85] font-inter font-black tracking-[-0.04em] mb-6 lg:mb-8 flex flex-col items-center lg:items-start transform-gpu">
+            <h1 className="text-[clamp(32px,9vw,45px)] sm:text-[65px] md:text-[80px] lg:text-[80px] xl:text-[95px] leading-[0.85] font-inter font-black tracking-[-0.04em] mb-4 lg:mb-4 flex flex-col items-center lg:items-start transform-gpu">
               {lines.map((line, lineIndex) => (
                 <div key={lineIndex} className="flex overflow-visible whitespace-nowrap">
                   {line.split('').map((char, charIndex) => (
@@ -108,7 +108,7 @@ export const Hero = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.9 }}
-              className="text-sm sm:text-base lg:text-lg text-slate-300 mb-8 lg:mb-10 max-w-xl leading-relaxed font-sans font-light drop-shadow-md text-center lg:text-left transform-gpu"
+              className="text-sm sm:text-base lg:text-base text-slate-300 mb-6 lg:mb-6 max-w-xl leading-relaxed font-sans font-light drop-shadow-md text-center lg:text-left transform-gpu"
             >
               We craft ultra-premium web experiences that sit at the intersection of engineering precision and visual artistry. <br />From interaction to infrastructure.
             </motion.p>
@@ -130,7 +130,7 @@ export const Hero = () => {
 
           <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-8 lg:mt-0">
             <motion.div
-              className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[500px] aspect-square pointer-events-none z-10 transform-gpu"
+              className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[420px] xl:max-w-[480px] aspect-square pointer-events-none z-10 transform-gpu"
               style={{ perspective: 1000 }}
             >
               <DynamicGlobe mouseX={smoothX} mouseY={smoothY} />
