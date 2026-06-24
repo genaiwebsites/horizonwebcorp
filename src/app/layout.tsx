@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Preloader } from "../components/Preloader";
 import { Analytics } from '@vercel/analytics/next';
+import Script from 'next/script';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["300", "400", "700", "900"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-sans", weight: ["300", "400", "500", "600", "700"] });
@@ -28,6 +29,29 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} ${syne.variable} ${jetBrainsMono.variable}`}>
+      <head>
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "x2xe8t7okb");
+          `}
+        </Script>
+        
+        {/* Google Analytics */}
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-1NWS34VTXD" strategy="afterInteractive" />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-1NWS34VTXD');
+          `}
+        </Script>
+      </head>
       <body className="font-sans antialiased bg-[#030305] text-slate-200 min-h-[100svh] selection:bg-[#8b5cf6]/40 selection:text-white overflow-x-hidden w-full max-w-[100vw]">
         {/* Skip to main content — WCAG 2.4.1 bypass block */}
         <a
