@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Space_Grotesk, Syne, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Preloader } from "../components/Preloader";
+import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", weight: ["300", "400", "700", "900"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-sans", weight: ["300", "400", "500", "600", "700"] });
@@ -39,6 +40,7 @@ export default function RootLayout({
         <main id="main-content" className="relative flex flex-col min-h-[100svh] overflow-x-hidden w-full max-w-[100vw]">
           {children}
         </main>
+        <Analytics />
       </body>
     </html>
   );
