@@ -26,49 +26,49 @@ const PROJECTS = [
     blurDataURL: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACQAQCdASoQAAgABUB8JbACdACCOhAA8geAm5I0moxxYIPoHPm0HKjZbeWZw161v4efH2zYlD8QT7AA"
   },
   {
-    title: "Jeevan Rekha RBO",
-    description: "A premium immersive web experience crafted for health-conscious consumers, showcasing pure Rice Bran Oil.",
-    tags: ["Consumer", "E-Commerce", "3D Web"],
-    link: "https://rbo-spa.vercel.app/",
+    title: "Jeevan Rekha",
+    description: "Digital brand platform crafted for AB Udyog's premium edible oils, featuring interactive product showcases, culinary pairing guides, and verified nutritional analysis.",
+    tags: ["FMCG", "Consumer Brand", "Next.js"],
+    link: "https://jeevanrekhafoods.com/",
     isExternal: true,
-    image: "/work/rbo.png",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    image: "/work/jeevan-rekha-foods.webp",
+    blurDataURL: "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAgABUB8JagCdAEPgXgJ/GAA/ujyjx0CJvLRGagbMU+ZjQTGSkK+UUsIqEuqjtVBWXX/CwE3XwCK2CY3y4AA"
   },
   {
     title: "Skyscape Photography",
-    description: "Aerial photography portfolio capturing the Earth's hidden geometry across India, featuring drone flight telemetry logs.",
+    description: "Fine art aerial photography portfolio capturing the Earth's hidden geometries across India, featuring telemetric flight HUD logs and elevation-curated descent.",
     tags: ["Creative", "Photography", "Next.js"],
-    link: "https://skyscape.vercel.app/",
+    link: "https://www.skyscapephoto.com/",
     isExternal: true,
-    image: "/work/skyscape.png",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-  },
-  {
-    title: "Orbis Intelligence",
-    description: "Geospatial AI platform translating natural language queries into interactive satellite map environments and dashboards.",
-    tags: ["Geospatial AI", "Satellite GIS", "Next.js"],
-    link: "https://orbis-henna.vercel.app/",
-    isExternal: true,
-    image: "/work/orbis.png",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
-  },
-  {
-    title: "Magik DORB",
-    description: "A high-end, immersive digital presence for AB Udyog's premium De-Oiled Rice Bran agricultural feed product.",
-    tags: ["AgriTech", "E-Commerce"],
-    link: "https://dorb.vercel.app",
-    isExternal: true,
-    image: "/work/magik.png",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    image: "/work/skyscape-photography.webp",
+    blurDataURL: "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAABQAgCdASoQAAgABUB8JYgCdH8AGZoUtIp10AAA/tnh1nW+cnP8gTfVYRPL7v0cwAA="
   },
   {
     title: "AB Udyog",
-    description: "Corporate presence and brand platform for AB Udyog, showcasing premium physically refined Rice Bran Oil and wellness metrics.",
-    tags: ["Corporate", "Consumer", "Edible Oil"],
-    link: "https://rbo-process.vercel.app/",
+    description: "Corporate industrial platform for Eastern India's premier agro-refinery complex, showcasing 300 TPD continuous extraction, physical refining workflows, and bio-derivatives.",
+    tags: ["Corporate", "Agro-Refinery", "Next.js"],
+    link: "https://www.abudyog.in/",
     isExternal: true,
-    image: "/work/abudyog.png",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    image: "/work/ab-udyog.webp",
+    blurDataURL: "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoQAAgABUB8JYwC7ADo3+lWAP7QzdwHX9YxDXh6PkF+fo3+DomSxjTXFj32AA=="
+  },
+  {
+    title: "Hansha Tradecom",
+    description: "B2B agri-commodity trading platform aggregating rice bran, DORB, DDGS, and grain packaging directly from Bengal's mill gates with verified assay certification.",
+    tags: ["AgriCommodities", "B2B Trade", "Next.js"],
+    link: "https://hanshatradecom.com/",
+    isExternal: true,
+    image: "/work/hansha-tradecom.webp",
+    blurDataURL: "data:image/webp;base64,UklGRkQAAABXRUJQVlA4IDgAAACwAQCdASoQAAgABUB8JYwAAudcE2EgAP2piGPadg5HgQCzLuK5YwNTTsCHiJ5diF1Pw1w6XNdkAA=="
+  },
+  {
+    title: "Synapse",
+    description: "Enterprise agentic vault featuring zero-scrape grounding, multimodal reasoning across 1M+ context windows, and private tenant-isolated business memory.",
+    tags: ["Enterprise AI", "Agentic Vault", "Next.js"],
+    link: "https://synapse-prod.vercel.app",
+    isExternal: true,
+    image: "/work/synapse.webp",
+    blurDataURL: "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACwAQCdASoQAAgAAoBCJQAAUmvJYPAAAP78aW1UmShIsOKl4ewq3i2eELGughyLN7ui6AwWmORoCrvTB3n0tRbne3R+2yTmNHAAAA=="
   }
 ];
 
@@ -514,7 +514,7 @@ export default function Home() {
             Your Vision.<br/>Our Craft.
           </h2>
           <p className="text-[18px] text-slate-300 mb-14 relative z-10 font-sans font-light">
-            We take on 4 new projects per quarter. <strong className="text-white font-medium">2 spots open for Q3 2026.</strong>
+            We take on 4 new projects per quarter. <strong className="text-white font-medium">2 spots open for Q4 2026.</strong>
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10">
             <PillButton primary onClick={() => setIsModalOpen(true)}>

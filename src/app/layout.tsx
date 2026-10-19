@@ -51,6 +51,24 @@ export default function RootLayout({
             gtag('config', 'G-1NWS34VTXD');
           `}
         </Script>
+
+        {/* Suppress Vercel Toolbar & Feedback */}
+        <Script id="disable-vercel-toolbar" strategy="beforeInteractive">
+          {`
+            try {
+              window.localStorage.setItem('vercel-toolbar', 'hidden');
+              window.localStorage.setItem('__vercel_toolbar_hidden', 'true');
+            } catch (e) {}
+            if (typeof MutationObserver !== 'undefined') {
+              new MutationObserver(function() {
+                var els = document.querySelectorAll('vercel-live-feedback, vercel-toolbar, [data-vercel-toolbar]');
+                for (var i = 0; i < els.length; i++) {
+                  els[i].remove();
+                }
+              }).observe(document.documentElement, { childList: true, subtree: true });
+            }
+          `}
+        </Script>
       </head>
       <body className="font-sans antialiased bg-[#030305] text-slate-200 min-h-[100svh] selection:bg-[#8b5cf6]/40 selection:text-white overflow-x-hidden w-full max-w-[100vw]">
         {/* Skip to main content — WCAG 2.4.1 bypass block */}
