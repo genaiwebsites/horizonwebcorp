@@ -1,16 +1,16 @@
-# Graph Report - horizonwebcorp  (2026-06-22)
+# Graph Report - horizonwebcorp  (2026-10-19)
 
 ## Corpus Check
-- 39 files · ~1,283,566 words
+- 39 files · ~1,294,078 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 184 nodes · 245 edges · 21 communities (14 shown, 7 thin omitted)
+- 185 nodes · 246 edges · 21 communities (14 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2e8328f3`
+- Built from commit: `66a9730a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -58,16 +58,16 @@
 ## Communities (21 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.15
-Nodes (11): metadata, Footer(), MenuIcon(), XIcon(), Nav(), PillButton(), metadata, ARTICLE_CONTENT (+3 more)
+Cohesion: 0.16
+Nodes (10): metadata, Footer(), ArrowRight(), Nav(), PillButton(), metadata, ARTICLE_CONTENT, ARTICLE_SECTIONS (+2 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.11
-Nodes (17): dependencies, cobe, framer-motion, lucide-react, next, react, react-dom, react-globe.gl (+9 more)
+Cohesion: 0.20
+Nodes (10): dependencies, cobe, framer-motion, lucide-react, next, react, react-dom, react-globe.gl (+2 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.13
-Nodes (15): PROJECTS, AnimatedCounter(), AnimatedCounterProps, ContactModal(), ContactModalProps, SECTORS, ArrowRight(), ExternalLink() (+7 more)
+Cohesion: 0.12
+Nodes (16): PROJECTS, AnimatedCounter(), AnimatedCounterProps, ContactModal(), ContactModalProps, SECTORS, ExternalLink(), GlobeIcon() (+8 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.10
@@ -98,28 +98,28 @@ Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
 ### Community 19 - "Community 19"
-Cohesion: 0.20
-Nodes (10): devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node, @types/react, @types/react-dom (+2 more)
+Cohesion: 0.11
+Nodes (18): devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node, @types/react, @types/react-dom (+10 more)
 
 ## Knowledge Gaps
-- **95 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+90 more)
+- **96 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+91 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ArrowRight()` connect `Community 2` to `Community 0`, `Community 8`, `Community 5`?**
+- **Why does `dependencies` connect `Community 1` to `Community 19`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **Why does `devDependencies` connect `Community 19` to `Community 1`?**
+- **Why does `ArrowRight()` connect `Community 0` to `Community 8`, `Community 2`, `Community 5`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
 - **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
-  _95 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.14855072463768115 - nodes in this community are weakly interconnected._
-- **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.1111111111111111 - nodes in this community are weakly interconnected._
+  _96 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.12648221343873517 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.12 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
+- **Should `Community 4` be split into smaller, more focused modules?**
+  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
+- **Should `Community 19` be split into smaller, more focused modules?**
+  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._

@@ -45,7 +45,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "id": "package",
-      "community": 1,
+      "community": 19,
       "norm_label": "package.json"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "id": "package_name",
-      "community": 1,
+      "community": 19,
       "norm_label": "name"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "id": "package_version",
-      "community": 1,
+      "community": 19,
       "norm_label": "version"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "id": "package_private",
-      "community": 1,
+      "community": 19,
       "norm_label": "private"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "package.json",
       "source_location": "L5",
       "id": "package_scripts",
-      "community": 1,
+      "community": 19,
       "norm_label": "scripts"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "package.json",
       "source_location": "L6",
       "id": "package_scripts_dev",
-      "community": 1,
+      "community": 19,
       "norm_label": "dev"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "package.json",
       "source_location": "L7",
       "id": "package_scripts_build",
-      "community": 1,
+      "community": 19,
       "norm_label": "build"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "package.json",
       "source_location": "L8",
       "id": "package_scripts_start",
-      "community": 1,
+      "community": 19,
       "norm_label": "start"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "package.json",
       "source_location": "L9",
       "id": "package_scripts_lint",
-      "community": 1,
+      "community": 19,
       "norm_label": "lint"
     },
     {
@@ -130,10 +130,19 @@
       "norm_label": "dependencies"
     },
     {
-      "label": "cobe",
+      "label": "@vercel/analytics",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L12",
+      "id": "package_dependencies_vercel_analytics",
+      "community": 1,
+      "norm_label": "@vercel/analytics"
+    },
+    {
+      "label": "cobe",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
       "id": "package_dependencies_cobe",
       "community": 1,
       "norm_label": "cobe"
@@ -142,7 +151,7 @@
       "label": "framer-motion",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L13",
+      "source_location": "L14",
       "id": "package_dependencies_framer_motion",
       "community": 1,
       "norm_label": "framer-motion"
@@ -151,7 +160,7 @@
       "label": "lucide-react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L14",
+      "source_location": "L15",
       "id": "package_dependencies_lucide_react",
       "community": 1,
       "norm_label": "lucide-react"
@@ -160,7 +169,7 @@
       "label": "next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "package_dependencies_next",
       "community": 1,
       "norm_label": "next"
@@ -169,7 +178,7 @@
       "label": "react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "id": "package_dependencies_react",
       "community": 1,
       "norm_label": "react"
@@ -178,7 +187,7 @@
       "label": "react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "id": "package_dependencies_react_dom",
       "community": 1,
       "norm_label": "react-dom"
@@ -187,7 +196,7 @@
       "label": "react-globe.gl",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "id": "package_dependencies_react_globe_gl",
       "community": 1,
       "norm_label": "react-globe.gl"
@@ -196,7 +205,7 @@
       "label": "three",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "id": "package_dependencies_three",
       "community": 1,
       "norm_label": "three"
@@ -205,7 +214,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "id": "package_devdependencies",
       "community": 19,
       "norm_label": "devdependencies"
@@ -214,7 +223,7 @@
       "label": "@tailwindcss/postcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "id": "package_devdependencies_tailwindcss_postcss",
       "community": 19,
       "norm_label": "@tailwindcss/postcss"
@@ -223,7 +232,7 @@
       "label": "@types/node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "id": "package_devdependencies_types_node",
       "community": 19,
       "norm_label": "@types/node"
@@ -232,7 +241,7 @@
       "label": "@types/react",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "id": "package_devdependencies_types_react",
       "community": 19,
       "norm_label": "@types/react"
@@ -241,7 +250,7 @@
       "label": "@types/react-dom",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "id": "package_devdependencies_types_react_dom",
       "community": 19,
       "norm_label": "@types/react-dom"
@@ -250,7 +259,7 @@
       "label": "@types/three",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "id": "package_devdependencies_types_three",
       "community": 19,
       "norm_label": "@types/three"
@@ -259,7 +268,7 @@
       "label": "eslint",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "id": "package_devdependencies_eslint",
       "community": 19,
       "norm_label": "eslint"
@@ -268,7 +277,7 @@
       "label": "eslint-config-next",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "id": "package_devdependencies_eslint_config_next",
       "community": 19,
       "norm_label": "eslint-config-next"
@@ -277,7 +286,7 @@
       "label": "tailwindcss",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "id": "package_devdependencies_tailwindcss",
       "community": 19,
       "norm_label": "tailwindcss"
@@ -286,7 +295,7 @@
       "label": "typescript",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "id": "package_devdependencies_typescript",
       "community": 19,
       "norm_label": "typescript"
@@ -430,7 +439,7 @@
       "label": "inter",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L6",
+      "source_location": "L8",
       "id": "app_layout_inter",
       "community": 6,
       "norm_label": "inter"
@@ -439,7 +448,7 @@
       "label": "spaceGrotesk",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "id": "app_layout_spacegrotesk",
       "community": 6,
       "norm_label": "spacegrotesk"
@@ -448,7 +457,7 @@
       "label": "syne",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L8",
+      "source_location": "L10",
       "id": "app_layout_syne",
       "community": 6,
       "norm_label": "syne"
@@ -457,7 +466,7 @@
       "label": "jetBrainsMono",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L9",
+      "source_location": "L11",
       "id": "app_layout_jetbrainsmono",
       "community": 6,
       "norm_label": "jetbrainsmono"
@@ -466,7 +475,7 @@
       "label": "metadata",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L11",
+      "source_location": "L13",
       "id": "app_layout_metadata",
       "community": 6,
       "norm_label": "metadata"
@@ -475,7 +484,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L23",
+      "source_location": "L25",
       "id": "app_layout_rootlayout",
       "community": 6,
       "norm_label": "rootlayout()"
@@ -855,7 +864,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L3",
       "id": "components_icons_arrowright",
-      "community": 2,
+      "community": 0,
       "norm_label": "arrowright()"
     },
     {
@@ -900,7 +909,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L33",
       "id": "components_icons_menuicon",
-      "community": 0,
+      "community": 2,
       "norm_label": "menuicon()"
     },
     {
@@ -909,7 +918,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L39",
       "id": "components_icons_xicon",
-      "community": 0,
+      "community": 2,
       "norm_label": "xicon()"
     },
     {
@@ -945,7 +954,7 @@
       "source_file": "src/components/Nav.tsx",
       "source_location": "L1",
       "id": "components_nav",
-      "community": 0,
+      "community": 2,
       "norm_label": "nav.tsx"
     },
     {
@@ -1865,6 +1874,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_vercel_analytics",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
       "source_location": "L27",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -1967,9 +1986,9 @@
       "source_file": "src/app/api/contact/route.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "contact_route",
-      "target": "contact_route_post",
-      "confidence_score": 1.0
+      "target": "contact_route_post"
     },
     {
       "relation": "imports_from",
@@ -4213,5 +4232,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "2e8328f36047b4b3bc2156271c2d0f042c78807a"
+  "built_at_commit": "66a9730ac93f91be785c77d397e9189211dac0bd"
 }

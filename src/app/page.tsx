@@ -17,13 +17,13 @@ import { ContactModal } from '../components/ContactModal';
 
 const PROJECTS = [
   {
-    title: "Terranova Adventures",
-    description: "Immersive small-group travel platform with custom 3D terrain topography visualization and theme-switching map interfaces.",
-    tags: ["TravelTech", "WebGL Map", "Next.js"],
-    link: "https://terranova-iota.vercel.app/",
+    title: "The Swiss Waffle Co.",
+    description: "Layered dessert web experience crafted for Lucknow's late-night waffle brand, featuring interactive 3D WebGL waffle layers, real-time hours dial, and rich menu showcase.",
+    tags: ["FoodTech", "3D WebGL", "Next.js"],
+    link: "http://theswisswaffle.com/",
     isExternal: true,
-    image: "/work/terranova.png",
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="
+    image: "/work/the-swiss-waffle-co.webp",
+    blurDataURL: "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACQAQCdASoQAAgABUB8JbACdACCOhAA8geAm5I0moxxYIPoHPm0HKjZbeWZw161v4efH2zYlD8QT7AA"
   },
   {
     title: "Jeevan Rekha RBO",

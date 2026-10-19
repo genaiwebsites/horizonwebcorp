@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1780406667.8953943,
-    "ast_hash": "12174bd25b01f1e98de70deeca457c66",
+    "mtime": 1792420440.0237718,
+    "ast_hash": "fa9bb9e3f8b2ba1ec0d59ba3d89df427",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -30,13 +30,13 @@
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1780425592.2212524,
-    "ast_hash": "21b0cf93160212d7595d29aa1d04126c",
+    "mtime": 1782318764.7837002,
+    "ast_hash": "d58435c741d10a27bffa0859c56a3352",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1780550823.3981495,
-    "ast_hash": "8ab1e8e8606dab9c1dddc885b9fefbb6",
+    "mtime": 1792420886.599607,
+    "ast_hash": "e16eaca27e4121459bc9f6e8ad7a129d",
     "semantic_hash": ""
   },
   "src/app/privacy/page.tsx": {
@@ -95,8 +95,8 @@
     "semantic_hash": ""
   },
   "src/components/Hero.tsx": {
-    "mtime": 1782142519.8712137,
-    "ast_hash": "666d88626588489be4caa8a5393e92cb",
+    "mtime": 1782143487.6550083,
+    "ast_hash": "ee817718fb3dcd87bcbfaed030adc2d8",
     "semantic_hash": ""
   },
   "src/components/Icons.tsx": {
@@ -297,6 +297,11 @@
   "src/app/api/contact/route.ts": {
     "mtime": 1782142574.0352666,
     "ast_hash": "45a2deea00eabf36ed192af98479be34",
+    "semantic_hash": ""
+  },
+  "public/work/the-swiss-waffle-co.webp": {
+    "mtime": 1792413402.183299,
+    "ast_hash": "7283823447bf4f1db567b9c6404e620c",
     "semantic_hash": ""
   }
 }
