@@ -69,7 +69,7 @@ export const BlogContent: React.FC<BlogContentProps> = ({ post, sections, childr
     <>
       {/* Scroll Progress Bar */}
       <motion.div 
-        className="fixed top-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#8b5cf6] to-[#22d3ee] origin-left z-[9999]" 
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-white/40 to-white origin-left z-[9999]" 
         style={{ scaleX: scrollYProgress }} 
       />
 
@@ -79,7 +79,7 @@ export const BlogContent: React.FC<BlogContentProps> = ({ post, sections, childr
           <Link 
             href="/blogs" 
             className={`inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-widest transition-colors group ${
-              light ? 'text-indigo-600 hover:text-slate-900' : 'text-[#22d3ee] hover:text-white'
+              light ? 'text-slate-700 hover:text-black' : 'text-slate-300 hover:text-white'
             }`}
           >
             <ChevronLeft className="size-4 group-hover:-translate-x-0.5 transition-transform" /> Back to Blogs
@@ -89,7 +89,7 @@ export const BlogContent: React.FC<BlogContentProps> = ({ post, sections, childr
         {/* Header Stack */}
         <header className={`mb-12 border-b pb-8 ${light ? 'border-slate-200/60' : 'border-white/5'}`}>
           <span className={`px-3 py-1 border rounded-full font-mono text-[9px] uppercase tracking-widest backdrop-blur-md inline-block mb-6 shadow-sm ${
-            light ? 'bg-white/95 border-slate-200/60 text-indigo-600' : 'bg-white/5 border border-white/10 text-[#22d3ee]'
+            light ? 'bg-white/95 border-slate-200/60 text-slate-700 font-semibold' : 'bg-white/5 border border-white/10 text-slate-300'
           }`}>
             {post.category}
           </span>
@@ -102,7 +102,7 @@ export const BlogContent: React.FC<BlogContentProps> = ({ post, sections, childr
           <div className={`flex flex-wrap items-center gap-6 font-mono text-[10px] uppercase tracking-wider ${
             light ? 'text-slate-500' : 'text-slate-400'
           }`}>
-            <span className={light ? 'text-indigo-600 font-bold' : 'text-[#22d3ee] font-bold'}>By HWC Engineering Division</span>
+            <span className={light ? 'text-slate-800 font-bold' : 'text-slate-300 font-bold'}>By HWC Engineering Division</span>
             <span className="flex items-center gap-1.5">
               <Calendar className={`size-3.5 ${light ? 'text-slate-400' : 'text-slate-500'}`} />
               {post.date}
@@ -171,8 +171,8 @@ export const BlogContent: React.FC<BlogContentProps> = ({ post, sections, childr
                       className={`text-xs font-sans py-2 pl-4 -ml-[1px] border-l transition-all duration-300 ${
                         activeId === sec.id 
                           ? light
-                            ? 'text-indigo-600 border-indigo-600 font-medium bg-indigo-50/5'
-                            : 'text-[#22d3ee] border-[#22d3ee] font-medium bg-[#22d3ee]/5' 
+                            ? 'text-slate-900 border-slate-900 font-medium bg-slate-100/50'
+                            : 'text-white border-white font-medium bg-white/5' 
                           : light
                             ? 'text-slate-500 hover:text-slate-900 border-transparent hover:border-slate-200'
                             : 'text-slate-400 hover:text-white border-transparent hover:border-white/10'
@@ -198,7 +198,7 @@ export const BlogContent: React.FC<BlogContentProps> = ({ post, sections, childr
               </h3>
               <div className="flex items-center gap-3.5 mb-3">
                 <div className={`size-8 rounded-full flex items-center justify-center font-syne font-bold text-xs text-white ${
-                  light ? 'bg-gradient-to-br from-indigo-600 to-cyan-400' : 'bg-gradient-to-br from-[#8b5cf6] to-[#22d3ee]'
+                  light ? 'bg-slate-900 text-white' : 'bg-white/10 border border-white/20 text-white'
                 }`}>
                   HWC
                 </div>

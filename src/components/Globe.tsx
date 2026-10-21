@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState, useMemo } from 'react';
-import { MotionValue, motion, useTransform, useSpring } from 'framer-motion';
+import { MotionValue } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 
@@ -19,8 +19,6 @@ export const HolographicGlobe = ({ mouseX, mouseY }: GlobeProps) => {
 
   const [dimensions, setDimensions] = useState({ width: 500, height: 500 });
   const [hexData, setHexData] = useState<any[]>([]);
-
-
 
   // MeshBasicMaterial ignores all 3D lighting to create the flat, deep-void core
   const globeMaterial = useMemo(() => new THREE.MeshBasicMaterial({
@@ -197,14 +195,6 @@ export const HolographicGlobe = ({ mouseX, mouseY }: GlobeProps) => {
             hexPolygonMargin={0.5} // Distinct, clean dots
             hexPolygonAltitude={0.005} // Flush against the surface
             hexPolygonColor={() => '#3730a3'} // Indigo glowing dots
-
-            // Solid Cyan Markers (Disabled for cleaner look)
-            pointsData={[]}
-            pointLat={(d: any) => d.lat}
-            pointLng={(d: any) => d.lng}
-            pointColor={() => '#22d3ee'}
-            pointAltitude={0.015}
-            pointRadius={0.4}
 
             // Layered Holographic Fibre Optics
             arcsData={arcsData}

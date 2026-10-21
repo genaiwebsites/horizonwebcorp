@@ -50,12 +50,12 @@ export const Nav = ({ light = false }: { light?: boolean } = {}) => {
                 className={`relative text-xs font-mono font-medium uppercase tracking-[0.1em] group interactive-hover focus-visible:outline-none focus-visible:ring-2 rounded px-1 transition-colors ${
                   light 
                     ? 'text-slate-600 hover:text-slate-900 focus-visible:text-slate-900 focus-visible:ring-slate-900/50' 
-                    : 'text-slate-400 hover:text-white focus-visible:text-white focus-visible:ring-[#22d3ee]/50'
+                    : 'text-slate-400 hover:text-white focus-visible:text-white focus-visible:ring-white/40'
                 }`}
               >
                 {item.name}
                 <span className={`absolute -bottom-1.5 left-0 w-0 h-[1px] transition-all duration-300 group-hover:w-full ${
-                  light ? 'bg-slate-900' : 'bg-[#22d3ee]'
+                  light ? 'bg-slate-900' : 'bg-white'
                 }`} />
               </Link>
             ))}
@@ -67,7 +67,7 @@ export const Nav = ({ light = false }: { light?: boolean } = {}) => {
               className={`px-6 py-2.5 rounded border font-mono font-medium text-xs uppercase tracking-widest transition-all interactive-hover focus-visible:outline-none focus-visible:ring-2 ${
                 light 
                   ? 'border-slate-200 text-slate-700 hover:bg-slate-900 hover:text-white hover:border-slate-900 focus-visible:ring-slate-900' 
-                  : 'border-white/10 text-white hover:bg-white hover:text-black focus-visible:ring-[#22d3ee]'
+                  : 'border-white/10 text-white hover:bg-white hover:text-black focus-visible:ring-white/40'
               }`}
             >
               Start a Project
@@ -78,7 +78,7 @@ export const Nav = ({ light = false }: { light?: boolean } = {}) => {
             className={`md:hidden p-2 focus-visible:outline-none focus-visible:ring-2 rounded transition-colors ${
               light 
                 ? 'text-slate-800 focus-visible:ring-slate-800' 
-                : 'text-white focus-visible:ring-[#22d3ee]'
+                : 'text-white focus-visible:ring-white/40'
             }`} 
             onClick={() => setIsOpen(!isOpen)} 
             aria-label="Toggle Menu"
@@ -109,7 +109,7 @@ export const Nav = ({ light = false }: { light?: boolean } = {}) => {
                 className={`text-2xl font-syne font-semibold pb-4 focus-visible:outline-none focus-visible:ring-2 rounded px-1 ${
                   light 
                     ? 'text-slate-900 border-b border-slate-100 focus-visible:ring-slate-900/50' 
-                    : 'text-white border-b border-white/5 focus-visible:ring-[#22d3ee]/50'
+                    : 'text-white border-b border-white/5 focus-visible:ring-white/40'
                 }`}
               >
                 {item.name}
@@ -121,7 +121,7 @@ export const Nav = ({ light = false }: { light?: boolean } = {}) => {
               className={`mt-8 px-6 py-4 rounded font-sans font-bold text-lg text-center w-full block focus-visible:outline-none focus-visible:ring-2 transition-all ${
                 light 
                   ? 'bg-slate-900 text-white shadow-lg shadow-slate-900/5 focus-visible:ring-slate-900' 
-                  : 'bg-white text-black shadow-lg shadow-white/10 focus-visible:ring-[#22d3ee]'
+                  : 'bg-white text-black shadow-lg shadow-white/10 focus-visible:ring-white/40'
               }`}
             >
               Start a Project

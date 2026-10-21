@@ -8,7 +8,24 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  /* Let Lenis handle butter-smooth programmatic scroll */
+  scroll-behavior: auto;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: clip;
 }
 
 body {
@@ -82,6 +99,26 @@ body {
   50% { background-position: 100% 50%; } 
 }
 
+@keyframes preloader-fill {
+  0% { width: 16%; }
+  35% { width: 58%; }
+  70% { width: 88%; }
+  100% { width: 100%; }
+}
+
+@keyframes preloader-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(250%); }
+}
+
+.animate-preloader-fill {
+  animation: preloader-fill 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-preloader-shimmer {
+  animation: preloader-shimmer 0.9s ease-in-out infinite;
+}
+
 /* Base utility for interactive hover that was used in the app */
 .interactive-hover {
   cursor: pointer;
@@ -134,10 +171,10 @@ body {
   border-radius: 0.25rem;
   font-family: var(--font-mono), monospace;
   font-size: 0.875em;
-  color: #22d3ee !important;
+  color: #e2e8f0 !important;
 }
 .prose-dark blockquote {
-  border-left: 2px solid #8b5cf6 !important;
+  border-left: 2px solid rgba(255, 255, 255, 0.3) !important;
   background-color: rgba(255, 255, 255, 0.02) !important;
   color: #e2e8f0 !important;
   padding: 1.25rem 1.5rem;
@@ -190,10 +227,10 @@ body {
   border-radius: 0.25rem;
   font-family: var(--font-mono), monospace;
   font-size: 0.875em;
-  color: #4f46e5 !important;
+  color: #0f172a !important;
 }
 .prose-light blockquote {
-  border-left: 2px solid #6366f1 !important;
+  border-left: 2px solid #0f172a !important;
   background-color: #f8fafc !important;
   color: #334155 !important;
   padding: 1.25rem 1.5rem;

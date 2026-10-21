@@ -10,12 +10,12 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
       <div className="max-w-7xl mx-auto">
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className={`font-mono text-[11px] uppercase tracking-[0.1em] text-center md:text-left transition-colors duration-300 ${
-            light ? 'text-slate-400' : 'text-slate-500'
+          <p className={`font-mono text-xs uppercase tracking-[0.1em] text-center md:text-left transition-colors duration-300 ${
+            light ? 'text-slate-500' : 'text-slate-400'
           }`}>© 2026 Horizon Web Corp. <span className="whitespace-nowrap">All rights reserved.</span></p>
           <div className="flex items-center gap-6">
-            <ul className={`flex flex-nowrap justify-center gap-4 sm:gap-6 md:gap-8 font-mono text-[11px] uppercase tracking-[0.1em] transition-colors duration-300 ${
-              light ? 'text-slate-400' : 'text-slate-500'
+            <ul className={`flex flex-nowrap justify-center gap-4 sm:gap-6 md:gap-8 font-mono text-xs uppercase tracking-[0.1em] transition-colors duration-300 ${
+              light ? 'text-slate-500' : 'text-slate-400'
             }`}>
                 <li>
                   <Link 
@@ -23,7 +23,7 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
                     className={`focus-visible:outline-none focus-visible:ring-2 rounded px-1 transition-colors interactive-hover ${
                       light 
                         ? 'hover:text-slate-900 focus-visible:text-slate-900 focus-visible:ring-slate-900/50' 
-                        : 'hover:text-white focus-visible:text-white focus-visible:ring-[#22d3ee]/50'
+                        : 'hover:text-white focus-visible:text-white focus-visible:ring-white/40'
                     }`}
                   >
                     Privacy
@@ -35,7 +35,7 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
                     className={`focus-visible:outline-none focus-visible:ring-2 rounded px-1 transition-colors interactive-hover ${
                       light 
                         ? 'hover:text-slate-900 focus-visible:text-slate-900 focus-visible:ring-slate-900/50' 
-                        : 'hover:text-white focus-visible:text-white focus-visible:ring-[#22d3ee]/50'
+                        : 'hover:text-white focus-visible:text-white focus-visible:ring-white/40'
                     }`}
                   >
                     Terms
@@ -59,7 +59,7 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
                     className={`focus-visible:outline-none focus-visible:ring-2 rounded px-1 transition-colors interactive-hover ${
                       light 
                         ? 'hover:text-slate-900 focus-visible:text-slate-900 focus-visible:ring-slate-900/50' 
-                        : 'hover:text-white focus-visible:text-white focus-visible:ring-[#22d3ee]/50'
+                        : 'hover:text-white focus-visible:text-white focus-visible:ring-white/40'
                     }`}
                   >
                     Instagram
@@ -73,7 +73,7 @@ export const Footer = ({ light = false }: { light?: boolean } = {}) => {
                     className={`focus-visible:outline-none focus-visible:ring-2 rounded px-1 transition-colors interactive-hover ${
                       light 
                         ? 'hover:text-slate-900 focus-visible:text-slate-900 focus-visible:ring-slate-900/50' 
-                        : 'hover:text-white focus-visible:text-white focus-visible:ring-[#22d3ee]/50'
+                        : 'hover:text-white focus-visible:text-white focus-visible:ring-white/40'
                     }`}
                   >
                     LinkedIn

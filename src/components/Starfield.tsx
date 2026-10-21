@@ -8,6 +8,7 @@ interface Star {
   baseAlpha: number;
   speed: number;
   phase: number;
+  color: string;
 }
 
 export const Starfield = () => {
@@ -22,7 +23,7 @@ export const Starfield = () => {
 
     let animationFrameId: number;
     let stars: Star[] = [];
-    const starCount = 120; // Balanced density of stars
+    const starCount = 140; // Subtle, dispersed celestial stardust
 
     function resize() {
       if (!canvas) return;
@@ -34,14 +35,24 @@ export const Starfield = () => {
     function generateStars() {
       if (!canvas) return;
       stars = [];
+      const palettes = [
+        '226, 232, 240', // Muted cosmic silver
+        '226, 232, 240',
+        '186, 215, 248', // Soft cyan stardust
+        '216, 205, 248', // Subtle lavender stardust
+      ];
+
       for (let i = 0; i < starCount; i++) {
+        const color = palettes[Math.floor(Math.random() * palettes.length)];
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 1.5 + 0.4, // Subtle, sharp star sizes
-          baseAlpha: Math.random() * 0.6 + 0.3,
-          speed: Math.random() * 0.002 + 0.001, // Twinkle speed multiplier
+          // Micro-fine subpixel pinpoints: 0.35px to 0.85px (no oversized dots)
+          size: Math.random() < 0.8 ? Math.random() * 0.3 + 0.35 : Math.random() * 0.3 + 0.55,
+          baseAlpha: Math.random() * 0.22 + 0.12, // Deep cosmic subtlety
+          speed: Math.random() * 0.0006 + 0.0002, // Ultra-slow organic breathing
           phase: Math.random() * Math.PI * 2,
+          color,
         });
       }
     }
@@ -49,21 +60,27 @@ export const Starfield = () => {
     resize();
     window.addEventListener('resize', resize);
 
+    let isVisible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      isVisible = entry.isIntersecting;
+    }, { threshold: 0.05 });
+    if (canvas) observer.observe(canvas);
+
     function render(time: number) {
       if (!ctx || !canvas) return;
 
-      // Clear the canvas to allow layered elements underneath to shine through
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      if (isVisible) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Draw all stars using a single canvas draw cycle
-      stars.forEach((star) => {
-        const alpha = star.baseAlpha * (0.3 + 0.7 * Math.sin(time * star.speed + star.phase));
-        
-        ctx.fillStyle = `rgba(255, 255, 255, ${Math.max(0, Math.min(alpha, 1))})`;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-      });
+        stars.forEach((star) => {
+          const alpha = star.baseAlpha * (0.5 + 0.5 * Math.sin(time * star.speed + star.phase));
+          
+          ctx.fillStyle = `rgba(${star.color}, ${Math.max(0, Math.min(alpha, 1))})`;
+          ctx.beginPath();
+          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.fill();
+        });
+      }
 
       animationFrameId = requestAnimationFrame(render);
     }
@@ -71,6 +88,7 @@ export const Starfield = () => {
     animationFrameId = requestAnimationFrame(render);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
     };
@@ -79,7 +97,7 @@ export const Starfield = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-80 z-0"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-45 z-0"
       style={{ mixBlendMode: 'screen', transform: 'translateZ(0)' }}
     />
   );

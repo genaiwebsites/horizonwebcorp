@@ -11,8 +11,11 @@ import { PillButton } from '../components/PillButton';
 import { TrailDivider } from '../components/TrailDivider';
 import { Footer } from '../components/Footer';
 import { TechMarquee } from '../components/TechMarquee';
-import { AnimatedCounter } from '../components/AnimatedCounter';
 import { ContactModal } from '../components/ContactModal';
+import { Preloader } from '../components/Preloader';
+import { DesignSystemSpecimen } from '../components/specimens/DesignSystemSpecimen';
+import { WebGLSpecimen } from '../components/specimens/WebGLSpecimen';
+import { PerformanceSpecimen } from '../components/specimens/PerformanceSpecimen';
 
 
 const PROJECTS = [
@@ -74,182 +77,107 @@ const PROJECTS = [
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isReady, setIsReady] = useState(false);
 
   return (
     <>
+      <Preloader onComplete={() => setIsReady(true)} />
       <WebGLBackground />
       <Nav />
-      <Hero />
+      <Hero isReady={isReady} />
 
-      {/* --- METRICS GLASS PANEL (Counter Section) --- */}
-      <section className="py-12 md:py-16 relative z-10 max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 bg-[#06060c]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6 md:p-8 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+      {/* --- STUDIO ARCHITECTURAL STANDARDS --- */}
+      <section className="py-10 md:py-14 relative z-10 max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 bg-[#06060c]/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6 md:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
           {[
-            { value: 42, prefix: '', suffix: '+', label: 'Immersive Deploys', sub: 'Digital experiences shipped globally' },
-            { value: 100, prefix: '', suffix: '%', label: 'Performance Score', sub: 'Lighthouse Core Web Vitals index' },
-            { value: 3.5, prefix: '', suffix: 'x', label: 'Average Visitor Lift', sub: 'Audited increase in user attention', decimals: 1 },
-            { value: 98, prefix: '', suffix: '%', label: 'Partner Retention', sub: 'Sustained engineering collaborations' }
-          ].map((metric, i) => (
+            {
+              value: "< 0.8s",
+              label: "Paint SLA",
+              note: "Edge SSR for instant initial load."
+            },
+            {
+              value: "100 / 100",
+              label: "Core Web Vitals",
+              note: "Audited green across all viewports."
+            },
+            {
+              value: "Handcrafted",
+              label: "Zero Builders",
+              note: "Bespoke code without template bloat."
+            },
+            {
+              value: "Direct",
+              label: "Senior Engineering",
+              note: "Founder-led delivery from day one."
+            }
+          ].map((item, i) => (
             <div key={i} className="flex flex-col text-left group relative">
-              {/* Sleek vertical separator lines */}
-              {i > 0 && <div className="hidden md:block absolute left-[-12px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-white/0 via-white/5 to-white/0" />}
+              {i > 0 && <div className="hidden lg:block absolute left-[-12px] top-2 bottom-2 w-[1px] bg-gradient-to-b from-white/0 via-white/5 to-white/0" />}
               
-              <div className="text-3xl md:text-4xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/70 tracking-tight leading-none group-hover:text-[#22d3ee] transition-colors duration-300 mb-2">
-                <AnimatedCounter value={metric.value} prefix={metric.prefix} suffix={metric.suffix} decimals={metric.decimals || 0} />
+              <div className="text-2xl md:text-3xl font-mono font-bold text-transparent bg-clip-text bg-gradient-to-br from-white to-white/80 tracking-tight leading-none group-hover:text-white transition-colors duration-300 mb-2">
+                {item.value}
               </div>
-              <div className="text-[10px] font-mono uppercase tracking-[0.15em] text-slate-400 group-hover:text-white transition-colors duration-500 mb-1">{metric.label}</div>
-              <div className="text-[9px] text-slate-500 font-sans font-light leading-relaxed">{metric.sub}</div>
+              <div className="text-xs font-mono uppercase tracking-[0.14em] text-slate-300 group-hover:text-white transition-colors duration-300 mb-1 font-semibold">
+                {item.label}
+              </div>
+              <div className="text-xs text-slate-400 font-sans font-light leading-relaxed">
+                {item.note}
+              </div>
             </div>
           ))}
         </div>
       </section>
-
 
       <TrailDivider />
 
       {/* --- MODERN BENTO GRID UI (SERVICES) --- */}
       <section id="services" className="py-20 md:py-32 relative z-10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 md:mb-20 text-center flex flex-col items-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-5">
-              Capabilities built <br className="hidden md:block"/>
-              <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">for Scale.</em>
+          <div className="mb-16 md:mb-20 text-center flex flex-col items-center max-w-3xl mx-auto px-6">
+            <span className="font-mono text-xs text-slate-400 uppercase tracking-[0.25em] mb-4 font-semibold">
+              01 / CAPABILITIES
+            </span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+              Core Capabilities <br className="hidden md:block"/>
+              <span className="text-slate-400 font-light">Built For High Scale.</span>
             </h2>
-            <p className="text-slate-300 max-w-xl text-[17px] leading-relaxed font-light">
-              Each service is crafted with obsessive attention to performance, aesthetics, and the business outcomes that matter.
+            <p className="text-slate-300 font-sans max-w-xl mx-auto text-[17px] leading-relaxed font-light">
+              Bespoke digital storefronts, design systems, and WebGL architectures engineered to elevate brand authority.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             <BentoCard className="border border-white/10" bgClass="bg-[#07070c]/30 backdrop-blur-xl" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-[#22d3ee]/40 group-hover:bg-[#22d3ee]/10 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.2)] transition-all duration-500">
-                <GlobeIcon className="w-6 h-6 text-white group-hover:text-[#22d3ee] group-hover:rotate-[30deg] group-hover:scale-105 transition-all duration-500" />
+              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-white/30 group-hover:bg-white/10 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.08)] transition-all duration-500">
+                <GlobeIcon className="w-6 h-6 text-slate-300 group-hover:text-white group-hover:rotate-[20deg] group-hover:scale-105 transition-all duration-500" />
               </div>
-              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#22d3ee] transition-colors">UI/UX Architecture</h3>
-              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Interface systems designed with motion-first principles. We engineer custom web systems in React and obsess over every transition curve.</p>
+              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-slate-100 transition-colors">Bespoke UI/UX & Design Systems</h3>
+              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">High-conversion digital storefronts and design tokens. We architect custom typography scales, accessible color palettes, and editorial bento layouts tailored to your brand.</p>
               
-              {/* Micro-interaction UI mockup */}
-              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.01] backdrop-blur-[2px] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#22d3ee]/20 group-hover:bg-[#22d3ee]/5 group-hover:shadow-[0_0_15px_rgba(34,211,238,0.05)] transition-all duration-500">
-                <div className="flex justify-between items-center mb-2">
-                  <span>TRANSITION FLOW</span>
-                  <span className="text-[#22d3ee] font-medium tracking-wider">active</span>
-                </div>
-                <div className="flex items-center justify-center flex-grow py-1">
-                  <svg className="w-full h-10 overflow-visible" viewBox="0 0 100 40">
-                    <line x1="0" y1="20" x2="100" y2="20" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                    <line x1="50" y1="0" x2="50" y2="40" stroke="rgba(255,255,255,0.03)" strokeWidth="1" />
-                    <path d="M 0,35 C 30,35 40,5 100,5" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1.5" />
-                    <motion.path 
-                      d="M 0,35 C 30,35 40,5 100,5" 
-                      fill="none" 
-                      stroke="url(#uxGradient)" 
-                      strokeWidth="2"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 2.2, repeat: Infinity, ease: "easeInOut" }}
-                      className="drop-shadow-[0_0_8px_rgba(34,211,238,0.5)]"
-                    />
-                    <defs>
-                      <linearGradient id="uxGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#8b5cf6" />
-                        <stop offset="100%" stopColor="#22d3ee" />
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-                <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
-                  <span>ease-out-expo</span>
-                  <span>300ms</span>
-                </div>
-              </div>
+              <DesignSystemSpecimen />
             </BentoCard>
 
             <BentoCard className="border border-white/10" bgClass="bg-[#07070c]/30 backdrop-blur-xl" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-[#8b5cf6]/40 group-hover:bg-[#8b5cf6]/10 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.2)] transition-all duration-500">
-                <Layers className="w-6 h-6 text-white group-hover:text-[#8b5cf6] group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500" />
+              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-white/30 group-hover:bg-white/10 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.08)] transition-all duration-500">
+                <Layers className="w-6 h-6 text-slate-300 group-hover:text-white group-hover:-translate-y-1 group-hover:scale-105 transition-all duration-500" />
               </div>
-              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#8b5cf6] transition-colors">WebGL & 3D Experiences</h3>
-              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Three.js powered immersive environments that turn your brand into an interactive world. Particle systems, shaders, and physics.</p>
+              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-slate-100 transition-colors">Interactive 3D & WebGL</h3>
+              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Purposeful Three.js product visualizers, interactive layer depth, and fluid scroll physics that elevate your brand story without compromising initial page load speed.</p>
               
-              {/* Micro-interaction UI mockup */}
-              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.01] backdrop-blur-[2px] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#8b5cf6]/20 group-hover:bg-[#8b5cf6]/5 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.05)] transition-all duration-500">
-                <div className="flex justify-between items-center mb-2">
-                  <span>3D SHADER CORE</span>
-                  <span className="text-[#8b5cf6] font-medium tracking-wider">WebGL 2.0</span>
-                </div>
-                <div className="h-10 w-full flex items-center justify-between px-2 relative">
-                  {[...Array(12)].map((_, idx) => (
-                    <motion.div
-                      key={idx}
-                      className="w-1.5 h-1.5 rounded-full bg-[#8b5cf6] shadow-[0_0_6px_#8b5cf6]"
-                      animate={{ 
-                        y: ["0px", "-14px", "0px"],
-                        scale: [0.8, 1.3, 0.8],
-                        opacity: [0.4, 1, 0.4]
-                      }}
-                      transition={{ 
-                        duration: 1.6, 
-                        repeat: Infinity, 
-                        ease: "easeInOut",
-                        delay: idx * 0.12
-                      }}
-                    />
-                  ))}
-                </div>
-                <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
-                  <span>vertex-array-buffer</span>
-                  <span>60fps</span>
-                </div>
-              </div>
+              <WebGLSpecimen />
             </BentoCard>
 
             <BentoCard className="border border-white/10" bgClass="bg-[#07070c]/30 backdrop-blur-xl" hoverEffect>
-              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-[#10b981]/40 group-hover:bg-[#10b981]/10 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.2)] transition-all duration-500">
-                <Zap className="w-6 h-6 text-white group-hover:text-[#10b981] group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
+              <div className="w-[52px] h-[52px] rounded-xl border border-white/10 bg-white/5 flex items-center justify-center mb-7 backdrop-blur-sm group-hover:border-white/30 group-hover:bg-white/10 group-hover:shadow-[0_0_15px_rgba(255,255,255,0.08)] transition-all duration-500">
+                <Zap className="w-6 h-6 text-slate-300 group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500" />
               </div>
-              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-[#10b981] transition-colors">Performance Engineering</h3>
-              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Sub-second load times and 100/100 Lighthouse scores aren't aspirational here — they're the baseline. Edge delivery and ISR.</p>
+              <h3 className="text-[22px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-slate-100 transition-colors">Performance Engineering</h3>
+              <p className="text-slate-300 text-[15px] leading-relaxed font-sans font-light mb-8">Sub-second load times and 100/100 Core Web Vitals are built directly into our code. Full-stack Next.js App Router, edge CDN routing, and clean semantic markup.</p>
               
-              {/* Micro-interaction UI mockup */}
-              <div className="mt-auto h-[112px] flex flex-col justify-between p-4 rounded-xl bg-white/[0.01] backdrop-blur-[2px] border border-white/5 font-mono text-[10px] text-slate-400 overflow-hidden relative group-hover:border-[#10b981]/20 group-hover:bg-[#10b981]/5 group-hover:shadow-[0_0_15px_rgba(16,185,129,0.05)] transition-all duration-500">
-                <div className="flex justify-between items-center mb-2">
-                  <span>LIGHTHOUSE INDEX</span>
-                  <span className="text-[#10b981] font-bold">100/100</span>
-                </div>
-                <div className="flex items-center gap-4 flex-grow py-1">
-                  <div className="relative size-10 flex items-center justify-center shrink-0">
-                    <svg className="size-10 -rotate-90 overflow-visible" viewBox="0 0 36 36">
-                      <circle cx="18" cy="18" r="16" fill="none" stroke="rgba(255,255,255,0.03)" strokeWidth="2.5" />
-                      <motion.circle 
-                        cx="18" 
-                        cy="18" 
-                        r="16" 
-                        fill="none" 
-                        stroke="#10b981" 
-                        strokeWidth="2.5" 
-                        strokeDasharray="100, 100"
-                        animate={{ strokeDashoffset: [100, 0] }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
-                        className="drop-shadow-[0_0_6px_rgba(16,185,129,0.5)]"
-                      />
-                    </svg>
-                    <span className="absolute text-[10px] font-mono font-bold text-[#10b981]">100</span>
-                  </div>
-                  <div className="flex flex-col gap-0.5 justify-center">
-                    <span className="font-mono text-[8px] text-slate-500 uppercase tracking-wider">ENGINE SPEED</span>
-                    <div className="flex flex-wrap gap-x-2 gap-y-0.5">
-                      <span className="flex items-center gap-1 text-[9px] text-slate-300 font-mono"><span className="size-1 bg-[#10b981] rounded-full animate-pulse" /> FID: 0ms</span>
-                      <span className="flex items-center gap-1 text-[9px] text-slate-300 font-mono"><span className="size-1 bg-[#10b981] rounded-full" /> CLS: 0.0</span>
-                    </div>
-                  </div>
-                </div>
-                <div className="flex justify-between items-center mt-2 text-[9px] text-slate-500">
-                  <span>TTI: 0.18s</span>
-                  <span>FID: 0ms</span>
-                </div>
-              </div>
+              <PerformanceSpecimen />
             </BentoCard>
-          </div>        </div>
+          </div>
+        </div>
       </section>
 
       <TrailDivider />
@@ -257,38 +185,44 @@ export default function Home() {
       {/* --- PROCESS TIMELINE --- */}
       <section id="process" className="py-20 md:py-32 relative z-10 scroll-mt-20">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="text-center mb-24 flex flex-col items-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-5">
-              Our <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Process</em> <br/> Is The Product.
+          <div className="mb-16 md:mb-20 text-center flex flex-col items-center max-w-3xl mx-auto px-6">
+            <span className="font-mono text-xs text-slate-400 uppercase tracking-[0.25em] mb-4 font-semibold">
+              02 / METHODOLOGY
+            </span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+              Our Process <br className="hidden md:block" />
+              <span className="text-slate-400 font-light">Is The Product.</span>
             </h2>
-            <p className="text-slate-300 font-sans max-w-xl mx-auto text-[17px] font-light">Four deliberate phases that eliminate guesswork and compound quality at every step.</p>
+            <p className="text-slate-300 font-sans max-w-xl mx-auto text-[17px] leading-relaxed font-light">
+              Four deliberate phases that eliminate guesswork, enforce strict engineering benchmarks, and compound quality.
+            </p>
           </div>
           
           <div className="relative ml-6 md:ml-0 md:pl-16 space-y-20">
             {[
               { 
                 num: "01", 
-                title: "Discovery & Spatial Architecture", 
-                desc: "We define your technical and creative goals, mapping out an elite user journey, precise layout grids, and Three.js/WebGL scene architecture to establish a solid performance baseline.", 
-                tags: ["Spatial Mapping", "Design Tokens"] 
+                title: "Discovery & Strategic Alignment", 
+                desc: "We define your core business objectives, target audience psychology, and technical scope to map out an airtight user journey and content hierarchy before touching code.", 
+                tags: ["Positioning", "Information Architecture", "User Journeys"] 
               },
               { 
                 num: "02", 
-                title: "Interactive Prototyping", 
-                desc: "We build fluid, motion-first interactive prototypes directly in code. You experience the exact physics of scroll triggers, custom cursor dynamics, and WebGL particle systems in real-time.", 
-                tags: ["Interactive Shaders", "Physics Easing"] 
+                title: "Art Direction & Interactive Design", 
+                desc: "We build bespoke visual systems, typography hierarchies, and code prototypes. You test and experience the real motion physics, responsive layout, and page dynamics in real time.", 
+                tags: ["Bespoke UI Systems", "Typography", "Motion Physics"] 
               },
               { 
                 num: "03", 
-                title: "Precision Engineering", 
-                desc: "We engineer clean, semantic React/Next.js architectures, ensuring sub-second page loads, WCAG AA accessibility, and perfect rendering pipeline isolation for 100/100 Lighthouse scores.", 
-                tags: ["Next.js Architecture", "WCAG AA Compliance", "TypeScript"] 
+                title: "Production-Grade Engineering", 
+                desc: "We engineer clean, semantic Next.js and TypeScript architectures, ensuring sub-second page loads, WCAG AA accessibility, and perfect rendering pipeline isolation.", 
+                tags: ["Next.js App Router", "TypeScript", "WCAG AA Compliance"] 
               },
               { 
                 num: "04", 
-                title: "Optimization & Deployment", 
-                desc: "We implement edge network delivery and continuous post-launch performance audits. We fine-tune rendering pipelines and asset delivery to guarantee elite visitor engagement and uptime.", 
-                tags: ["Edge CDN", "Performance SLA"] 
+                title: "Launch & Performance Verification", 
+                desc: "We run comprehensive Core Web Vitals audits, configure Google Search Console and analytics tracking, and deploy across global edge CDN networks for an impactful launch.", 
+                tags: ["Edge CDN", "Search Console", "Zero Downtime"] 
               }
             ].map((step, i) => (
               <motion.div 
@@ -300,30 +234,30 @@ export default function Home() {
               >
                 {/* Outgoing timeline line segment to next step */}
                 {i < 3 && (
-                  <div className="absolute left-[0px] md:left-[-32px] top-[12px] bottom-[-92px] w-[1px] bg-gradient-to-b from-[#7c3aed]/40 to-[#06b6d4]/40 group-hover:from-[#a78bfa] group-hover:to-[#22d3ee] transition-all duration-500 z-0" />
+                  <div className="absolute left-[0px] md:left-[-32px] top-[12px] bottom-[-92px] w-[1px] bg-gradient-to-b from-white/10 to-white/5 group-hover:from-white/30 group-hover:to-white/10 transition-all duration-500 z-0" />
                 )}
 
                 {/* Dot marker */}
-                <div className="absolute w-6 h-6 rounded-full bg-[#030305] border border-white/20 -left-[12px] md:-left-[44px] top-0 flex items-center justify-center group-hover:border-[#22d3ee]/60 group-hover:shadow-[0_0_12px_rgba(34,211,238,0.2)] transition-all duration-500 z-10">
-                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-[#22d3ee] group-hover:scale-125 transition-all duration-500" />
+                <div className="absolute w-6 h-6 rounded-full bg-[#030305] border border-white/20 -left-[12px] md:-left-[44px] top-0 flex items-center justify-center group-hover:border-white/50 group-hover:shadow-[0_0_12px_rgba(255,255,255,0.15)] transition-all duration-500 z-10">
+                  <div className="w-2 h-2 rounded-full bg-white/40 group-hover:bg-white group-hover:scale-125 transition-all duration-500" />
                 </div>
                 
                 {/* Content wrapper with translate animation */}
                 <div className="transform-gpu transition-all duration-500 group-hover:translate-x-2">
-                  <div className="font-mono text-[11px] text-[#22d3ee]/70 tracking-[0.2em] mb-3 uppercase group-hover:text-[#22d3ee] transition-colors duration-300">
+                  <div className="font-mono text-xs text-slate-400 tracking-[0.2em] mb-3 uppercase font-semibold group-hover:text-white transition-colors duration-300">
                     Phase {step.num}
                   </div>
-                  <h3 className="text-[28px] font-syne font-bold text-white mb-4 tracking-[-0.02em] group-hover:text-white transition-colors duration-300">
+                  <h3 className="text-[26px] md:text-[28px] font-syne font-bold text-white mb-3 tracking-[-0.02em] group-hover:text-slate-200 transition-colors duration-300">
                     {step.title}
                   </h3>
-                  <p className="text-slate-400 font-sans text-[15px] leading-[1.7] max-w-[600px] mb-6 font-light group-hover:text-slate-300 transition-colors duration-300">
+                  <p className="text-slate-300 font-sans text-base leading-[1.7] max-w-[620px] mb-5 font-light">
                     {step.desc}
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {step.tags.map(tag => (
                       <span 
                         key={tag} 
-                        className="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-[10px] text-slate-400 uppercase tracking-[0.15em] group-hover:bg-white/10 group-hover:text-white group-hover:border-white/20 transition-all duration-300"
+                        className="px-3 py-1 bg-white/5 border border-white/10 rounded font-mono text-xs text-slate-300 uppercase tracking-[0.12em] group-hover:bg-white/10 group-hover:text-white group-hover:border-white/20 transition-all duration-300 font-medium"
                       >
                         {tag}
                       </span>
@@ -341,11 +275,17 @@ export default function Home() {
       {/* --- WORK SECTION (NEW PORTFOLIO) --- */}
       <section id="work" className="py-20 md:py-32 relative z-10 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-16 md:mb-20 text-center flex flex-col items-center">
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white mb-5">
-              Featured <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Odysseys.</em>
+          <div className="mb-16 md:mb-20 text-center flex flex-col items-center max-w-3xl mx-auto px-6">
+            <span className="font-mono text-xs text-slate-400 uppercase tracking-[0.25em] mb-4 font-semibold">
+              03 / PORTFOLIO
+            </span>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+              Selected Deployments <br className="hidden md:block" />
+              <span className="text-slate-400 font-light">Shipped To Scale.</span>
             </h2>
-            <p className="text-slate-300 max-w-xl mx-auto text-[17px] font-light">A curated selection of our most complex engineering feats.</p>
+            <p className="text-slate-300 font-sans max-w-xl mx-auto text-[17px] leading-relaxed font-light">
+              Bespoke digital platforms, interactive web experiences, and hardened UI systems engineered for production.
+            </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -383,15 +323,15 @@ export default function Home() {
                   <div>
                     <div className="flex flex-wrap gap-1.5 mb-3">
                       {project.tags.map(tag => (
-                        <span key={tag} className="px-2.5 py-0.5 bg-white/5 border border-white/10 rounded-full font-mono text-[9px] text-slate-300 uppercase tracking-widest backdrop-blur-md">
+                        <span key={tag} className="px-2.5 py-1 bg-white/5 border border-white/10 rounded-full font-mono text-xs text-slate-200 uppercase tracking-wider backdrop-blur-md font-medium">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-xl font-syne font-bold text-white mb-2 group-hover:text-[#22d3ee] transition-colors duration-300">
+                    <h3 className="text-xl font-syne font-bold text-white mb-2 group-hover:text-slate-200 transition-colors duration-300">
                       {project.title}
                     </h3>
-                    <p className="text-slate-400 font-sans font-light text-xs sm:text-sm line-clamp-2">
+                    <p className="text-slate-300 font-sans font-light text-sm line-clamp-2 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -402,14 +342,14 @@ export default function Home() {
                         href={project.link} 
                         target="_blank" 
                         rel="noreferrer" 
-                        className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
+                        className="flex items-center gap-2 text-slate-300 font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
                       >
                         View Live Site <ExternalLink className="w-3.5 h-3.5" />
                       </a>
                     ) : (
                       <a 
                         href={project.link} 
-                        className="flex items-center gap-2 text-[#22d3ee] font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
+                        className="flex items-center gap-2 text-slate-300 font-semibold text-xs hover:text-white transition-colors w-max interactive-hover"
                       >
                         View Case Study <ArrowRight className="w-3.5 h-3.5" />
                       </a>
@@ -430,15 +370,16 @@ export default function Home() {
       {/* --- PRECISION STANDARDS SECTION (Capabilities based on installed skills) --- */}
       <section className="py-20 md:py-32 relative z-10 max-w-7xl mx-auto px-6">
         {/* Symmetric Header Stack */}
-        <div className="mb-16 md:mb-20 text-center flex flex-col items-center relative w-full">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.05] mb-5">
-            Precision <br className="hidden md:block" />
-            {/* AUDIT ISSUE (P2): Gradient text tell on emphasis terms. */}
-            {/* RECOMMENDATION: Ensure it is restrained and matches corporate visual system. */}
-            <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Capabilities.</em>
+        <div className="mb-16 md:mb-20 text-center flex flex-col items-center max-w-3xl mx-auto px-6 relative w-full">
+          <span className="font-mono text-xs text-slate-400 uppercase tracking-[0.25em] mb-4 font-semibold">
+            05 / BENCHMARKS
+          </span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+            Engineering Benchmarks <br className="hidden md:block" />
+            <span className="text-slate-400 font-light">Built Into Production.</span>
           </h2>
           <p className="text-slate-300 max-w-xl mx-auto text-[17px] leading-relaxed font-sans font-light">
-            We implement advanced browser standards directly into production code. Every project is engineered to combine next-gen visuals with measurable business outcomes.
+            Advanced browser standards implemented directly into production code to combine next-gen visuals with SLA guarantees.
           </p>
         </div>
 
@@ -446,44 +387,44 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative">
           {[
             {
-              spec: "01 / GPU SHADERS",
-              title: "WebGPU & Shader Dynamics",
-              desc: "We build immersive 3D product showcases and interactive worlds using GPU compute shaders and custom TSL node materials. This captures user attention immediately and drives longer engagement.",
+              spec: "01 / INTERACTIVE 3D",
+              title: "Three.js & Spatial Dynamics",
+              desc: "We build immersive 3D product showcases and interactive scenes using Three.js and custom shader materials. This captures visitor attention immediately and increases session engagement.",
               tag: "Three.js / WebGL",
-              benefit: "Result: 3.5x higher visitor engagement"
+              benefit: "Result: Deep visitor engagement & brand distinction"
             },
             {
               spec: "02 / STRUCTURE",
               title: "Hardened UI Systems",
-              desc: "Our interfaces are built on HTML5 semantic primitives and fully compliant with WCAG AA accessibility rules. Your site reaches every user seamlessly and stays protected against compliance risks.",
-              tag: "Radix / WCAG",
-              benefit: "Result: Full compliance & inclusive reach"
+              desc: "Our interfaces are built on HTML5 semantic primitives and fully compliant with WCAG AA accessibility standards. Your site reaches every user seamlessly and maintains zero compliance risk.",
+              tag: "Semantics / WCAG AA",
+              benefit: "Result: Universal access & full compliance"
             },
             {
               spec: "03 / AESTHETICS",
               title: "Bespoke Design Systems",
-              desc: "Custom layouts and font pairings engineered to reflect your brand's unique identity. We reject templated frameworks to ensure your digital presence commands premium positioning.",
-              tag: "Theme / Tokens",
-              benefit: "Result: Premium brand differentiation"
+              desc: "Custom layouts, typography pairings, and design token architectures engineered for your unique identity. We reject templated themes to ensure your digital presence commands premium pricing.",
+              tag: "Design Tokens / Typography",
+              benefit: "Result: Premium market differentiation"
             },
             {
               spec: "04 / PERFORMANCE",
               title: "Frictionless Interaction Flow",
-              desc: "Lag-free navigation, instant page loads, and zero cumulative layout shift (CLS). Built on Next.js to provide an optimized flow that directly boosts user conversions.",
-              tag: "Motion / GSAP",
-              benefit: "Result: Sub-second load, higher conversion"
+              desc: "Sub-second initial loads, instant client-side routing, and zero cumulative layout shift (CLS). Hand-engineered in Next.js to provide an effortless experience that boosts customer conversions.",
+              tag: "Next.js / Edge SSR",
+              benefit: "Result: Sub-second load & higher conversion"
             }
           ].map((pillar, i) => (
             <BentoCard key={i} className="min-h-[260px] bg-[#07070c] border border-white/10" hoverEffect>
               <div className="flex justify-between items-center mb-6">
-                <span className="font-mono text-[10px] text-slate-500 uppercase tracking-widest">{pillar.spec}</span>
-                <span className="font-mono text-[10px] text-[#22d3ee] uppercase tracking-widest">{pillar.tag}</span>
+                <span className="font-mono text-xs text-slate-400 uppercase tracking-wider font-medium">{pillar.spec}</span>
+                <span className="font-mono text-xs text-slate-300 uppercase tracking-wider font-semibold">{pillar.tag}</span>
               </div>
-              <h3 className="text-xl font-syne font-bold text-white mb-3 tracking-[-0.01em] group-hover:text-[#22d3ee] transition-colors">{pillar.title}</h3>
+              <h3 className="text-xl font-syne font-bold text-white mb-3 tracking-[-0.01em] group-hover:text-slate-200 transition-colors">{pillar.title}</h3>
               <p className="text-slate-300 font-sans text-sm leading-relaxed font-light mb-8">{pillar.desc}</p>
 
-              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between font-mono text-[10px] text-slate-400 group-hover:text-slate-200 transition-colors">
-                <span className="text-slate-500">OUTCOME</span>
+              <div className="mt-auto pt-4 border-t border-white/5 flex items-center justify-between font-mono text-xs text-slate-300 group-hover:text-white transition-colors">
+                <span className="text-slate-400 uppercase tracking-wider font-medium">OUTCOME</span>
                 <span className="flex items-center gap-1.5 text-emerald-400 font-medium">
                   <span className="relative flex size-1.5">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -500,21 +441,25 @@ export default function Home() {
       <TrailDivider />
 
       {/* --- MODERN CTA SECTION --- */}
-      <section id="contact" className="py-32 relative z-10 text-center px-6 scroll-mt-20">
+      <section id="contact" className="py-20 md:py-32 relative z-10 text-center px-6 scroll-mt-20">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto flex flex-col items-center"
         >
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,rgba(6,182,212,0.15)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[radial-gradient(ellipse,rgba(255,255,255,0.06)_0%,transparent_70%)] pointer-events-none" />
 
-          <h2 className="text-[clamp(44px,6vw,90px)] font-syne font-extrabold text-white mb-8 tracking-[-0.03em] leading-[0.95] relative z-10 drop-shadow-[0_0_20px_rgba(255,255,255,0.1)]">
-            Your Vision.<br/>Our Craft.
+          <span className="font-mono text-xs text-slate-400 uppercase tracking-[0.25em] mb-4 font-semibold block relative z-10">
+            06 / ENGAGEMENT
+          </span>
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-syne font-extrabold text-white mb-6 tracking-tight leading-[1.05] relative z-10">
+            Your Vision. <br className="hidden md:block" />
+            <span className="text-slate-400 font-light">Our Craft.</span>
           </h2>
-          <p className="text-[18px] text-slate-300 mb-14 relative z-10 font-sans font-light">
-            We take on 4 new projects per quarter. <strong className="text-white font-medium">2 spots open for Q4 2026.</strong>
+          <p className="text-slate-300 font-sans max-w-xl mx-auto text-[17px] leading-relaxed font-light mb-10 relative z-10">
+            We take on 4 select projects per quarter. <strong className="text-white font-medium">2 spots open for Q4 2026.</strong>
           </p>
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10">
             <PillButton primary onClick={() => setIsModalOpen(true)}>

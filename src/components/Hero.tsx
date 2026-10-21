@@ -1,39 +1,48 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion';
 import { ArrowRight } from './Icons';
 import { Starfield } from './Starfield';
 import { ParticleVortex } from './ParticleVortex';
 import { PillButton } from './PillButton';
 import dynamic from 'next/dynamic';
 
-const DynamicGlobe = dynamic(() => import('./Globe'), { ssr: false });
+const DynamicGlobe = dynamic(() => import('./Globe'), {
+  ssr: false,
+  loading: () => <div className="w-full aspect-square" />
+});
 
-export const Hero = () => {
+interface HeroProps {
+  isReady?: boolean;
+}
+
+export const Hero = ({ isReady = true }: HeroProps) => {
   const containerRef = useRef<HTMLElement>(null);
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef as any,
-    offset: ["start start", "end start"]
-  });
+  const { scrollY } = useScroll();
 
-  // Preserved subtle parallax translation to avoid text collision on scroll
-  const yText = useTransform(scrollYProgress, [0, 1], [0, 80]);
-  const opacityText = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.2, 0]);
+  // Subtle parallax translation on scroll (hardware-accelerated)
+  const yText = useTransform(scrollY, [0, 600], [0, 60]);
+  const opacityText = useTransform(scrollY, [0, 480, 600], [1, 0.2, 0]);
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const smoothX = useSpring(mouseX, { damping: 50, stiffness: 800 });
-  const smoothY = useSpring(mouseY, { damping: 50, stiffness: 800 });
-
   useEffect(() => {
+    let frameId: number | null = null;
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      if (frameId) return;
+      frameId = requestAnimationFrame(() => {
+        mouseX.set(e.clientX);
+        mouseY.set(e.clientY);
+        frameId = null;
+      });
     };
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (frameId) cancelAnimationFrame(frameId);
+    };
   }, [mouseX, mouseY]);
 
   const lines = ["WE ENGINEER", "DIGITAL", "ODYSSEYS."];
@@ -45,16 +54,19 @@ export const Hero = () => {
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_50%_0%,rgba(139,92,246,0.15)_0%,rgba(6,182,212,0.06)_40%,transparent_100%)] z-0" />
 
+        {/* Ambient starry backdrop */}
         <Starfield />
+
+        {/* Lightweight 3D galaxy particle vortex (GPU instanced) */}
         <ParticleVortex />
 
+        {/* Subtle, hardware-accelerated ambient cursor follower */}
         <motion.div
-          className="absolute top-0 left-0 w-[800px] h-[800px] rounded-full opacity-40 pointer-events-none z-0 transform-gpu hidden md:block"
+          className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full opacity-25 pointer-events-none z-0 blur-3xl hidden md:block transform-gpu"
           style={{
-            background: 'radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(147,51,234,0.3) 30%, transparent 60%)',
-            x: useTransform(mouseX, v => v - 400),
-            y: useTransform(mouseY, v => v - 400),
-            willChange: 'transform'
+            background: 'radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(147,51,234,0.25) 40%, transparent 70%)',
+            x: useTransform(mouseX, v => v - 250),
+            y: useTransform(mouseY, v => v - 250),
           }}
         />
 
@@ -64,14 +76,15 @@ export const Hero = () => {
       <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col justify-center flex-grow w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center w-full">
 
-          <motion.div 
+          <motion.div
             style={{ y: yText, opacity: opacityText }}
             className="lg:col-span-7 flex flex-col items-center lg:items-start text-center lg:text-left z-20 transform-gpu relative"
           >
+            {/* Top Badge */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 15 }}
+              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="relative inline-flex items-center justify-center px-4 py-2 mb-6 lg:mb-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-md overflow-hidden group shadow-[0_0_20px_rgba(139,92,246,0.15)] transform-gpu"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 via-purple-500/10 to-cyan-500/10 animate-[gradient-x_3s_linear_infinite] bg-[length:200%_auto]" />
@@ -87,14 +100,12 @@ export const Hero = () => {
                     <motion.span
                       key={`${lineIndex}-${charIndex}`}
                       initial={{ y: "100%", opacity: 0 }}
-                      animate={{ y: 0, opacity: 1 }}
+                      animate={isReady ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
                       transition={{
                         duration: 0.8,
                         ease: [0.16, 1, 0.3, 1],
                         delay: 0.2 + (lineIndex * 0.1) + (charIndex * 0.03)
                       }}
-                      // AUDIT ISSUE (P2): Gradient text (bg-clip-text + bg-gradient) is an overused AI tell.
-                      // RECOMMENDATION: Limit gradient text to accent terms, or use solid white/slate colors.
                       className="inline-block text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-white/40 text-3d-shadow pb-1"
                     >
                       {char === " " ? "\u00A0" : char}
@@ -105,18 +116,20 @@ export const Hero = () => {
             </h1>
 
             <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.9 }}
-              className="text-sm sm:text-base lg:text-base text-slate-300 mb-6 lg:mb-6 max-w-xl leading-relaxed font-sans font-light drop-shadow-md text-center lg:text-left transform-gpu"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.30, ease: [0.16, 1, 0.3, 1] }}
+              className="text-sm sm:text-base text-slate-300/85 mb-7 lg:mb-8 max-w-lg leading-relaxed font-sans font-light text-center lg:text-left transform-gpu"
             >
-              We craft ultra-premium web experiences that sit at the intersection of engineering precision and visual artistry. <br />From interaction to infrastructure.
+              We craft premium and immersive web experiences that sit at the intersection of engineering precision and visual artistry.
+              <br className="hidden sm:block" />
+              <span className="text-slate-400 mt-1 block sm:inline"> From interaction to infrastructure.</span>
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isReady ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: 0.40, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto items-center lg:justify-start"
             >
               <PillButton primary href="#work">
@@ -130,10 +143,12 @@ export const Hero = () => {
 
           <div className="lg:col-span-5 relative w-full flex items-center justify-center mt-8 lg:mt-0">
             <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={isReady ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.8, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               className="relative w-full max-w-[320px] sm:max-w-[400px] lg:max-w-[420px] xl:max-w-[480px] aspect-square pointer-events-none z-10 transform-gpu"
-              style={{ perspective: 1000 }}
             >
-              <DynamicGlobe mouseX={smoothX} mouseY={smoothY} />
+              <DynamicGlobe mouseX={mouseX} mouseY={mouseY} />
             </motion.div>
           </div>
         </div>

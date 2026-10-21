@@ -2,7 +2,7 @@ import React from 'react';
 
 const techStack = [
   {
-    name: 'Next.js 14',
+    name: 'Next.js 15',
     icon: (
       <svg viewBox="0 0 180 180" width="16" height="16" fill="currentColor">
         <path d="M90 0C40.2944 0 0 40.2944 0 90C0 139.706 40.2944 180 90 180C139.706 180 180 139.706 180 90C180 40.2944 139.706 0 90 0ZM72.6364 63.6364H86.2335L118.895 112.569C118.834 111.455 118.773 110.158 118.773 108.682V63.6364H130.682V124.773H118.156L84.5807 74.3411C84.7032 75.6983 84.7645 77.0556 84.7645 78.4128V124.773H72.6364V63.6364Z" />
@@ -105,16 +105,18 @@ const techStack = [
 
 export const TechMarquee = () => {
   return (
-    <section className="py-24 overflow-hidden relative z-10">
-      <div className="max-w-7xl mx-auto px-6 mb-12">
-        <div className="flex items-center justify-center gap-3 w-full">
-          <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-          <span className="font-mono text-[11px] text-slate-400 uppercase tracking-[0.25em]">Technology</span>
-          <div className="h-[1px] w-full max-w-[40px] bg-white/10" />
-        </div>
-        <h2 className="text-center mt-5 text-4xl font-syne font-extrabold text-white">
-          Built With The <em className="not-italic text-transparent bg-clip-text bg-gradient-to-r from-[#a78bfa] to-[#22d3ee]">Best Tools</em>
+    <section className="py-20 md:py-32 overflow-hidden relative z-10">
+      <div className="mb-16 md:mb-20 text-center flex flex-col items-center max-w-3xl mx-auto px-6">
+        <span className="font-mono text-xs text-slate-400 uppercase tracking-[0.25em] mb-4 font-semibold">
+          04 / STACK
+        </span>
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-syne font-extrabold tracking-tight text-white leading-[1.08] mb-5">
+          Modern Standards <br className="hidden md:block" />
+          <span className="text-slate-400 font-light">Engineered In Code.</span>
         </h2>
+        <p className="text-slate-300 font-sans max-w-xl mx-auto text-[17px] leading-relaxed font-light">
+          We build with modern frameworks, typed architectures, and browser rendering pipelines that guarantee 60 FPS.
+        </p>
       </div>
 
       <div className="flex flex-col gap-6 relative">

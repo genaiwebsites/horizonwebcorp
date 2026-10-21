@@ -50,7 +50,7 @@ export async function POST(request: Request) {
                 }
                 .gradient-header {
                   height: 4px;
-                  background: linear-gradient(to right, #7c3aed, #22d3ee, #06b6d4);
+                  background: linear-gradient(to right, #ffffff, #94a3b8);
                 }
                 .content {
                   padding: 32px 40px;
@@ -93,12 +93,11 @@ export async function POST(request: Request) {
                   font-weight: 500;
                 }
                 .value-email {
-                  color: #22d3ee;
-                  text-decoration: none;
-                  border-bottom: 1px dashed rgba(34, 211, 238, 0.3);
+                  color: #ffffff;
+                  text-decoration: underline;
                 }
                 .value-sector {
-                  color: #e9d5ff;
+                  color: #ffffff;
                   font-weight: 600;
                 }
                 .brief-text {

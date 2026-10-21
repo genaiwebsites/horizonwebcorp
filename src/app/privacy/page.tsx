@@ -17,13 +17,12 @@ export default function PrivacyPolicy() {
       <Nav />
       
       {/* Background Radial Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(139,92,246,0.1)_0%,transparent_70%)] pointer-events-none z-0" />
-      <div className="absolute top-[400px] left-1/4 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(6,182,212,0.05)_0%,transparent_70%)] pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 flex-grow">
         {/* Header Stack */}
         <div className="mb-12 border-b border-white/5 pb-8">
-          <span className="font-mono text-[10px] text-[#22d3ee] uppercase tracking-[0.2em] mb-3 block">LEGAL DOCUMENTATION</span>
+          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-[0.2em] mb-3 block">LEGAL DOCUMENTATION</span>
           <h1 className="text-4xl sm:text-5xl font-syne font-extrabold tracking-tight text-white mb-4">Privacy Policy</h1>
           <p className="text-slate-400 font-mono text-xs">Last Updated: June 2, 2026</p>
         </div>
@@ -85,7 +84,7 @@ export default function PrivacyPolicy() {
               If you have any questions, compliance requests, or need data deletions completed, connect with our engineering lead:
             </p>
             <div className="p-4 rounded-xl bg-white/[0.02] border border-white/5 font-mono text-xs text-slate-400 w-fit">
-              <span className="text-[#22d3ee]">Horizon Web Corp Legal Division</span><br />
+              <span className="text-slate-200 font-semibold">Horizon Web Corp Legal Division</span><br />
               Email: legal@horizonwebcorp.com<br />
               Location: Kolkata, West Bengal, India
             </div>

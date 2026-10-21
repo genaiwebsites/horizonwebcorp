@@ -38,23 +38,9 @@ export const BentoCard = ({
             style={{
               background: useMotionTemplate`
                 radial-gradient(
-                  450px circle at ${mouseX}px ${mouseY}px,
-                  rgba(139, 92, 246, 0.08),
-                  transparent 80%
-                )
-              `,
-            }}
-          />
-        )}
-        {hoverEffect && (
-          <motion.div
-            className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-20"
-            style={{
-              background: useMotionTemplate`
-                radial-gradient(
-                  200px circle at ${mouseX}px ${mouseY}px,
-                  rgba(34, 211, 238, 0.15),
-                  transparent 80%
+                  350px circle at ${mouseX}px ${mouseY}px,
+                  rgba(255, 255, 255, 0.06),
+                  transparent 75%
                 )
               `,
             }}
@@ -82,9 +68,9 @@ export const BentoCard = ({
           style={{
             background: useMotionTemplate`
               radial-gradient(
-                180px circle at ${mouseX}px ${mouseY}px,
-                rgba(34, 211, 238, 0.25),
-                transparent 80%
+                220px circle at ${mouseX}px ${mouseY}px,
+                rgba(255, 255, 255, 0.12),
+                transparent 75%
               )
             `,
           }}
@@ -106,8 +92,8 @@ export const BentoCard = ({
               background: useMotionTemplate`
                 radial-gradient(
                   300px circle at ${mouseX}px ${mouseY}px,
-                  rgba(139, 92, 246, 0.05),
-                  transparent 80%
+                  rgba(255, 255, 255, 0.03),
+                  transparent 75%
                 )
               `,
             }}

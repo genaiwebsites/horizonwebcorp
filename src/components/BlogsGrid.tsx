@@ -79,8 +79,8 @@ export const BlogsGrid: React.FC<BlogsGridProps> = ({ posts, light = false }) =>
                 {/* Category Badge over Image */}
                 <span className={`absolute top-4 left-4 z-20 px-3 py-1 border rounded-full font-mono text-[9px] uppercase tracking-widest backdrop-blur-md shadow-lg ${
                   light 
-                    ? 'bg-white/95 border-slate-200/60 text-indigo-600' 
-                    : 'bg-[#030305]/80 border-white/10 text-[#22d3ee]'
+                    ? 'bg-white/95 border-slate-200/60 text-slate-700 font-semibold' 
+                    : 'bg-[#030305]/80 border-white/10 text-slate-300'
                 }`}>
                   {post.category}
                 </span>
@@ -103,7 +103,7 @@ export const BlogsGrid: React.FC<BlogsGridProps> = ({ posts, light = false }) =>
 
                   {/* Title */}
                   <h2 className={`text-[19px] leading-[1.3] font-syne font-bold mb-3 tracking-[-0.01em] transition-colors duration-300 line-clamp-2 ${
-                    light ? 'text-slate-800 group-hover:text-[#6366f1]' : 'text-white group-hover:text-[#22d3ee]'
+                    light ? 'text-slate-800 group-hover:text-black' : 'text-white group-hover:text-slate-200'
                   }`}>
                     {post.title}
                   </h2>
@@ -133,8 +133,8 @@ export const BlogsGrid: React.FC<BlogsGridProps> = ({ posts, light = false }) =>
 
                   <span className={`flex items-center gap-1 font-mono text-[10px] font-bold uppercase tracking-wider transition-colors duration-300 ${
                     light 
-                      ? 'text-indigo-600 group-hover:text-slate-900' 
-                      : 'text-[#22d3ee] group-hover:text-white'
+                      ? 'text-slate-700 group-hover:text-black' 
+                      : 'text-slate-300 group-hover:text-white'
                   }`}>
                     Read Article <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform duration-300" />
                   </span>

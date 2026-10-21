@@ -17,13 +17,12 @@ export default function TermsOfService() {
       <Nav />
       
       {/* Background Radial Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(6,182,212,0.08)_0%,transparent_70%)] pointer-events-none z-0" />
-      <div className="absolute top-[400px] right-1/4 w-[500px] h-[500px] bg-[radial-gradient(ellipse,rgba(139,92,246,0.06)_0%,transparent_70%)] pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[radial-gradient(ellipse,rgba(255,255,255,0.03)_0%,transparent_70%)] pointer-events-none z-0" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 pt-36 pb-24 flex-grow">
         {/* Header Stack */}
         <div className="mb-12 border-b border-white/5 pb-8">
-          <span className="font-mono text-[10px] text-[#8b5cf6] uppercase tracking-[0.2em] mb-3 block">LEGAL DOCUMENTATION</span>
+          <span className="font-mono text-[10px] text-slate-400 uppercase tracking-[0.2em] mb-3 block">LEGAL DOCUMENTATION</span>
           <h1 className="text-4xl sm:text-5xl font-syne font-extrabold tracking-tight text-white mb-4">Terms of Service</h1>
           <p className="text-slate-400 font-mono text-xs">Last Updated: June 2, 2026</p>
         </div>
