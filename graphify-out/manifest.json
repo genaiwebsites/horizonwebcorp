@@ -10,8 +10,8 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1792520733.0032556,
-    "ast_hash": "1dc6cffcba9927c7e1d9c38c63e429bc",
+    "mtime": 1792612473.5925715,
+    "ast_hash": "2a9a428d6123dca9fef449b8d06923be",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -174,21 +174,6 @@
     "ast_hash": "9162add00befbcdb432430f405c4ad8d",
     "semantic_hash": ""
   },
-  "index_backup.html": {
-    "mtime": 1780406667.8933828,
-    "ast_hash": "5039228cc74b1120748881a3898c70c8",
-    "semantic_hash": ""
-  },
-  "web_quality_audit.md": {
-    "mtime": 1780425809.4353929,
-    "ast_hash": "27560ccd5e68db3324296ad79a897539",
-    "semantic_hash": ""
-  },
-  "full_page_screenshot.png": {
-    "mtime": 1780474995.0737507,
-    "ast_hash": "3363939cd7ef260dd22a560f21030568",
-    "semantic_hash": ""
-  },
   "public/blog/dark_mode_accessibility.png": {
     "mtime": 1780429789.9563382,
     "ast_hash": "d4299b666633d96b9f09a416990c1570",
@@ -217,61 +202,6 @@
   "public/blog/webgpu_shaders.png": {
     "mtime": 1780429807.5192275,
     "ast_hash": "d014e236cfc1d3cae2bd46e82de71196",
-    "semantic_hash": ""
-  },
-  "public/file.svg": {
-    "mtime": 1780406667.896399,
-    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
-    "semantic_hash": ""
-  },
-  "public/globe.svg": {
-    "mtime": 1780406667.896399,
-    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
-    "semantic_hash": ""
-  },
-  "public/next.svg": {
-    "mtime": 1780406667.896399,
-    "ast_hash": "8e061864f388b47f33a1c3780831193e",
-    "semantic_hash": ""
-  },
-  "public/vercel.svg": {
-    "mtime": 1780406667.8973992,
-    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
-    "semantic_hash": ""
-  },
-  "public/window.svg": {
-    "mtime": 1780406667.8973992,
-    "ast_hash": "a2760511c65806022ad20adf74370ff3",
-    "semantic_hash": ""
-  },
-  "public/work/abudyog.png": {
-    "mtime": 1780510593.984293,
-    "ast_hash": "d60e7a54229681114968e0a625fb5718",
-    "semantic_hash": ""
-  },
-  "public/work/magik.png": {
-    "mtime": 1780509280.4683752,
-    "ast_hash": "855ccc26790d95b81b585ced4b2bba0f",
-    "semantic_hash": ""
-  },
-  "public/work/orbis.png": {
-    "mtime": 1780510335.4577596,
-    "ast_hash": "2acd09d95f7ef8b96c199515badbf33b",
-    "semantic_hash": ""
-  },
-  "public/work/rbo.png": {
-    "mtime": 1780508225.0888126,
-    "ast_hash": "421c3ee20b52591e76941c67f866af7a",
-    "semantic_hash": ""
-  },
-  "public/work/skyscape.png": {
-    "mtime": 1780511099.513905,
-    "ast_hash": "2a4a90bc4eb4d4aebff3e048cdcedb25",
-    "semantic_hash": ""
-  },
-  "public/work/terranova.png": {
-    "mtime": 1780509551.6587234,
-    "ast_hash": "9068b51c3f37a84936ce6a646f146647",
     "semantic_hash": ""
   },
   "src/app/icon.png": {
@@ -342,11 +272,6 @@
   "src/components/Preloader.tsx": {
     "mtime": 1792609928.738204,
     "ast_hash": "d8a857da06129a9fd96430ce361815c3",
-    "semantic_hash": ""
-  },
-  "lighthouse-report.json": {
-    "mtime": 1792609708.728518,
-    "ast_hash": "735bfa6540f50206236334c988478713",
     "semantic_hash": ""
   }
 }
