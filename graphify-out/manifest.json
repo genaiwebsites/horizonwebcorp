@@ -25,13 +25,13 @@
     "semantic_hash": ""
   },
   "src/app/blogs/page.tsx": {
-    "mtime": 1792681280.1488247,
-    "ast_hash": "cd33d81fd02fd7adb73867331498f7de",
+    "mtime": 1792683257.9329722,
+    "ast_hash": "fd67af4bb1171bb04051c1a66058eb00",
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1792681241.0847661,
-    "ast_hash": "7c20eb952e2202655f2ded15b3074ef7",
+    "mtime": 1792683196.5529983,
+    "ast_hash": "9ef93ea606cbd054785ec96423e161e5",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/app/sitemap.ts": {
-    "mtime": 1792681259.569601,
-    "ast_hash": "e321fa2a30599301911a660df6d5221f",
+    "mtime": 1792683220.4263887,
+    "ast_hash": "c623a3166fdc66928be0ec29b39799f1",
     "semantic_hash": ""
   },
   "src/app/terms/page.tsx": {
@@ -285,18 +285,28 @@
     "semantic_hash": ""
   },
   "public/og-image.png": {
-    "mtime": 1792681165.2649963,
-    "ast_hash": "b11096b4fe345474005ca22650bea81b",
+    "mtime": 1792683111.2579806,
+    "ast_hash": "3640bd8707e4f60176ca1f50ed299b67",
     "semantic_hash": ""
   },
   "public/og-banner-1920.png": {
-    "mtime": 1792681166.2023945,
-    "ast_hash": "639feca2c2eab47f19004af06b28e76b",
+    "mtime": 1792683097.7546513,
+    "ast_hash": "636fbd9d7868391152efe79c1c448242",
     "semantic_hash": ""
   },
   "public/og-banner.png": {
-    "mtime": 1792681165.2675364,
-    "ast_hash": "1834f0aeaf27fa601f1bc6c7d4d09fbf",
+    "mtime": 1792683111.1836236,
+    "ast_hash": "3640bd8707e4f60176ca1f50ed299b67",
+    "semantic_hash": ""
+  },
+  "public/og-banner.jpg": {
+    "mtime": 1792683096.2232676,
+    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
+    "semantic_hash": ""
+  },
+  "public/og-image.jpg": {
+    "mtime": 1792683096.231888,
+    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
     "semantic_hash": ""
   }
 }

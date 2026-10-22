@@ -421,7 +421,7 @@
       "label": "BlogsPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/page.tsx",
-      "source_location": "L55",
+      "source_location": "L59",
       "id": "blogs_page_blogspage",
       "community": 0,
       "norm_label": "blogspage()"
@@ -484,7 +484,7 @@
       "label": "jsonLdGraph",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L84",
+      "source_location": "L88",
       "id": "app_layout_jsonldgraph",
       "community": 6,
       "norm_label": "jsonldgraph"
@@ -493,7 +493,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L229",
+      "source_location": "L233",
       "id": "app_layout_rootlayout",
       "community": 6,
       "norm_label": "rootlayout()"
@@ -4667,5 +4667,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "6b3f4745ca9dbeface750916a359246b5d09dd05"
+  "built_at_commit": "369cdffd48a49e3803b5264dac4e4100ebf43bd9"
 }

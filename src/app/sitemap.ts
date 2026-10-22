@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-10-22T08:00:00Z'),
       changeFrequency: 'weekly',
       priority: 1.0,
-      images: [`${baseUrl}/og-banner.png`, `${baseUrl}/og-image.png`],
+      images: [`${baseUrl}/og-banner.jpg`, `${baseUrl}/og-banner.png`],
     },
     {
       url: `${baseUrl}/blogs`,
