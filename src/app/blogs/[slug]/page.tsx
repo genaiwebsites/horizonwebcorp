@@ -48,10 +48,30 @@ const ARTICLE_SECTIONS: Record<string, { id: string, title: string }[]> = {
   ]
 };
 
+// Reusable AEO / GEO Answer Capsule component
+const AiSummaryCapsule = ({ summary }: { summary: string }) => (
+  <div className="mb-8 p-5 sm:p-6 rounded-2xl border border-indigo-200/70 bg-gradient-to-br from-indigo-50/80 via-white/80 to-blue-50/50 shadow-[0_4px_20px_rgba(99,102,241,0.06)] relative overflow-hidden not-prose">
+    <div className="flex items-center gap-2 mb-2.5">
+      <span className="flex h-2 w-2 rounded-full bg-indigo-600 animate-pulse" />
+      <span className="font-mono text-[10px] uppercase font-bold tracking-widest text-indigo-900">
+        AI Executive Summary & Key Takeaways
+      </span>
+      <span className="ml-auto font-mono text-[9px] text-slate-700 bg-white/80 px-2 py-0.5 rounded border border-slate-200">
+        AEO Verified
+      </span>
+    </div>
+    <p className="text-[14px] sm:text-[15px] font-medium leading-relaxed text-slate-800">
+      {summary}
+    </p>
+  </div>
+);
+
 // Article Markdown content
 const ARTICLE_CONTENT: Record<string, React.ReactNode> = {
   "webgl-renaissance": (
     <>
+      <AiSummaryCapsule summary="Spatial 3D interactivity powered by Three.js and WebGL increases digital session duration by up to 3.5x over flat 2D templates. Sustaining 60 FPS on production viewports mandates polygon count reduction, multi-mesh draw call batching, and branchless fragment shader routines to prevent mobile GPU throttling." />
+
       <p className="text-slate-700 font-sans font-normal text-[16px] sm:text-[18px] leading-relaxed mb-6">
         The modern web is undergoing a spatial revolution. For decades, web designers have treated the browser as a two-dimensional grid of text boxes and images. But with advances in hardware acceleration and browser engine efficiency, the canvas is expanding into three dimensions. WebGL and Three.js are no longer just for game developers; they are the new design language of premium, high-converting digital products.
       </p>
@@ -83,6 +103,8 @@ const ARTICLE_CONTENT: Record<string, React.ReactNode> = {
   ),
   "nextjs-rsc-latency": (
     <>
+      <AiSummaryCapsule summary="React Server Components (RSC) in Next.js 16 eliminate up to 80% of client-bundle hydration overhead by streaming pre-parsed JSON to the DOM. Combining dynamic component imports with edge route prefetching secures 100/100 Lighthouse performance, directly boosting enterprise conversion rates by 20% or more." />
+
       <p className="text-slate-700 font-sans font-normal text-[16px] sm:text-[18px] leading-relaxed mb-6">
         In modern web engineering, speed is the baseline. A single second of delay can slash conversion rates by 20%. Next.js 16 addresses this directly by integrating React Server Components (RSC) to minimize the javascript bundle sent to the client browser.
       </p>
@@ -114,6 +136,8 @@ const ARTICLE_CONTENT: Record<string, React.ReactNode> = {
   ),
   "motion-design-physics": (
     <>
+      <AiSummaryCapsule summary="Physics-based spring animation models replace mechanical linear easing by dynamically balancing mass, stiffness, and damping coefficients. Confining animations strictly to GPU-accelerated CSS transforms and tracking cursor spotlights creates tactile, high-retention micro-interactions without triggering expensive DOM reflows." />
+
       <p className="text-slate-700 font-sans font-normal text-[16px] sm:text-[18px] leading-relaxed mb-6">
         Standard digital interfaces are filled with linear, rigid transitions that feel automated and artificial. In contrast, premium experiential design uses physics-based motion. By applying math to interface mechanics, we can create animations that mirror the physical world, making them intuitive, satisfying, and memorable.
       </p>
@@ -145,6 +169,8 @@ const ARTICLE_CONTENT: Record<string, React.ReactNode> = {
   ),
   "accessibility-luxury-design": (
     <>
+      <AiSummaryCapsule summary="Luxury dark-mode design achieves full WCAG 2.1 AA compliance by mathematically maintaining a minimum 4.5:1 body text contrast ratio against deep #030305 backgrounds. Incorporating high-visibility focus-visible rings, skip-to-content bypass links, and descriptive ARIA semantics proves inclusive accessibility and prestige aesthetics reinforce each other." />
+
       <p className="text-slate-700 font-sans font-normal text-[16px] sm:text-[18px] leading-relaxed mb-6">
         A common misconception in web design is that beautiful, dark-tech visual systems cannot be accessible. Many premium agencies build gorgeous layouts that fail basic screen reader tests or contrast benchmarks. We believe that accessibility (a11y) and luxury aesthetics are not mutually exclusive—they are two sides of the same precision coin.
       </p>
@@ -176,6 +202,8 @@ const ARTICLE_CONTENT: Record<string, React.ReactNode> = {
   ),
   "webgpu-vs-webgl": (
     <>
+      <AiSummaryCapsule summary="WebGPU eliminates WebGL's single-threaded OpenGL ES CPU validation bottlenecks by mapping asynchronously to Metal, Vulkan, and DirectX 12. Its compute shaders enable millions of particles, real-time physics wireframes, and Three.js Shading Language (TSL) node graphs to execute directly on the GPU at a continuous 60 FPS." />
+
       <p className="text-slate-700 font-sans font-normal text-[16px] sm:text-[18px] leading-relaxed mb-6">
         For over a decade, WebGL has been the undisputed standard for 3D in the browser. But a new standard is arriving. WebGPU offers low-overhead, direct access to graphics cards, unlocking compute shaders and advanced physics simulations directly within browser viewports.
       </p>
@@ -207,6 +235,8 @@ const ARTICLE_CONTENT: Record<string, React.ReactNode> = {
   ),
   "edge-caching-infrastructure": (
     <>
+      <AiSummaryCapsule summary="Serverless Edge CDN architecture intercepts worldwide web requests to reduce Time to First Byte (TTFB) to sub-50ms globally. Pre-compressing text and heavy 3D assets via Brotli encoding alongside immutable cache-control headers delivers a 99.9% uptime SLA and frictionless page delivery during viral traffic surges." />
+
       <p className="text-slate-700 font-sans font-normal text-[16px] sm:text-[18px] leading-relaxed mb-6">
         Building a gorgeous, high-end web experience is only half the battle. If a website experiences traffic surges and collapses, or if high latency creates page delay, the design system fails. Premium frontend design requires hardened global infrastructure.
       </p>
@@ -254,15 +284,59 @@ export async function generateMetadata({
   
   if (!post) {
     return {
-      title: 'Article Not Found',
+      title: 'Article Not Found | Horizon Web Corp',
     };
   }
 
+  const ogImageUrl = post.image.startsWith('http')
+    ? post.image
+    : `https://horizonwebcorp.com${post.image}`;
+
   return {
-    title: post.title,
+    title: `${post.title} | Horizon Web Corp Engineering`,
     description: post.description,
+    keywords: [
+      post.category,
+      'Web Engineering',
+      'Next.js 16',
+      'React Server Components',
+      'WebGL',
+      'Three.js',
+      'WebGPU',
+      'Frontend Performance',
+      'Bespoke Web Development'
+    ],
+    authors: [{ name: post.author || 'Horizon Web Corp Engineering Division', url: 'https://horizonwebcorp.com' }],
+    creator: 'Horizon Web Corp',
+    publisher: 'Horizon Web Corp',
     alternates: {
       canonical: `https://horizonwebcorp.com/blogs/${slug}`,
+    },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `https://horizonwebcorp.com/blogs/${slug}`,
+      siteName: 'Horizon Web Corp',
+      type: 'article',
+      publishedTime: post.isoDate,
+      modifiedTime: post.isoDate,
+      authors: [post.author || 'Horizon Web Corp Engineering Division'],
+      tags: [post.category, 'Web Development', 'High Performance Web', 'Next.js'],
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: [ogImageUrl],
+      creator: '@horizonwebcorp',
     },
   };
 }
@@ -280,9 +354,7 @@ export default async function BlogDetailPage({
       <div className="relative min-h-screen w-full bg-[#fafaff] text-slate-800 flex flex-col overflow-x-hidden">
         {/* Subtle, fluid, non-linear mesh gradients, diagonal network edges, and dot grid */}
         <div className="absolute inset-0 pointer-events-none z-0">
-          {/* Beautiful multi-layered mesh gradients mixing with white glows */}
           <div className="absolute inset-0 bg-[radial-gradient(at_0%_0%,rgba(99,102,241,0.18)_0%,transparent_60%),radial-gradient(at_50%_0%,rgba(6,182,212,0.12)_0%,transparent_50%),radial-gradient(at_100%_0%,rgba(139,92,246,0.15)_0%,transparent_60%),radial-gradient(at_50%_100%,rgba(99,102,241,0.08)_0%,transparent_50%)]" />
-          {/* Subtle, static diagonal network lines & dot graph (less dense mesh/graph background) */}
           <div className="absolute inset-0 bg-mesh-graph opacity-[0.85]" />
         </div>
 
@@ -303,8 +375,73 @@ export default async function BlogDetailPage({
   const articleMarkup = ARTICLE_CONTENT[slug];
   const sections = ARTICLE_SECTIONS[slug] || [];
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'TechArticle',
+    headline: post.title,
+    description: post.description,
+    image: post.image.startsWith('http') ? post.image : `https://horizonwebcorp.com${post.image}`,
+    datePublished: post.isoDate,
+    dateModified: post.isoDate,
+    author: {
+      '@type': 'Organization',
+      name: post.author || 'Horizon Web Corp Engineering Division',
+      url: 'https://horizonwebcorp.com'
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'Horizon Web Corp',
+      url: 'https://horizonwebcorp.com',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://horizonwebcorp.com/og-image.png'
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://horizonwebcorp.com/blogs/${slug}`
+    },
+    articleSection: post.category,
+    keywords: `${post.category}, Web Engineering, React Server Components, WebGL, Next.js`
+  };
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://horizonwebcorp.com'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Engineering Insights',
+        item: 'https://horizonwebcorp.com/blogs'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.title,
+        item: `https://horizonwebcorp.com/blogs/${slug}`
+      }
+    ]
+  };
+
   return (
     <div className="relative min-h-screen w-full bg-[#fafaff] text-slate-800 flex flex-col overflow-x-hidden">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       {/* Subtle, fluid, non-linear mesh gradients, diagonal network edges, and dot grid */}
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Beautiful multi-layered mesh gradients mixing with white glows */}

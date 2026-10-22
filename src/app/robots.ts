@@ -8,13 +8,29 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/api/', '/_next/'],
       },
       {
-        // Explicitly allow AI and Generative search crawlers for optimal GEO / AIO indexing
-        userAgent: ['GPTBot', 'ChatGPT-User', 'ClaudeBot', 'Google-Extended', 'PerplexityBot'],
+        // Explicitly whitelist all major Generative AI & Answer Engine crawlers for optimal GEO / AIO indexing
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'ClaudeBot',
+          'Claude-Web',
+          'PerplexityBot',
+          'Google-Extended',
+          'Applebot-Extended',
+          'Bytespider',
+          'Amazonbot',
+          'CCBot',
+          'cohere-ai',
+          'Diffbot',
+          'Meta-ExternalAgent'
+        ],
         allow: '/',
       }
     ],
     sitemap: `${baseUrl}/sitemap.xml`,
+    host: baseUrl,
   };
 }

@@ -45,7 +45,7 @@
       "source_file": "package.json",
       "source_location": "L1",
       "id": "package",
-      "community": 19,
+      "community": 1,
       "norm_label": "package.json"
     },
     {
@@ -54,7 +54,7 @@
       "source_file": "package.json",
       "source_location": "L2",
       "id": "package_name",
-      "community": 19,
+      "community": 1,
       "norm_label": "name"
     },
     {
@@ -63,7 +63,7 @@
       "source_file": "package.json",
       "source_location": "L3",
       "id": "package_version",
-      "community": 19,
+      "community": 1,
       "norm_label": "version"
     },
     {
@@ -72,7 +72,7 @@
       "source_file": "package.json",
       "source_location": "L4",
       "id": "package_private",
-      "community": 19,
+      "community": 1,
       "norm_label": "private"
     },
     {
@@ -81,7 +81,7 @@
       "source_file": "package.json",
       "source_location": "L5",
       "id": "package_scripts",
-      "community": 19,
+      "community": 1,
       "norm_label": "scripts"
     },
     {
@@ -90,7 +90,7 @@
       "source_file": "package.json",
       "source_location": "L6",
       "id": "package_scripts_dev",
-      "community": 19,
+      "community": 1,
       "norm_label": "dev"
     },
     {
@@ -99,7 +99,7 @@
       "source_file": "package.json",
       "source_location": "L7",
       "id": "package_scripts_build",
-      "community": 19,
+      "community": 1,
       "norm_label": "build"
     },
     {
@@ -108,7 +108,7 @@
       "source_file": "package.json",
       "source_location": "L8",
       "id": "package_scripts_start",
-      "community": 19,
+      "community": 1,
       "norm_label": "start"
     },
     {
@@ -117,7 +117,7 @@
       "source_file": "package.json",
       "source_location": "L9",
       "id": "package_scripts_lint",
-      "community": 19,
+      "community": 1,
       "norm_label": "lint"
     },
     {
@@ -355,10 +355,19 @@
       "norm_label": "article_sections"
     },
     {
-      "label": "ARTICLE_CONTENT",
+      "label": "AiSummaryCapsule()",
       "file_type": "code",
       "source_file": "src/app/blogs/[slug]/page.tsx",
       "source_location": "L52",
+      "id": "slug_page_aisummarycapsule",
+      "community": 0,
+      "norm_label": "aisummarycapsule()"
+    },
+    {
+      "label": "ARTICLE_CONTENT",
+      "file_type": "code",
+      "source_file": "src/app/blogs/[slug]/page.tsx",
+      "source_location": "L70",
       "id": "slug_page_article_content",
       "community": 0,
       "norm_label": "article_content"
@@ -367,7 +376,7 @@
       "label": "generateStaticParams()",
       "file_type": "code",
       "source_file": "src/app/blogs/[slug]/page.tsx",
-      "source_location": "L241",
+      "source_location": "L271",
       "id": "slug_page_generatestaticparams",
       "community": 0,
       "norm_label": "generatestaticparams()"
@@ -376,7 +385,7 @@
       "label": "generateMetadata()",
       "file_type": "code",
       "source_file": "src/app/blogs/[slug]/page.tsx",
-      "source_location": "L247",
+      "source_location": "L277",
       "id": "slug_page_generatemetadata",
       "community": 0,
       "norm_label": "generatemetadata()"
@@ -385,7 +394,7 @@
       "label": "BlogDetailPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/[slug]/page.tsx",
-      "source_location": "L270",
+      "source_location": "L344",
       "id": "slug_page_blogdetailpage",
       "community": 0,
       "norm_label": "blogdetailpage()"
@@ -412,7 +421,7 @@
       "label": "BlogsPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/page.tsx",
-      "source_location": "L18",
+      "source_location": "L55",
       "id": "blogs_page_blogspage",
       "community": 0,
       "norm_label": "blogspage()"
@@ -472,10 +481,19 @@
       "norm_label": "metadata"
     },
     {
+      "label": "jsonLdGraph",
+      "file_type": "code",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L84",
+      "id": "app_layout_jsonldgraph",
+      "community": 6,
+      "norm_label": "jsonldgraph"
+    },
+    {
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L25",
+      "source_location": "L229",
       "id": "app_layout_rootlayout",
       "community": 6,
       "norm_label": "rootlayout()"
@@ -693,7 +711,7 @@
       "source_file": "src/components/BlogsGrid.tsx",
       "source_location": "L39",
       "id": "components_blogsgrid_blogsgrid",
-      "community": 0,
+      "community": 5,
       "norm_label": "blogsgrid()"
     },
     {
@@ -828,7 +846,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L1",
       "id": "components_icons",
-      "community": 0,
+      "community": 2,
       "norm_label": "icons.tsx"
     },
     {
@@ -837,7 +855,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L3",
       "id": "components_icons_arrowright",
-      "community": 0,
+      "community": 2,
       "norm_label": "arrowright()"
     },
     {
@@ -846,7 +864,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L9",
       "id": "components_icons_globeicon",
-      "community": 0,
+      "community": 2,
       "norm_label": "globeicon()"
     },
     {
@@ -855,7 +873,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L15",
       "id": "components_icons_layers",
-      "community": 0,
+      "community": 2,
       "norm_label": "layers()"
     },
     {
@@ -864,7 +882,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L21",
       "id": "components_icons_zap",
-      "community": 0,
+      "community": 2,
       "norm_label": "zap()"
     },
     {
@@ -873,7 +891,7 @@
       "source_file": "src/components/Icons.tsx",
       "source_location": "L27",
       "id": "components_icons_externallink",
-      "community": 0,
+      "community": 2,
       "norm_label": "externallink()"
     },
     {
@@ -1098,7 +1116,7 @@
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L1",
       "id": "components_webglbackground",
-      "community": 2,
+      "community": 21,
       "norm_label": "webglbackground.tsx"
     },
     {
@@ -1107,7 +1125,7 @@
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L4",
       "id": "components_webglbackground_canvasmode",
-      "community": 2,
+      "community": 21,
       "norm_label": "canvasmode"
     },
     {
@@ -1116,7 +1134,7 @@
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L6",
       "id": "components_webglbackground_modeoption",
-      "community": 2,
+      "community": 21,
       "norm_label": "modeoption"
     },
     {
@@ -1125,7 +1143,7 @@
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L12",
       "id": "components_webglbackground_modes",
-      "community": 2,
+      "community": 21,
       "norm_label": "modes"
     },
     {
@@ -1134,7 +1152,7 @@
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L17",
       "id": "components_webglbackground_webglbackgroundprops",
-      "community": 2,
+      "community": 21,
       "norm_label": "webglbackgroundprops"
     },
     {
@@ -1143,7 +1161,7 @@
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L21",
       "id": "components_webglbackground_webglbackground",
-      "community": 2,
+      "community": 21,
       "norm_label": "webglbackground()"
     },
     {
@@ -1222,7 +1240,7 @@
       "label": "BLOG_POSTS",
       "file_type": "code",
       "source_file": "src/data/blogs.ts",
-      "source_location": "L12",
+      "source_location": "L14",
       "id": "data_blogs_blog_posts",
       "community": 5,
       "norm_label": "blog_posts"
@@ -1799,7 +1817,7 @@
       "file_type": "code",
       "source_file": "src/components/WebGLBackground.tsx",
       "source_location": "L4",
-      "community": 2,
+      "community": 21,
       "norm_label": "shadermode",
       "id": "components_webglbackground_shadermode"
     },
@@ -2311,6 +2329,16 @@
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "slug_page",
+      "target": "slug_page_aisummarycapsule"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/blogs/[slug]/page.tsx",
+      "source_location": "L52",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "slug_page",
       "target": "slug_page_article_content"
     },
     {
@@ -2534,6 +2562,16 @@
       "confidence_score": 1.0,
       "source": "app_layout",
       "target": "app_layout_jetbrainsmono"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L78",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "app_layout",
+      "target": "app_layout_jsonldgraph"
     },
     {
       "relation": "contains",
@@ -4629,5 +4667,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "aff22411a650d10ca4863bf581a50d4b867ce078"
+  "built_at_commit": "6b3f4745ca9dbeface750916a359246b5d09dd05"
 }

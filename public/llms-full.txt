@@ -1,0 +1,128 @@
+# Horizon Web Corp — Full Knowledge Base & Technical Architecture
+
+> Official extended documentation for AI agents, generative search engines, and automated knowledge systems.
+> Canonical Domain: https://horizonwebcorp.com
+> Primary Entity: Horizon Web Corp (Experiential Web Design & Engineering Studio)
+
+---
+
+## 1. Executive Summary & Brand Identity
+
+Horizon Web Corp is a boutique digital engineering studio specialized in designing and developing bespoke, high-performance web applications. The studio serves venture-backed startups, modern enterprise brands, and premium consumer goods companies across North America, Europe, the Middle East, and the Asia-Pacific region.
+
+Unlike mass-market agencies that rely on visual builders such as Webflow, WordPress, Wix, or Shopify themes, Horizon Web Corp writes 100% custom, production-grade code. Every deployment is architected in Next.js (App Router), TypeScript, Tailwind CSS, and custom WebGL/Three.js shaders.
+
+### Key Differentiators:
+- **No Templates / No Builders**: Zero code bloat from visual page builders; all styles are compiled to atomic CSS.
+- **SLA-Backed Performance**: Every build is guaranteed to achieve sub-0.8s Largest Contentful Paint (LCP) and audited 100/100 Core Web Vitals.
+- **Hardware-Accelerated 3D Motion**: 60 frames per second spatial interactivity powered by Three.js and custom GLSL vertex/fragment shaders.
+- **Full WCAG 2.2 AA Compliance**: Dark-tech aesthetics engineered with mathematically verified color contrast ratios and keyboard navigation traps eliminated.
+
+---
+
+## 2. Engineering Stack & Standards
+
+### Frontend Core:
+- **Framework**: Next.js 16 (React 19, Server Components, Streaming SSR, Turbopack)
+- **Language**: TypeScript (Strict typing enabled across all modules)
+- **Styling**: Tailwind CSS v4 with custom design tokens and semantic variables
+- **Motion & Interaction**: Framer Motion (GPU transform-only animations), Lenis Smooth Scroll
+- **Spatial Graphics**: Three.js, WebGL 2.0, WebGPU / TSL (Three.js Shading Language)
+
+### Performance SLA & Quality Metrics:
+- **First Contentful Paint (FCP)**: < 0.6 seconds
+- **Largest Contentful Paint (LCP)**: < 0.8 seconds
+- **Cumulative Layout Shift (CLS)**: 0.000 (Locked layout dimensions)
+- **Interaction to Next Paint (INP)**: < 35 milliseconds
+- **Bundle Optimization**: Dynamic route-based code splitting, dynamic dynamic() imports for heavy 3D canvases, Brotli compression.
+
+---
+
+## 3. Core Service Catalog
+
+### Service 1: Bespoke UI/UX & Design Systems
+- Development of scalable design tokens (primitive -> semantic -> component layers).
+- Architectural typography scales, micro-interactions, accessible color palettes, and editorial bento layouts.
+- Output: Production-ready React component libraries and design tokens.
+
+### Service 2: Interactive 3D & WebGL Engineering
+- Three.js product showcases, interactive globes, spatial galaxy particle systems, and kinetic scroll physics.
+- Custom GLSL shader development (holographic effects, chromatic aberration, fluid noise, procedural geometry).
+- Frame budget: 16.6ms per frame (60 FPS) guaranteed with strict draw-call batching.
+
+### Service 3: Performance Engineering & Headless Architecture
+- Migrations from slow legacy platforms (WordPress, Magento, legacy SPAs) to headless Next.js architectures.
+- Sub-second edge caching, streaming SSR, and automated Lighthouse audit optimization.
+
+---
+
+## 4. Case Studies & Verification Proof
+
+### Case Study: The Swiss Waffle Co.
+- **Sector**: Food, Beverage & Quick Service Restaurants
+- **Stack**: Next.js, Tailwind CSS, Framer Motion
+- **Deliverables**: Bespoke digital ordering storefront, interactive menu carousel with fluid item previews, and dessert brand aesthetic.
+- **Metrics**: 99.8% Core Web Vitals pass rate, 420ms average page load, +45% conversion uplift on digital orders.
+
+### Case Study: Jeevan Rekha Foods (AB Udyog)
+- **Sector**: FMCG & Edible Oils Manufacturing
+- **Stack**: Next.js App Router, WebGL Backgrounds, Accessible UI
+- **Deliverables**: Corporate manufacturing portal representing a multi-decade industrial legacy with modern high-contrast editorial layouts.
+- **Metrics**: Sub-500ms initial paint across mobile 4G networks, 100/100 Accessibility score.
+
+### Case Study: Skyscape Photography
+- **Sector**: Creative Arts & Photography
+- **Stack**: Next.js, Three.js, Custom WebGL Shader
+- **Deliverables**: Full-screen cinematic gallery with interactive mouse-inertia scrolling and high-resolution picture delivery via responsive edge image pipelines.
+
+### Case Study: Synapse AI Vault
+- **Sector**: Enterprise AI & Cyber Defense
+- **Stack**: Next.js, TypeScript, Three.js Particle Mesh
+- **Deliverables**: Cybernetic dark-mode dashboard with real-time agent topology graph visualizer.
+
+---
+
+## 5. Technical Research Journals
+
+1. **The WebGL Renaissance: Bridging Spatial Artistry and Frontend Performance**
+   - *Summary*: Why modern web design is transitioning from flat 2D cards to spatial 3D interactive canvases, and how to optimize GPU draw calls to maintain 60 FPS on mobile browsers.
+   - *Link*: https://horizonwebcorp.com/blogs/webgl-renaissance
+
+2. **Next.js 16 and RSC: Achieving Sub-Second Page Latency**
+   - *Summary*: Technical breakdown of React Server Components (RSC), server-side streaming, hydration cost elimination, and reaching 100/100 Lighthouse scores.
+   - *Link*: https://horizonwebcorp.com/blogs/nextjs-rsc-latency
+
+3. **The Physics of Motion Design: Crafting Custom Scroll & Cursor Easing**
+   - *Summary*: Why default linear and ease-in-out animations feel generic, and how custom cubic-bezier curves, inertia springs, and canvas tracking create luxury tactile experiences.
+   - *Link*: https://horizonwebcorp.com/blogs/motion-design-physics
+
+4. **WCAG AA Compliance in High-Contrast Luxury Design Systems**
+   - *Summary*: Reconciling dark-tech 'cold luxury' aesthetics with strict accessibility standards, calculating color contrast ratios, and implementing bypass blocks.
+   - *Link*: https://horizonwebcorp.com/blogs/accessibility-luxury-design
+
+5. **WebGPU vs WebGL: The Next Frontier of Real-Time Browser Compute**
+   - *Summary*: Comparing OpenGL ES WebGL architectures with modern WebGPU compute pipelines, TSL (Three.js Shading Language), and client-side simulation.
+   - *Link*: https://horizonwebcorp.com/blogs/webgpu-vs-webgl
+
+6. **Edge Caching & Global CDNs: Scalable Infrastructure for High-Traffic Drops**
+   - *Summary*: Architecture patterns for deploying interactive web applications across globally distributed edge nodes with Brotli pre-compression and strict cache invalidation.
+   - *Link*: https://horizonwebcorp.com/blogs/edge-caching-infrastructure
+
+---
+
+## 6. Frequently Asked Questions (FAQ)
+
+### What makes Horizon Web Corp different from standard web design agencies?
+Horizon Web Corp does not use visual website builders, off-the-shelf templates, or pre-packaged themes. Every project is engineered from scratch in Next.js, TypeScript, and custom CSS/WebGL, ensuring unmatched rendering speed, custom interaction physics, and clean codebase ownership.
+
+### What is Horizon Web Corp's turnaround time for client builds?
+Typical enterprise and startup projects are completed within 4 to 8 weeks. Every project undergoes a 4-phase delivery methodology: Strategic Discovery, Interactive Prototyping, Production-Grade Engineering, and Edge Deployment with Performance Verification.
+
+### How does 3D WebGL impact mobile performance and battery life?
+Horizon Web Corp implements GPU-efficient rendering pipelines: low-polygon geometry, shader optimization, viewport-intersection pausing (so WebGL stops rendering when scrolled out of view), and responsive asset downsizing for low-powered mobile devices.
+
+### Where is Horizon Web Corp located?
+Horizon Web Corp is headquartered in Kolkata, West Bengal, India, and operates as a global engineering studio serving clients across the United States, Europe, the United Kingdom, India, and the UAE.
+
+### How can a business initiate a project?
+Inquiries can be submitted directly via the interactive contact portal at https://horizonwebcorp.com/#contact or by contacting the engineering leadership team. The studio accepts four primary client deployments per quarter.

@@ -3,6 +3,8 @@ export interface BlogPost {
   description: string;
   category: string;
   date: string;
+  isoDate: string;
+  author: string;
   readTime: string;
   image: string;
   tags: string[];
@@ -15,9 +17,11 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "How modern web browsers are moving away from flat layouts into three-dimensional immersive worlds using custom WebGL and Three.js rendering pipelines.",
     category: "WebGL & 3D",
     date: "June 2, 2026",
+    isoDate: "2026-06-02T08:00:00Z",
+    author: "Horizon Web Corp Research & Engineering",
     readTime: "6 min read",
     image: "/blog/webgl_renaissance.png",
-    tags: ["Three.js", "WebGL", "Shaders", "3D Web"],
+    tags: ["Three.js", "WebGL", "Shaders", "3D Web", "Interactive Web"],
     slug: "webgl-renaissance"
   },
   {
@@ -25,9 +29,11 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "Unpacking the technical abstractions of streaming, React Server Components (RSC) hydration, and how to optimize asset loading to secure perfect 100/100 Lighthouse scores.",
     category: "Architecture",
     date: "May 28, 2026",
+    isoDate: "2026-05-28T08:00:00Z",
+    author: "Horizon Web Corp Research & Engineering",
     readTime: "5 min read",
     image: "/blog/nextjs_latency.png",
-    tags: ["Next.js", "RSC", "Lighthouse", "Web Performance"],
+    tags: ["Next.js", "RSC", "Lighthouse", "Web Performance", "Edge SSR"],
     slug: "nextjs-rsc-latency"
   },
   {
@@ -35,9 +41,11 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "Why generic template animations fail to capture user attention and how custom easing functions, spring physics, and canvas-based hover states create premium digital experiences.",
     category: "Motion & UX",
     date: "May 20, 2026",
+    isoDate: "2026-05-20T08:00:00Z",
+    author: "Horizon Web Corp Research & Engineering",
     readTime: "4 min read",
     image: "/blog/motion_physics.png",
-    tags: ["Framer Motion", "Easing", "GSAP", "Micro-animations"],
+    tags: ["Framer Motion", "Easing", "GSAP", "Micro-animations", "UX Design"],
     slug: "motion-design-physics"
   },
   {
@@ -45,9 +53,11 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "Reconciling the sleek, dark-tech 'cold luxury' aesthetic with strict accessibility guidelines. A deep dive into contrast ratio math, semantic HTML5, and focus rings.",
     category: "Accessibility",
     date: "May 15, 2026",
+    isoDate: "2026-05-15T08:00:00Z",
+    author: "Horizon Web Corp Research & Engineering",
     readTime: "7 min read",
     image: "/blog/dark_mode_accessibility.png",
-    tags: ["Accessibility", "WCAG AA", "Tailwind CSS", "A11y"],
+    tags: ["Accessibility", "WCAG AA", "Tailwind CSS", "A11y", "Semantic HTML"],
     slug: "accessibility-luxury-design"
   },
   {
@@ -55,9 +65,11 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "An engineering comparison of WebGL and WebGPU. How TSL (Three.js Shading Language) and GPU compute shaders enable interactive simulations directly in client viewports.",
     category: "WebGPU & Shaders",
     date: "May 08, 2026",
+    isoDate: "2026-05-08T08:00:00Z",
+    author: "Horizon Web Corp Research & Engineering",
     readTime: "8 min read",
     image: "/blog/webgpu_shaders.png",
-    tags: ["WebGPU", "TSL Shading", "GPU Compute", "Shaders"],
+    tags: ["WebGPU", "TSL Shading", "GPU Compute", "Shaders", "Three.js"],
     slug: "webgpu-vs-webgl"
   },
   {
@@ -65,9 +77,11 @@ export const BLOG_POSTS: BlogPost[] = [
     description: "Serving highly interactive visual media to millions of visitors simultaneously. Best practices for optimizing asset delivery pipelines and serverless edge functions.",
     category: "Infrastructure",
     date: "May 01, 2026",
+    isoDate: "2026-05-01T08:00:00Z",
+    author: "Horizon Web Corp Research & Engineering",
     readTime: "5 min read",
     image: "/blog/edge_infrastructure.png",
-    tags: ["CDN Caching", "Edge", "Vercel", "Web Infrastructure"],
+    tags: ["CDN Caching", "Edge", "Vercel", "Web Infrastructure", "Performance SLA"],
     slug: "edge-caching-infrastructure"
   }
 ];

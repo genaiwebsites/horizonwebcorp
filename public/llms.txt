@@ -1,0 +1,45 @@
+# Horizon Web Corp
+
+> Bespoke web design and engineering studio crafting high-performance Next.js architectures, interactive WebGL/Three.js spatial experiences, and design systems for enterprise brands and high-growth technology companies.
+
+## Overview
+
+Horizon Web Corp (HWC) is an experiential digital engineering lab. We operate at the intersection of mathematical engineering precision and visual artistry. Unlike standard agencies that rely on visual page builders (such as WordPress, Webflow, or Squarespace), 100% of Horizon Web Corp's codebase is handcrafted in TypeScript, Next.js App Router, Tailwind CSS, and custom GLSL/WebGL shader pipelines.
+
+## Architectural Standards & Performance Benchmarks
+
+- **Global LCP Paint**: Under 0.8 seconds worldwide via Edge SSR and serverless CDN distribution.
+- **Lighthouse Benchmark**: 100/100 Core Web Vitals audited across Performance, Accessibility (WCAG AA), Best Practices, and SEO.
+- **Hardware Frame Budget**: 60 FPS locked WebGL & Three.js animations with dedicated draw-call batching and GPU compute isolation.
+- **Zero Template Debt**: 100% bespoke production code with no no-code builder overhead or bloated third-party dependencies.
+
+## Core Capabilities
+
+1. **Bespoke UI/UX & Design Systems**: Custom typography hierarchies, accessible color palettes, design tokens, and editorial bento layouts tailored to distinct brand identities.
+2. **Interactive 3D & WebGL Engineering**: Purposeful Three.js product visualizers, interactive layer depth, and fluid physics that elevate brand positioning without compromising initial page load speed.
+3. **Performance Engineering & Edge SSR**: Sub-second load times, instant client-side transitions, React Server Components (RSC), and edge caching.
+4. **Hardened Accessibility & Semantics**: Complete WCAG 2.2 AA compliance, semantic HTML5 landmarks, keyboard navigation loops, and screen reader compatibility.
+
+## Selected Case Studies & Deployments
+
+- **The Swiss Waffle Co.**: Layered dessert web experience with custom cream-and-crisp color systems and high-conversion interactive menu ordering.
+- **Jeevan Rekha Foods**: Digital brand platform crafted for AB Udyog's premium mustard and rice bran oil portfolio, blending industrial heritage with digital precision.
+- **Skyscape Photography**: Cinematic full-viewport gallery featuring GPU-accelerated image transitions and fluid canvas scroll physics.
+- **Hansha Tradecom**: Corporate trading portal engineered with high-contrast accessibility and sub-second catalog navigation.
+- **Synapse AI Vault**: Enterprise AI platform interface with dark-tech glassmorphism and real-time agent visualization.
+
+## Technical Publications & Insights
+
+- **The WebGL Renaissance**: Spatial interactivity, GPU memory constraints, and the psychology of 3D browser canvases. URL: https://horizonwebcorp.com/blogs/webgl-renaissance
+- **Next.js 16 and RSC**: Server component streaming mechanics, hydration optimization, and securing 100/100 Lighthouse scores. URL: https://horizonwebcorp.com/blogs/nextjs-rsc-latency
+- **The Physics of Motion Design**: Custom cubic-bezier curves, spring physics, and hardware-accelerated scroll interpolation. URL: https://horizonwebcorp.com/blogs/motion-design-physics
+- **WCAG AA Compliance in Luxury Design**: Contrast ratio mathematics, focus indicators, and accessible dark-mode UI systems. URL: https://horizonwebcorp.com/blogs/accessibility-luxury-design
+- **WebGPU vs WebGL**: Comparative analysis of browser compute shaders, TSL shading language, and next-generation graphics pipelines. URL: https://horizonwebcorp.com/blogs/webgpu-vs-webgl
+- **Edge Caching & Global Infrastructure**: Serverless CDN caching architectures, Brotli compression, and zero-downtime deployments. URL: https://horizonwebcorp.com/blogs/edge-caching-infrastructure
+
+## Contact & Engagement
+
+- **Website**: https://horizonwebcorp.com
+- **Inquiries**: https://horizonwebcorp.com/#contact
+- **Client Capacity**: 4 bespoke client projects per quarter to guarantee founder-led engineering and uncompromising craftsmanship.
+- **Location**: Kolkata, India (Serving global enterprise and venture-backed clients).

@@ -1,16 +1,16 @@
 # Graph Report - horizonwebcorp  (2026-10-22)
 
 ## Corpus Check
-- 41 files · ~253,248 words
+- 41 files · ~355,490 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 204 nodes · 268 edges · 21 communities (14 shown, 7 thin omitted)
+- 206 nodes · 270 edges · 22 communities (15 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `aff22411`
+- Built from commit: `6b3f4745`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,6 +33,7 @@
 - [[_COMMUNITY_Community 16|Community 16]]
 - [[_COMMUNITY_Community 17|Community 17]]
 - [[_COMMUNITY_Community 19|Community 19]]
+- [[_COMMUNITY_Community 21|Community 21]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
@@ -55,19 +56,19 @@
 ## Import Cycles
 - None detected.
 
-## Communities (21 total, 7 thin omitted)
+## Communities (22 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.12
-Nodes (17): metadata, BlogsGrid(), Footer(), ArrowRight(), ExternalLink(), GlobeIcon(), Layers(), MenuIcon() (+9 more)
+Cohesion: 0.14
+Nodes (11): metadata, Footer(), MenuIcon(), XIcon(), Nav(), PillButton(), metadata, ARTICLE_CONTENT (+3 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.18
-Nodes (11): dependencies, cobe, framer-motion, lenis, lucide-react, next, react, react-dom (+3 more)
+Cohesion: 0.10
+Nodes (19): dependencies, cobe, framer-motion, lenis, lucide-react, next, react, react-dom (+11 more)
 
 ### Community 2 - "Community 2"
-Cohesion: 0.08
-Nodes (23): ContactModal, PROJECTS, ContactModal(), ContactModalProps, SECTORS, Preloader(), PreloaderProps, TechMarquee() (+15 more)
+Cohesion: 0.09
+Nodes (22): ContactModal, PROJECTS, ContactModal(), ContactModalProps, SECTORS, ArrowRight(), ExternalLink(), GlobeIcon() (+14 more)
 
 ### Community 3 - "Community 3"
 Cohesion: 0.10
@@ -78,12 +79,12 @@ Cohesion: 0.11
 Nodes (18): 10. [SEO & Best Practices] Page Metadata & Titles, 1. [Accessibility] Form Labels Linked to Inputs, 1. [Best Practices] Vulnerable Dependency — PostCSS XSS, 2. [Accessibility] Modal Close Button Accessible Name, 2. [Performance] Google Fonts Resource Payload, 3. [Accessibility] Keyboard Skip Navigation Bypass, 3. [Anti-Pattern] Heading Gradient Text AI Tells, 4. [Accessibility] prefers-reduced-motion Support (+10 more)
 
 ### Community 5 - "Community 5"
-Cohesion: 0.16
-Nodes (12): BentoCard(), BlogContent(), BlogContentProps, Section, BlogsGridProps, containerVariants, itemVariants, Calendar() (+4 more)
+Cohesion: 0.15
+Nodes (13): BentoCard(), BlogContent(), BlogContentProps, Section, BlogsGrid(), BlogsGridProps, containerVariants, itemVariants (+5 more)
 
 ### Community 6 - "Community 6"
-Cohesion: 0.25
-Nodes (6): inter, jetBrainsMono, metadata, spaceGrotesk, syne, SmoothScroll()
+Cohesion: 0.22
+Nodes (7): inter, jetBrainsMono, jsonLdGraph, metadata, spaceGrotesk, syne, SmoothScroll()
 
 ### Community 7 - "Community 7"
 Cohesion: 0.22
@@ -98,28 +99,32 @@ Cohesion: 0.50
 Nodes (3): Deploy on Vercel, Getting Started, Learn More
 
 ### Community 19 - "Community 19"
-Cohesion: 0.11
-Nodes (18): devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node, @types/react, @types/react-dom (+10 more)
+Cohesion: 0.20
+Nodes (10): devDependencies, eslint, eslint-config-next, tailwindcss, @tailwindcss/postcss, @types/node, @types/react, @types/react-dom (+2 more)
+
+### Community 21 - "Community 21"
+Cohesion: 0.29
+Nodes (6): CanvasMode, ModeOption, MODES, ShaderMode, WebGLBackground(), WebGLBackgroundProps
 
 ## Knowledge Gaps
-- **109 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+104 more)
+- **110 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+105 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `ArrowRight()` connect `Community 0` to `Community 8`, `Community 2`, `Community 5`?**
+- **Why does `ArrowRight()` connect `Community 2` to `Community 0`, `Community 8`, `Community 5`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `Community 1` to `Community 19`?**
-  _High betweenness centrality (0.011) - this node is a cross-community bridge._
+- **Why does `devDependencies` connect `Community 19` to `Community 1`?**
+  _High betweenness centrality (0.010) - this node is a cross-community bridge._
 - **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
-  _109 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _110 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.12473118279569892 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.14 - nodes in this community are weakly interconnected._
+- **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
-  _Cohesion score 0.07575757575757576 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08669354838709678 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
-- **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
