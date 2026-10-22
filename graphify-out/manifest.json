@@ -105,8 +105,8 @@
     "semantic_hash": ""
   },
   "src/components/ParticleVortex.tsx": {
-    "mtime": 1792612899.9296508,
-    "ast_hash": "78a46e60cd42bc28b9a7daaf59d60928",
+    "mtime": 1792645231.890765,
+    "ast_hash": "7c8015220a002b450672a11f012c57d2",
     "semantic_hash": ""
   },
   "src/components/PillButton.tsx": {
@@ -115,8 +115,8 @@
     "semantic_hash": ""
   },
   "src/components/Starfield.tsx": {
-    "mtime": 1792612845.5294075,
-    "ast_hash": "4208ca5510779768f35b4ae53973896f",
+    "mtime": 1792645156.6306095,
+    "ast_hash": "3d7d1a269f042ea3f73d52700e91a9a3",
     "semantic_hash": ""
   },
   "src/components/TechMarquee.tsx": {

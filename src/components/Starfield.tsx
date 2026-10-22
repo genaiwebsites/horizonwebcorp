@@ -4,9 +4,11 @@ import React, { useEffect, useRef } from 'react';
 interface Star {
   x: number;
   y: number;
-  size: number;
+  vx: number;
+  vy: number;
+  baseSize: number;
   baseAlpha: number;
-  speed: number;
+  pulseSpeed: number;
   phase: number;
   color: string;
 }
@@ -23,7 +25,7 @@ export const Starfield = () => {
 
     let animationFrameId: number;
     let stars: Star[] = [];
-    const starCount = 140; // Subtle, dispersed celestial stardust
+    const starCount = 180; // Balanced, beautifully scattered stardust across hero
 
     function resize() {
       if (!canvas) return;
@@ -36,21 +38,26 @@ export const Starfield = () => {
       if (!canvas) return;
       stars = [];
       const palettes = [
-        '255, 255, 255', // Pure diamond starlight
-        '241, 245, 249', // Crisp starlight white
-        '226, 232, 240', // Muted cosmic silver
+        '255, 255, 255', // Diamond white starlight
+        '248, 250, 252', // Crisp celestial white
+        '226, 232, 240', // Refined cosmic silver
         '203, 213, 225', // Slate starlight
       ];
 
       for (let i = 0; i < starCount; i++) {
         const color = palettes[Math.floor(Math.random() * palettes.length)];
+        const isBeacon = Math.random() < 0.12; // 12% subtle brighter beacon stars
+
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          // Ultra-fine subpixel pinpoints: 0.3px to 0.65px (delicate, crisp, no fuzzy blobs)
-          size: Math.random() < 0.85 ? Math.random() * 0.2 + 0.3 : Math.random() * 0.2 + 0.45,
-          baseAlpha: Math.random() * 0.16 + 0.08, // Subtle cosmic depth
-          speed: Math.random() * 0.0004 + 0.0001, // Slow, peaceful celestial breathing
+          // Butter-smooth, gentle cosmic drift across the viewport
+          vx: (Math.random() - 0.5) * 0.14,
+          vy: -Math.random() * 0.18 - 0.04,
+          // Crisp, micro-fine starlight sizing (0.75px to 1.35px; beacon up to 1.7px)
+          baseSize: isBeacon ? Math.random() * 0.35 + 1.35 : Math.random() * 0.45 + 0.75,
+          baseAlpha: isBeacon ? Math.random() * 0.25 + 0.65 : Math.random() * 0.35 + 0.35,
+          pulseSpeed: Math.random() * 0.0016 + 0.0008, // Organic, breathing pulsation
           phase: Math.random() * Math.PI * 2,
           color,
         });
@@ -73,11 +80,33 @@ export const Starfield = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         stars.forEach((star) => {
-          const alpha = star.baseAlpha * (0.5 + 0.5 * Math.sin(time * star.speed + star.phase));
-          
+          // Butter-smooth drifting across the hero section
+          star.x += star.vx;
+          star.y += star.vy;
+
+          // Seamless viewport wrap-around
+          if (star.x < 0) star.x = canvas.width;
+          if (star.x > canvas.width) star.x = 0;
+          if (star.y < 0) star.y = canvas.height;
+          if (star.y > canvas.height) star.y = 0;
+
+          // Smooth sinusoidal pulsation
+          const pulse = Math.sin(time * star.pulseSpeed + star.phase);
+          const alpha = star.baseAlpha * (0.62 + 0.38 * pulse);
+          const currentSize = star.baseSize * (0.88 + 0.22 * pulse);
+
+          // Subtle soft micro-glow for brighter stars
+          if (star.baseSize > 1.3) {
+            ctx.fillStyle = `rgba(${star.color}, ${Math.max(0, Math.min(alpha * 0.22, 1))})`;
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, currentSize * 2.2, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          // Core crisp starlight pinpoint
           ctx.fillStyle = `rgba(${star.color}, ${Math.max(0, Math.min(alpha, 1))})`;
           ctx.beginPath();
-          ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+          ctx.arc(star.x, star.y, currentSize, 0, Math.PI * 2);
           ctx.fill();
         });
       }
@@ -97,7 +126,7 @@ export const Starfield = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-45 z-0"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-75 z-0"
       style={{ mixBlendMode: 'screen', transform: 'translateZ(0)' }}
     />
   );

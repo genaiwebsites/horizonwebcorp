@@ -37,16 +37,17 @@ export const ParticleVortex = () => {
       const maxRadius = 58.0;
 
       for (let i = 0; i < particleCount; i++) {
-        const isAmbient = Math.random() < 0.28;
+        // High dispersion: 45% ambient stardust evenly scattered across the full 3D hero viewport
+        const isAmbient = Math.random() < 0.45;
         let x: number, y: number, z: number;
         let particleColor: THREE.Color;
 
         if (isAmbient) {
           // Broadly dispersed ambient stardust across the entire 3D hero space
-          x = (Math.random() - 0.5) * 80;
-          y = (Math.random() - 0.5) * 50;
+          x = (Math.random() - 0.5) * 90;
+          y = (Math.random() - 0.5) * 60;
           z = (Math.random() - 0.5) * 45;
-          particleColor = Math.random() < 0.5 ? colorSilver : (Math.random() < 0.5 ? colorWhite : colorSlate);
+          particleColor = Math.random() < 0.55 ? colorWhite : (Math.random() < 0.6 ? colorSilver : colorPlatinum);
         } else {
           // Broad, sweeping logarithmic spiral arms traversing the entire viewport
           const r = 4.0 + Math.pow(Math.random(), 0.92) * (maxRadius - 4.0);
@@ -76,8 +77,8 @@ export const ParticleVortex = () => {
         colorArray[i * 3 + 1] = particleColor.g;
         colorArray[i * 3 + 2] = particleColor.b;
 
-        // Micro-fine, uniform starlight sizing (no oversized sparkles)
-        sizeArray[i] = Math.random() * 0.4 + 0.6;
+        // Crisp, refined starlight sizing (0.75 to 1.35)
+        sizeArray[i] = Math.random() * 0.6 + 0.75;
         randomArray[i] = Math.random() * Math.PI * 2;
       }
 
@@ -100,17 +101,21 @@ export const ParticleVortex = () => {
 
         void main() {
           vec3 pos = position;
-          pos.y += sin(uTime * 0.9 + aRandom * 3.0) * 0.25;
+          // Butter-smooth fluid moting across 3D space
+          pos.x += sin(uTime * 0.35 + aRandom * 4.0) * 0.75;
+          pos.y += cos(uTime * 0.45 + aRandom * 3.0) * 0.55;
+          pos.z += sin(uTime * 0.28 + aRandom * 2.0) * 0.60;
 
           vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
           gl_Position = projectionMatrix * mvPosition;
           
-          // Micro-fine, crisp starlight point sizing (0.8px to 2.4px max)
-          float pSize = clamp((aSize * 26.0) / -mvPosition.z, 0.8, 2.4);
-          gl_PointSize = pSize * (0.85 + 0.15 * sin(uTime * 1.2 + aRandom));
+          // Crisp, micro-fine starlight sizing with breathing pulsation (1.0px to 3.2px max)
+          float pSize = clamp((aSize * 34.0) / -mvPosition.z, 1.0, 3.2);
+          gl_PointSize = pSize * (0.82 + 0.28 * sin(uTime * 1.8 + aRandom * 2.5));
           
           vColor = color;
-          vAlpha = 0.24 + 0.20 * sin(uTime * 0.8 + aRandom * 3.0);
+          // Dynamic celestial breathing pulsation (clearly visible yet refined)
+          vAlpha = 0.42 + 0.38 * sin(uTime * 1.5 + aRandom * 4.5);
         }
       `;
 
@@ -123,8 +128,8 @@ export const ParticleVortex = () => {
           float distSq = dot(pt, pt);
           if (distSq > 0.25) discard;
           
-          // Smooth Gaussian celestial starlight falloff
-          float glow = exp(-distSq * 9.0);
+          // Crisp Gaussian celestial starlight falloff
+          float glow = exp(-distSq * 10.0);
           gl_FragColor = vec4(vColor, vAlpha * glow);
         }
       `;
@@ -157,8 +162,9 @@ export const ParticleVortex = () => {
         const elapsedTime = (performance.now() - startTime) * 0.001;
         uniforms.uTime.value = elapsedTime;
         
-        // Majestic, slow cosmological rotation
-        particles.rotation.z -= 0.0008;
+        // Majestic cosmological drift & subtle spatial sway
+        particles.rotation.z -= 0.0012;
+        particles.rotation.y = Math.sin(elapsedTime * 0.08) * 0.06;
         
         // Subtle organic breathing pulse
         const pulse = 1.0 + 0.02 * Math.sin(elapsedTime * 0.5);
@@ -203,7 +209,7 @@ export const ParticleVortex = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-35 mix-blend-screen"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-65 mix-blend-screen"
       style={{ transform: 'translateZ(0)' }}
     />
   );
