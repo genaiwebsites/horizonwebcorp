@@ -28,10 +28,10 @@ export const ParticleVortex = () => {
       const sizeArray = new Float32Array(particleCount);
       const randomArray = new Float32Array(particleCount);
 
-      const colorCore = new THREE.Color(0x38bdf8);    // Luminous cyan
-      const colorMid = new THREE.Color(0x818cf8);     // Electric indigo
-      const colorOuter = new THREE.Color(0xc084fc);   // Cosmic violet
-      const colorSilver = new THREE.Color(0xe2e8f0);  // Starlight silver
+      const colorWhite = new THREE.Color(0xffffff);     // Pure starlight
+      const colorSilver = new THREE.Color(0xe2e8f0);    // Cosmic silver
+      const colorSlate = new THREE.Color(0x94a3b8);     // Muted deep stardust
+      const colorPlatinum = new THREE.Color(0xcbd5e1);  // Platinum sheen
 
       const numArms = 4;
       const maxRadius = 58.0;
@@ -46,7 +46,7 @@ export const ParticleVortex = () => {
           x = (Math.random() - 0.5) * 80;
           y = (Math.random() - 0.5) * 50;
           z = (Math.random() - 0.5) * 45;
-          particleColor = Math.random() < 0.4 ? colorSilver : (Math.random() < 0.5 ? colorMid : colorOuter);
+          particleColor = Math.random() < 0.5 ? colorSilver : (Math.random() < 0.5 ? colorWhite : colorSlate);
         } else {
           // Broad, sweeping logarithmic spiral arms traversing the entire viewport
           const r = 4.0 + Math.pow(Math.random(), 0.92) * (maxRadius - 4.0);
@@ -62,9 +62,9 @@ export const ParticleVortex = () => {
 
           const normR = r / maxRadius;
           if (normR < 0.35) {
-            particleColor = colorCore.clone().lerp(colorMid, normR / 0.35);
+            particleColor = colorWhite.clone().lerp(colorSilver, normR / 0.35);
           } else {
-            particleColor = colorMid.clone().lerp(colorOuter, (normR - 0.35) / 0.65);
+            particleColor = colorSilver.clone().lerp(colorSlate, (normR - 0.35) / 0.65);
           }
         }
 
@@ -77,7 +77,7 @@ export const ParticleVortex = () => {
         colorArray[i * 3 + 2] = particleColor.b;
 
         // Micro-fine, uniform starlight sizing (no oversized sparkles)
-        sizeArray[i] = Math.random() * 0.5 + 0.8;
+        sizeArray[i] = Math.random() * 0.4 + 0.6;
         randomArray[i] = Math.random() * Math.PI * 2;
       }
 
@@ -100,17 +100,17 @@ export const ParticleVortex = () => {
 
         void main() {
           vec3 pos = position;
-          pos.y += sin(uTime * 0.9 + aRandom * 3.0) * 0.3;
+          pos.y += sin(uTime * 0.9 + aRandom * 3.0) * 0.25;
 
           vec4 mvPosition = modelViewMatrix * vec4(pos, 1.0);
           gl_Position = projectionMatrix * mvPosition;
           
-          // Subtle, crisp starlight point sizing (2.0px to 6.0px)
-          float pSize = clamp((aSize * 46.0) / -mvPosition.z, 2.0, 6.0);
-          gl_PointSize = pSize * (0.88 + 0.22 * sin(uTime * 1.4 + aRandom));
+          // Micro-fine, crisp starlight point sizing (0.8px to 2.4px max)
+          float pSize = clamp((aSize * 26.0) / -mvPosition.z, 0.8, 2.4);
+          gl_PointSize = pSize * (0.85 + 0.15 * sin(uTime * 1.2 + aRandom));
           
           vColor = color;
-          vAlpha = 0.42 + 0.42 * sin(uTime * 1.0 + aRandom * 3.0);
+          vAlpha = 0.24 + 0.20 * sin(uTime * 0.8 + aRandom * 3.0);
         }
       `;
 
@@ -203,7 +203,7 @@ export const ParticleVortex = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-80 mix-blend-screen"
+      className="absolute inset-0 w-full h-full pointer-events-none opacity-35 mix-blend-screen"
       style={{ transform: 'translateZ(0)' }}
     />
   );

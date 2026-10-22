@@ -36,10 +36,10 @@ export const Starfield = () => {
       if (!canvas) return;
       stars = [];
       const palettes = [
+        '255, 255, 255', // Pure diamond starlight
+        '241, 245, 249', // Crisp starlight white
         '226, 232, 240', // Muted cosmic silver
-        '226, 232, 240',
-        '186, 215, 248', // Soft cyan stardust
-        '216, 205, 248', // Subtle lavender stardust
+        '203, 213, 225', // Slate starlight
       ];
 
       for (let i = 0; i < starCount; i++) {
@@ -47,10 +47,10 @@ export const Starfield = () => {
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          // Micro-fine subpixel pinpoints: 0.35px to 0.85px (no oversized dots)
-          size: Math.random() < 0.8 ? Math.random() * 0.3 + 0.35 : Math.random() * 0.3 + 0.55,
-          baseAlpha: Math.random() * 0.22 + 0.12, // Deep cosmic subtlety
-          speed: Math.random() * 0.0006 + 0.0002, // Ultra-slow organic breathing
+          // Ultra-fine subpixel pinpoints: 0.3px to 0.65px (delicate, crisp, no fuzzy blobs)
+          size: Math.random() < 0.85 ? Math.random() * 0.2 + 0.3 : Math.random() * 0.2 + 0.45,
+          baseAlpha: Math.random() * 0.16 + 0.08, // Subtle cosmic depth
+          speed: Math.random() * 0.0004 + 0.0001, // Slow, peaceful celestial breathing
           phase: Math.random() * Math.PI * 2,
           color,
         });

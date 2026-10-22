@@ -52,7 +52,7 @@ export const Hero = ({ isReady = true }: HeroProps) => {
       <div className="absolute inset-0 bg-gradient-to-b from-[#020205] via-[#020205] to-transparent z-0 pointer-events-none" />
 
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden" style={{ maskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)', WebkitMaskImage: 'linear-gradient(to bottom, black 70%, transparent 100%)' }}>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_50%_0%,rgba(139,92,246,0.15)_0%,rgba(6,182,212,0.06)_40%,transparent_100%)] z-0" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_120%_100%_at_50%_0%,rgba(99,102,241,0.07)_0%,rgba(59,130,246,0.02)_40%,transparent_100%)] z-0" />
 
         {/* Ambient starry backdrop */}
         <Starfield />
@@ -62,15 +62,16 @@ export const Hero = ({ isReady = true }: HeroProps) => {
 
         {/* Subtle, hardware-accelerated ambient cursor follower */}
         <motion.div
-          className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full opacity-25 pointer-events-none z-0 blur-3xl hidden md:block transform-gpu"
+          className="absolute top-0 left-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none z-0 blur-3xl hidden md:block transform-gpu"
           style={{
-            background: 'radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(147,51,234,0.25) 40%, transparent 70%)',
+            background: 'radial-gradient(circle, rgba(148,163,184,0.16) 0%, rgba(99,102,241,0.06) 40%, transparent 70%)',
             x: useTransform(mouseX, v => v - 250),
             y: useTransform(mouseY, v => v - 250),
           }}
         />
 
-        <div className="absolute inset-x-0 bottom-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none z-0 transform-gpu" />
+        {/* Subtle, architectural blueprint gridlines (delicate and non-intrusive) */}
+        <div className="absolute inset-x-0 bottom-0 top-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.018)_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:radial-gradient(ellipse_75%_55%_at_50%_0%,#000_30%,transparent_100%)] opacity-70 pointer-events-none z-0 transform-gpu" />
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10 flex flex-col justify-center flex-grow w-full">
