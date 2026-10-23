@@ -330,14 +330,6 @@ export async function generateMetadata({
       tags: [post.category, 'Web Development', 'High Performance Web', 'Next.js'],
       images: [
         {
-          url: ogImageUrl,
-          secureUrl: ogImageUrl,
-          width: 1200,
-          height: 630,
-          type: 'image/jpeg',
-          alt: post.title,
-        },
-        {
           url: squareImageUrl,
           secureUrl: squareImageUrl,
           width: 600,

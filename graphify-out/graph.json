@@ -310,15 +310,6 @@
       "norm_label": "config"
     },
     {
-      "label": "generate_blog_og.py",
-      "file_type": "code",
-      "source_file": "scratch/generate_blog_og.py",
-      "source_location": "L1",
-      "id": "scratch_generate_blog_og",
-      "community": 22,
-      "norm_label": "generate_blog_og.py"
-    },
-    {
       "label": "route.ts",
       "file_type": "code",
       "source_file": "src/app/api/contact/route.ts",
@@ -403,7 +394,7 @@
       "label": "BlogDetailPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/[slug]/page.tsx",
-      "source_location": "L360",
+      "source_location": "L352",
       "id": "slug_page_blogdetailpage",
       "community": 0,
       "norm_label": "blogdetailpage()"
@@ -430,7 +421,7 @@
       "label": "BlogsPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/page.tsx",
-      "source_location": "L59",
+      "source_location": "L51",
       "id": "blogs_page_blogspage",
       "community": 0,
       "norm_label": "blogspage()"
@@ -493,7 +484,7 @@
       "label": "jsonLdGraph",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L88",
+      "source_location": "L80",
       "id": "app_layout_jsonldgraph",
       "community": 6,
       "norm_label": "jsonldgraph"
@@ -502,7 +493,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L233",
+      "source_location": "L225",
       "id": "app_layout_rootlayout",
       "community": 6,
       "norm_label": "rootlayout()"
@@ -4676,5 +4667,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1d3f218321059aea729f6198c0a55249f9aeba87"
+  "built_at_commit": "cee7cbed8ccaa8dbb80222a860af5876c594dfa4"
 }
