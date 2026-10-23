@@ -403,7 +403,7 @@
       "label": "BlogDetailPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/[slug]/page.tsx",
-      "source_location": "L347",
+      "source_location": "L360",
       "id": "slug_page_blogdetailpage",
       "community": 0,
       "norm_label": "blogdetailpage()"
@@ -430,7 +430,7 @@
       "label": "BlogsPage()",
       "file_type": "code",
       "source_file": "src/app/blogs/page.tsx",
-      "source_location": "L51",
+      "source_location": "L59",
       "id": "blogs_page_blogspage",
       "community": 0,
       "norm_label": "blogspage()"
@@ -493,7 +493,7 @@
       "label": "jsonLdGraph",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L80",
+      "source_location": "L88",
       "id": "app_layout_jsonldgraph",
       "community": 6,
       "norm_label": "jsonldgraph"
@@ -502,7 +502,7 @@
       "label": "RootLayout()",
       "file_type": "code",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L225",
+      "source_location": "L233",
       "id": "app_layout_rootlayout",
       "community": 6,
       "norm_label": "rootlayout()"
@@ -1249,7 +1249,7 @@
       "label": "BLOG_POSTS",
       "file_type": "code",
       "source_file": "src/data/blogs.ts",
-      "source_location": "L15",
+      "source_location": "L16",
       "id": "data_blogs_blog_posts",
       "community": 5,
       "norm_label": "blog_posts"
@@ -4676,5 +4676,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "ad1201b16b99005599df71be882a88797e9a1668"
+  "built_at_commit": "1d3f218321059aea729f6198c0a55249f9aeba87"
 }

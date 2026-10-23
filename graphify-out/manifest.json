@@ -20,18 +20,18 @@
     "semantic_hash": ""
   },
   "src/app/blogs/[slug]/page.tsx": {
-    "mtime": 1792742484.5916395,
-    "ast_hash": "d43047fb4429b5a0bfa5093658bf4dfa",
+    "mtime": 1792764924.3406334,
+    "ast_hash": "f173325f54e4068fb4192bb33c9b0ebe",
     "semantic_hash": ""
   },
   "src/app/blogs/page.tsx": {
-    "mtime": 1792742379.8893003,
-    "ast_hash": "b83fe13e4a20fef793a1817344cee7f0",
+    "mtime": 1792764993.5896928,
+    "ast_hash": "d244c44256c4bff41b9636fbf922c90f",
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1792742361.8912482,
-    "ast_hash": "169636a23116b9e753e8e7ee62aaaef6",
+    "mtime": 1792764970.320711,
+    "ast_hash": "c5cc262d7c923c561a93e646f8824e09",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/app/sitemap.ts": {
-    "mtime": 1792742397.0707674,
-    "ast_hash": "0f6f6c533ba85e476d75dbcfaa7e5f33",
+    "mtime": 1792765018.598667,
+    "ast_hash": "6ac737a6a055593a8ebdb343e1eb9183",
     "semantic_hash": ""
   },
   "src/app/terms/page.tsx": {
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "src/data/blogs.ts": {
-    "mtime": 1792742275.7702935,
-    "ast_hash": "35d1e22f13eba4286f03bde6088b97c0",
+    "mtime": 1792764848.9927938,
+    "ast_hash": "3f1e5bb6194239ff29d4447f5ea782de",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -285,8 +285,8 @@
     "semantic_hash": ""
   },
   "public/og-image.png": {
-    "mtime": 1792683111.2579806,
-    "ast_hash": "3640bd8707e4f60176ca1f50ed299b67",
+    "mtime": 1792764607.9835784,
+    "ast_hash": "5a01e2047d727c4114f465bc54cdb2c0",
     "semantic_hash": ""
   },
   "public/og-banner-1920.png": {
@@ -305,18 +305,13 @@
     "semantic_hash": ""
   },
   "public/og-image.jpg": {
-    "mtime": 1792683096.231888,
-    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
+    "mtime": 1792764607.8554504,
+    "ast_hash": "2846f1fb0e0e316cc7215f6bb948230d",
     "semantic_hash": ""
   },
   "scratch/generate_blog_og.py": {
     "mtime": 1792742188.8554218,
     "ast_hash": "5e122564ccecadd2930af6f51abf398c",
-    "semantic_hash": ""
-  },
-  "scratch_html.html": {
-    "mtime": 1792683624.8518858,
-    "ast_hash": "757218b261886fc2ca6d1220c3fac0d5",
     "semantic_hash": ""
   },
   "public/blog/accessibility-luxury-design-og.jpg": {
@@ -344,24 +339,79 @@
     "ast_hash": "b7e335af10e1a79d5b3949b2098e892e",
     "semantic_hash": ""
   },
-  "public/blog/webgl_renaissance_og.jpg": {
-    "mtime": 1792742129.1040766,
-    "ast_hash": "ea792f18d91d50f12397b9753b65559d",
-    "semantic_hash": ""
-  },
   "public/blog/webgpu-vs-webgl-og.jpg": {
     "mtime": 1792742198.4137614,
     "ast_hash": "0ea61df59b0643742af06f38852df2aa",
     "semantic_hash": ""
   },
-  "src/app/opengraph-image.jpg": {
-    "mtime": 1792742222.0420868,
-    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
+  "public/blog/accessibility-luxury-design-square.jpg": {
+    "mtime": 1792764783.2015986,
+    "ast_hash": "9fc51e0a1429f9f692ba360a44d90092",
     "semantic_hash": ""
   },
-  "src/app/twitter-image.jpg": {
-    "mtime": 1792742222.04411,
-    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
+  "public/blog/edge-caching-infrastructure-square.jpg": {
+    "mtime": 1792764783.248269,
+    "ast_hash": "426b401aa743027dd55ed9b40912676c",
+    "semantic_hash": ""
+  },
+  "public/blog/motion-design-physics-square.jpg": {
+    "mtime": 1792764783.180049,
+    "ast_hash": "0b9c877b6db3e573091988074a4b11f9",
+    "semantic_hash": ""
+  },
+  "public/blog/nextjs-rsc-latency-square.jpg": {
+    "mtime": 1792764783.1562626,
+    "ast_hash": "7d064019d74fe507f923197449ee8f52",
+    "semantic_hash": ""
+  },
+  "public/blog/webgl-renaissance-square.jpg": {
+    "mtime": 1792764783.1360304,
+    "ast_hash": "b4fa26b40a2ce9fb8c2127a930da0bcf",
+    "semantic_hash": ""
+  },
+  "public/blog/webgpu-vs-webgl-square.jpg": {
+    "mtime": 1792764783.225788,
+    "ast_hash": "809df0568511f6a2984b7777d5df9a37",
+    "semantic_hash": ""
+  },
+  "scratch/banner_center_cropped.jpg": {
+    "mtime": 1792764527.151658,
+    "ast_hash": "b1d4175d6f3ecf974e1585ba692ce1f2",
+    "semantic_hash": ""
+  },
+  "scratch/crop_safe_banner_1200.jpg": {
+    "mtime": 1792764685.7492063,
+    "ast_hash": "2ebec355d3b2200a92882819fe64c7fb",
+    "semantic_hash": ""
+  },
+  "scratch/crop_safe_banner_cropped.jpg": {
+    "mtime": 1792764685.7492063,
+    "ast_hash": "99cf360a6acc0428bd5c41a0c54be3f7",
+    "semantic_hash": ""
+  },
+  "scratch/original_og_image.png": {
+    "mtime": 1792764440.3153486,
+    "ast_hash": "b11096b4fe345474005ca22650bea81b",
+    "semantic_hash": ""
+  },
+  "scratch/simulated_thumb_80.png": {
+    "mtime": 1792764482.170151,
+    "ast_hash": "d43b41d45240650e190ea96c2a412759",
+    "semantic_hash": ""
+  },
+  "scratch/square_og_cropped_600.jpg": {
+    "mtime": 1792764558.391706,
+    "ast_hash": "9e818a34a59233653da50d5c4c9a57d8",
+    "semantic_hash": ""
+  },
+  "scratch/square_og_test_600.jpg": {
+    "mtime": 1792764482.1683178,
+    "ast_hash": "08472f51a673d00ee611736eea4fc033",
+    "semantic_hash": ""
+  },
+  "scratch/thumb_cropped_80.png": {
+    "mtime": 1792764558.3972092,
+    "ast_hash": "d7f3fe2f845fac3f516fd989db703535",
     "semantic_hash": ""
   }
 }

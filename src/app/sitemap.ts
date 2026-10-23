@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2026-10-22T08:00:00Z'),
       changeFrequency: 'weekly',
       priority: 1.0,
-      images: [`${baseUrl}/og-banner.jpg`, `${baseUrl}/og-banner.png`],
+      images: [`${baseUrl}/og-banner.jpg`, `${baseUrl}/og-image.jpg`],
     },
     {
       url: `${baseUrl}/blogs`,
@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.isoDate),
     changeFrequency: 'monthly',
     priority: 0.85,
-    images: [`${baseUrl}${post.ogImage || post.image}`],
+    images: [`${baseUrl}${post.ogImage}`, `${baseUrl}${post.squareImage}`],
   }));
 
   return [...routes, ...blogRoutes];

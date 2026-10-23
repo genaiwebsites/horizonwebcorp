@@ -30,6 +30,14 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
+        url: 'https://horizonwebcorp.com/og-image.jpg',
+        secureUrl: 'https://horizonwebcorp.com/og-image.jpg',
+        width: 600,
+        height: 600,
+        type: 'image/jpeg',
+        alt: 'Horizon Web Corp Emblem Logo',
+      },
+      {
         url: 'https://horizonwebcorp.com/og-banner.jpg',
         secureUrl: 'https://horizonwebcorp.com/og-banner.jpg',
         width: 1200,

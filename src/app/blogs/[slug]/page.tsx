@@ -293,6 +293,11 @@ export async function generateMetadata({
     ? ogImageSource
     : `https://horizonwebcorp.com${ogImageSource}`;
 
+  const squareImageSource = post.squareImage || post.image;
+  const squareImageUrl = squareImageSource.startsWith('http')
+    ? squareImageSource
+    : `https://horizonwebcorp.com${squareImageSource}`;
+
   return {
     title: `${post.title} | Horizon Web Corp Engineering`,
     description: post.description,
@@ -329,6 +334,14 @@ export async function generateMetadata({
           secureUrl: ogImageUrl,
           width: 1200,
           height: 630,
+          type: 'image/jpeg',
+          alt: post.title,
+        },
+        {
+          url: squareImageUrl,
+          secureUrl: squareImageUrl,
+          width: 600,
+          height: 600,
           type: 'image/jpeg',
           alt: post.title,
         },
@@ -383,12 +396,17 @@ export default async function BlogDetailPage({
     ? ogImageSource
     : `https://horizonwebcorp.com${ogImageSource}`;
 
+  const squareImageSource = post.squareImage || post.image;
+  const squareImageUrl = squareImageSource.startsWith('http')
+    ? squareImageSource
+    : `https://horizonwebcorp.com${squareImageSource}`;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
     headline: post.title,
     description: post.description,
-    image: ogImageUrl,
+    image: [ogImageUrl, squareImageUrl],
     datePublished: post.isoDate,
     dateModified: post.isoDate,
     author: {
