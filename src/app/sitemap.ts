@@ -39,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.isoDate),
     changeFrequency: 'monthly',
     priority: 0.85,
-    images: [`${baseUrl}${post.image}`],
+    images: [`${baseUrl}${post.ogImage || post.image}`],
   }));
 
   return [...routes, ...blogRoutes];

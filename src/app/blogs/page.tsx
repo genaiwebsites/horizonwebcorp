@@ -30,19 +30,11 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://horizonwebcorp.com/og-banner.jpg?v=4',
-        secureUrl: 'https://horizonwebcorp.com/og-banner.jpg?v=4',
+        url: 'https://horizonwebcorp.com/og-banner.jpg',
+        secureUrl: 'https://horizonwebcorp.com/og-banner.jpg',
         width: 1200,
         height: 630,
         type: 'image/jpeg',
-        alt: 'Horizon Web Corp Engineering Journals',
-      },
-      {
-        url: 'https://horizonwebcorp.com/og-banner.png?v=4',
-        secureUrl: 'https://horizonwebcorp.com/og-banner.png?v=4',
-        width: 1200,
-        height: 630,
-        type: 'image/png',
         alt: 'Horizon Web Corp Engineering Journals',
       },
     ],
@@ -51,7 +43,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Engineering Journals & Technical Publications | Horizon Web Corp',
     description: 'In-depth engineering research on WebGL/Three.js spatial graphics, Next.js 16 RSC architectures, and WebGPU compute pipelines.',
-    images: ['https://horizonwebcorp.com/og-banner.jpg?v=4'],
+    images: ['https://horizonwebcorp.com/og-banner.jpg'],
     creator: '@horizonwebcorp',
   },
 };

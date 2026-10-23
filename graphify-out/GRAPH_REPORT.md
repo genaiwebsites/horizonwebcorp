@@ -1,16 +1,16 @@
-# Graph Report - horizonwebcorp  (2026-10-22)
+# Graph Report - horizonwebcorp  (2026-10-23)
 
 ## Corpus Check
-- 41 files · ~295,485 words
+- 42 files · ~339,530 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 206 nodes · 270 edges · 22 communities (15 shown, 7 thin omitted)
+- 207 nodes · 270 edges · 23 communities (16 shown, 7 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `369cdffd`
+- Built from commit: `ad1201b1`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -56,7 +56,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (22 total, 7 thin omitted)
+## Communities (23 total, 7 thin omitted)
 
 ### Community 0 - "Community 0"
 Cohesion: 0.14

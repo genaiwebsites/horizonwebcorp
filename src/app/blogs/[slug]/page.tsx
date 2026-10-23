@@ -288,9 +288,10 @@ export async function generateMetadata({
     };
   }
 
-  const ogImageUrl = post.image.startsWith('http')
-    ? post.image
-    : `https://horizonwebcorp.com${post.image}`;
+  const ogImageSource = post.ogImage || post.image;
+  const ogImageUrl = ogImageSource.startsWith('http')
+    ? ogImageSource
+    : `https://horizonwebcorp.com${ogImageSource}`;
 
   return {
     title: `${post.title} | Horizon Web Corp Engineering`,
@@ -325,8 +326,10 @@ export async function generateMetadata({
       images: [
         {
           url: ogImageUrl,
+          secureUrl: ogImageUrl,
           width: 1200,
           height: 630,
+          type: 'image/jpeg',
           alt: post.title,
         },
       ],
@@ -375,12 +378,17 @@ export default async function BlogDetailPage({
   const articleMarkup = ARTICLE_CONTENT[slug];
   const sections = ARTICLE_SECTIONS[slug] || [];
 
+  const ogImageSource = post.ogImage || post.image;
+  const ogImageUrl = ogImageSource.startsWith('http')
+    ? ogImageSource
+    : `https://horizonwebcorp.com${ogImageSource}`;
+
   const articleSchema = {
     '@context': 'https://schema.org',
     '@type': 'TechArticle',
     headline: post.title,
     description: post.description,
-    image: post.image.startsWith('http') ? post.image : `https://horizonwebcorp.com${post.image}`,
+    image: ogImageUrl,
     datePublished: post.isoDate,
     dateModified: post.isoDate,
     author: {
@@ -394,7 +402,9 @@ export default async function BlogDetailPage({
       url: 'https://horizonwebcorp.com',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://horizonwebcorp.com/og-image.png'
+        url: 'https://horizonwebcorp.com/icon.png',
+        width: '512',
+        height: '512'
       }
     },
     mainEntityOfPage: {

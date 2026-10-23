@@ -48,19 +48,11 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: 'https://horizonwebcorp.com/og-banner.jpg?v=4',
-        secureUrl: 'https://horizonwebcorp.com/og-banner.jpg?v=4',
+        url: 'https://horizonwebcorp.com/og-banner.jpg',
+        secureUrl: 'https://horizonwebcorp.com/og-banner.jpg',
         width: 1200,
         height: 630,
         type: 'image/jpeg',
-        alt: 'Horizon Web Corp — Bespoke Web Design & Engineering Studio',
-      },
-      {
-        url: 'https://horizonwebcorp.com/og-banner.png?v=4',
-        secureUrl: 'https://horizonwebcorp.com/og-banner.png?v=4',
-        width: 1200,
-        height: 630,
-        type: 'image/png',
         alt: 'Horizon Web Corp — Bespoke Web Design & Engineering Studio',
       },
     ],
@@ -69,7 +61,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Horizon Web Corp — Bespoke Web Design & Engineering Studio',
     description: 'Bespoke web design and engineering studio. Handcrafted Next.js architecture, interactive Three.js experiences, sub-second edge loading.',
-    images: ['https://horizonwebcorp.com/og-banner.jpg?v=4'],
+    images: ['https://horizonwebcorp.com/og-banner.jpg'],
     creator: '@horizonwebcorp',
   },
   robots: {

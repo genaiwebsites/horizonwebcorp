@@ -20,18 +20,18 @@
     "semantic_hash": ""
   },
   "src/app/blogs/[slug]/page.tsx": {
-    "mtime": 1792680490.0612855,
-    "ast_hash": "8a6b087f44d36583ab5455ad28e7bd6e",
+    "mtime": 1792742484.5916395,
+    "ast_hash": "d43047fb4429b5a0bfa5093658bf4dfa",
     "semantic_hash": ""
   },
   "src/app/blogs/page.tsx": {
-    "mtime": 1792683257.9329722,
-    "ast_hash": "fd67af4bb1171bb04051c1a66058eb00",
+    "mtime": 1792742379.8893003,
+    "ast_hash": "b83fe13e4a20fef793a1817344cee7f0",
     "semantic_hash": ""
   },
   "src/app/layout.tsx": {
-    "mtime": 1792683196.5529983,
-    "ast_hash": "9ef93ea606cbd054785ec96423e161e5",
+    "mtime": 1792742361.8912482,
+    "ast_hash": "169636a23116b9e753e8e7ee62aaaef6",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
@@ -50,8 +50,8 @@
     "semantic_hash": ""
   },
   "src/app/sitemap.ts": {
-    "mtime": 1792683220.4263887,
-    "ast_hash": "c623a3166fdc66928be0ec29b39799f1",
+    "mtime": 1792742397.0707674,
+    "ast_hash": "0f6f6c533ba85e476d75dbcfaa7e5f33",
     "semantic_hash": ""
   },
   "src/app/terms/page.tsx": {
@@ -135,8 +135,8 @@
     "semantic_hash": ""
   },
   "src/data/blogs.ts": {
-    "mtime": 1792680093.770532,
-    "ast_hash": "e1c8ba73b15ac4e41a719e6de957908a",
+    "mtime": 1792742275.7702935,
+    "ast_hash": "35d1e22f13eba4286f03bde6088b97c0",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -306,6 +306,61 @@
   },
   "public/og-image.jpg": {
     "mtime": 1792683096.231888,
+    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
+    "semantic_hash": ""
+  },
+  "scratch/generate_blog_og.py": {
+    "mtime": 1792742188.8554218,
+    "ast_hash": "5e122564ccecadd2930af6f51abf398c",
+    "semantic_hash": ""
+  },
+  "scratch_html.html": {
+    "mtime": 1792683624.8518858,
+    "ast_hash": "757218b261886fc2ca6d1220c3fac0d5",
+    "semantic_hash": ""
+  },
+  "public/blog/accessibility-luxury-design-og.jpg": {
+    "mtime": 1792742198.3597589,
+    "ast_hash": "c4adfed980ccff6fbd237493b32f2fcf",
+    "semantic_hash": ""
+  },
+  "public/blog/edge-caching-infrastructure-og.jpg": {
+    "mtime": 1792742198.46128,
+    "ast_hash": "68aa1ec7ac8d1012b5eef62a79bb2aca",
+    "semantic_hash": ""
+  },
+  "public/blog/motion-design-physics-og.jpg": {
+    "mtime": 1792742198.3042343,
+    "ast_hash": "75fcd85346cb46040e7a4f80aa28f296",
+    "semantic_hash": ""
+  },
+  "public/blog/nextjs-rsc-latency-og.jpg": {
+    "mtime": 1792742198.243233,
+    "ast_hash": "9de98a9e4190af873123944e816d472b",
+    "semantic_hash": ""
+  },
+  "public/blog/webgl-renaissance-og.jpg": {
+    "mtime": 1792742198.1807098,
+    "ast_hash": "b7e335af10e1a79d5b3949b2098e892e",
+    "semantic_hash": ""
+  },
+  "public/blog/webgl_renaissance_og.jpg": {
+    "mtime": 1792742129.1040766,
+    "ast_hash": "ea792f18d91d50f12397b9753b65559d",
+    "semantic_hash": ""
+  },
+  "public/blog/webgpu-vs-webgl-og.jpg": {
+    "mtime": 1792742198.4137614,
+    "ast_hash": "0ea61df59b0643742af06f38852df2aa",
+    "semantic_hash": ""
+  },
+  "src/app/opengraph-image.jpg": {
+    "mtime": 1792742222.0420868,
+    "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
+    "semantic_hash": ""
+  },
+  "src/app/twitter-image.jpg": {
+    "mtime": 1792742222.04411,
     "ast_hash": "9a4d59b3890616ba2a16aaeba4d2adee",
     "semantic_hash": ""
   }

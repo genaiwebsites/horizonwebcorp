@@ -7,6 +7,7 @@ export interface BlogPost {
   author: string;
   readTime: string;
   image: string;
+  ogImage: string;
   tags: string[];
   slug: string;
 }
@@ -21,6 +22,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Horizon Web Corp Research & Engineering",
     readTime: "6 min read",
     image: "/blog/webgl_renaissance.png",
+    ogImage: "/blog/webgl-renaissance-og.jpg",
     tags: ["Three.js", "WebGL", "Shaders", "3D Web", "Interactive Web"],
     slug: "webgl-renaissance"
   },
@@ -33,6 +35,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Horizon Web Corp Research & Engineering",
     readTime: "5 min read",
     image: "/blog/nextjs_latency.png",
+    ogImage: "/blog/nextjs-rsc-latency-og.jpg",
     tags: ["Next.js", "RSC", "Lighthouse", "Web Performance", "Edge SSR"],
     slug: "nextjs-rsc-latency"
   },
@@ -45,6 +48,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Horizon Web Corp Research & Engineering",
     readTime: "4 min read",
     image: "/blog/motion_physics.png",
+    ogImage: "/blog/motion-design-physics-og.jpg",
     tags: ["Framer Motion", "Easing", "GSAP", "Micro-animations", "UX Design"],
     slug: "motion-design-physics"
   },
@@ -57,6 +61,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Horizon Web Corp Research & Engineering",
     readTime: "7 min read",
     image: "/blog/dark_mode_accessibility.png",
+    ogImage: "/blog/accessibility-luxury-design-og.jpg",
     tags: ["Accessibility", "WCAG AA", "Tailwind CSS", "A11y", "Semantic HTML"],
     slug: "accessibility-luxury-design"
   },
@@ -69,6 +74,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Horizon Web Corp Research & Engineering",
     readTime: "8 min read",
     image: "/blog/webgpu_shaders.png",
+    ogImage: "/blog/webgpu-vs-webgl-og.jpg",
     tags: ["WebGPU", "TSL Shading", "GPU Compute", "Shaders", "Three.js"],
     slug: "webgpu-vs-webgl"
   },
@@ -81,6 +87,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Horizon Web Corp Research & Engineering",
     readTime: "5 min read",
     image: "/blog/edge_infrastructure.png",
+    ogImage: "/blog/edge-caching-infrastructure-og.jpg",
     tags: ["CDN Caching", "Edge", "Vercel", "Web Infrastructure", "Performance SLA"],
     slug: "edge-caching-infrastructure"
   }
